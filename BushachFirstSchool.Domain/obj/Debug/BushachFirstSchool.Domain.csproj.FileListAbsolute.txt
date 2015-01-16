@@ -1,0 +1,9 @@
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\bin\Debug\BushachFirstSchool.Domain.dll
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\bin\Debug\BushachFirstSchool.Domain.pdb
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.dll
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.pdb
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\bin\Debug\BushachFirstSchool.Domain.dll.config
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.SqlServer.xml

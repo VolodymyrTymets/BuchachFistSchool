@@ -9,7 +9,7 @@ using BushachFirstSchool.Controllers;
 
 namespace BushachFirstSchool.Tests.Controllers
 {
-    [TestClass]
+    /*[TestClass]
     public class HomeControllerTest
     {
         [TestMethod]
@@ -50,5 +50,5 @@ namespace BushachFirstSchool.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-    }
+    }*/
 }
