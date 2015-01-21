@@ -58,6 +58,7 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,8 +69,12 @@
     <Compile Include="Abstract\ISchoolRepositorycs.cs" />
     <Compile Include="Concrate\EFDbContext.cs" />
     <Compile Include="Concrate\EFSchoolRepositorycs.cs" />
+    <Compile Include="Concrate\FileConvertot.cs" />
     <Compile Include="Concrate\ShoolInitializer.cs" />
     <Compile Include="Entity\Foto.cs" />
+    <Compile Include="Entity\Metadata\FotoMetadata.cs" />
+    <Compile Include="Entity\Metadata\TeacherMetadata.cs" />
+    <Compile Include="Entity\Metadata\ValidateFile.cs" />
     <Compile Include="Entity\News.cs" />
     <Compile Include="Entity\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

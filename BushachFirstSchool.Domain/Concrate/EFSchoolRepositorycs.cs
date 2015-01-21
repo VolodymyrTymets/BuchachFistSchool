@@ -26,7 +26,11 @@ namespace BushachFirstSchool.Domain.Concrate
       {      
        if (teacher.TeacherId == Guid.Empty)
        {
-           teacher.TeacherId = Guid.NewGuid();           
+           teacher.TeacherId = Guid.NewGuid();     
+           if(teacher.Foto != null )
+           {
+               teacher.Foto.FotoId = Guid.NewGuid();
+           }
            _context.Teachers.Add(teacher);               
           }
           else

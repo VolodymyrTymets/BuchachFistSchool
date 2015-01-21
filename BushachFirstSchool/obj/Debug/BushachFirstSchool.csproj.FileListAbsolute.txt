@@ -90,3 +90,5 @@ C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFi
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\bin\BushachFirstSchool.Domain.pdb
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\bin\EntityFramework.SqlServer.xml
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\bin\Ninject.xml
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.Migrations.MetadataToTeacher.resources
+C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.csproj.GenerateResource.Cache

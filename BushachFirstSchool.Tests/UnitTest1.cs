@@ -39,6 +39,7 @@ namespace BushachFirstSchool.Tests
                 Description = "fak as  as  as asdasd",
 
             };
+            
             Foto foto = new Foto
             {
                 FotoId  = Guid.NewGuid()

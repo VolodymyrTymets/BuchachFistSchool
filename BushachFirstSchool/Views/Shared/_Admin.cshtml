@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+
+<div class="container">
+    @if (TempData["message"] != null)
+    {
+        <div class="msg">
+            <p>
+                @TempData["message"]
+            </p>
+        </div>
+    }
+    @RenderBody()
+</div>

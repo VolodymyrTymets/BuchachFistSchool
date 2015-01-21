@@ -1,0 +1,14 @@
+﻿@model BushachFirstSchool.Domain.Entity.Foto
+
+@{
+    Layout = null;
+}
+
+<div class="editor-label">
+   Виберіть фото
+</div>
+
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Content, new { type = "file" })
+    @Html.ValidationMessageFor(model => model.Content)
+</div>

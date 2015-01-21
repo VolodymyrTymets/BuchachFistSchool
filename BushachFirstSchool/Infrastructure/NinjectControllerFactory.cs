@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BushachFirstSchool.Domain.Abstract;
+using BushachFirstSchool.Domain.Concrate;
+
 
 namespace BushachFirstSchool.Infrastructure
 {
@@ -22,10 +25,8 @@ namespace BushachFirstSchool.Infrastructure
                 : (IController)_ninjectKernal.Get(controllerType);
         }
         private void AddBindings()
-        {
-          
-          //  _ninjectKernal.Bind<IProductRepository>().To<EFProductRepository>();
-
+        {          
+           _ninjectKernal.Bind<ISchoolRepositorycs>().To<EFSchoolRepositorycs>();
         }
         private IKernel _ninjectKernal;
     }

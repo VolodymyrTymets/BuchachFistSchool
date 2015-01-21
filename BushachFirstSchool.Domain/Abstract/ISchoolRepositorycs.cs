@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BushachFirstSchool.Domain.Abstract
 {
-    interface ISchoolRepositorycs
+
+    public interface ISchoolRepositorycs
     {
          IQueryable<Teacher> Teachers { get; }
          IQueryable<News> Newses { get; }

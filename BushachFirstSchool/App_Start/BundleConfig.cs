@@ -23,7 +23,8 @@ namespace BushachFirstSchool
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -38,6 +39,18 @@ namespace BushachFirstSchool
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+            // bootstrap
+            bundles.Add(new StyleBundle("~/Content/Bootstrap/css").Include(
+                "~/Content/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.css",
+                "~/Content/bootstrap-3.3.1-dist/dist/css/bootstrap.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/Bootstrap/js").Include(
+               "~/Content/bootstrap-3.3.1-dist/dist/js/bootstrap.js",
+               "~/Content/bootstrap-3.3.1-dist/dist/js/npm.js"));
+            //ellements
+            bundles.Add(new StyleBundle("~/Content/elltments").Include(
+              "~/Content/buttons/buttons.css",
+              "~/Content/message/message.css"));
         }
     }
 }

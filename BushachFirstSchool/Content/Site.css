@@ -1,17 +1,15 @@
-﻿html {
-    background-color: #e2e2e2;
-    margin: 0;
-    padding: 0;
+﻿
+html {
+
 }
 
 body {
-    background-color: #fff;
-    border-top: solid 10px #000;
-    color: #333;
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Lato', sans-serif;
+    line-height: 160%;
+    //font-size: 100%;
+    color: #4d4d4d;
+   // background-color: #e6e6e6
+       
 }
 
 a {
@@ -99,7 +97,7 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+  //  background-color: #efeeef;
     clear: both;
     padding-bottom: 35px;
 }
@@ -124,6 +122,42 @@ footer {
     font-size: .8em;
     height: 100px;
 }
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+.Navigation nav {
+  max-width: 960px;
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  margin: 0 auto;
+
+}
+
+.Navigation nav ul {
+      text-align: center;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    }
+
+    .Navigation nav ul li {
+          display: inline-block;
+        }
+
+        .Navigation nav ul li a {
+              padding: 18px;
+              font-family: "Open Sans";
+              text-transform:uppercase;
+              color: rgba(0, 35, 122, 0.5);
+              font-size: 18px;
+              text-decoration: none;
+              display: block;
+            }
+
+      .Navigation nav ul li a:hover {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+          background: rgba(255, 255, 255, 0.1);
+          color: rgba(0, 35, 122, 0.7);
+        }
+
 
 
 /* site title
