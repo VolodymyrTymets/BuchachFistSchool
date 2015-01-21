@@ -13,6 +13,11 @@ namespace BushachFirstSchool
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(null,
+                "{controller}/{action}/Page{page}",
+                new { controller = "Teacher", action = "Index" },
+                new { page = @"\d+" }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

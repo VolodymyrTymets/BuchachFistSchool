@@ -1,53 +1,33 @@
-﻿@model IEnumerable<BushachFirstSchool.Domain.Entity.Teacher>
+﻿@model BushachFirstSchool.Models.PagingInfo
 
+@{
+    ViewBag.Title = "Вчителі";
+   
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "teacher_div",
+        Url = Url.Action("Index"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000
+    };
+}
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
 <h2>Index</h2>
+<div id="loading" class="load" style="display: none">
+    <p>Loading Data...</p>
+</div>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table-striped">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lastname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+@using (Ajax.BeginForm("GetPeopleData", ajaxOpts)) {
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lastname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TeacherId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TeacherId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TeacherId })
-            </td>
-        </tr>
-    }
+   <input type="text" name="searshParametr" />
+   <button type="submit">ok</button>
+}
 
-</table>
+@Html.Action("GetTeacherData", new { Page = 1 })

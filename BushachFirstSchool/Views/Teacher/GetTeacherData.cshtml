@@ -1,0 +1,22 @@
+﻿@model BushachFirstSchool.Models.TeachersListViewModel
+
+<div id="teacher_div">
+
+    @{
+        Html.RenderPartial("Table", Model.Teachers);
+     }
+
+    <div>
+        @for (Int32 i = 1; i < Model.PagingInfo.TotalPages + 1; i++)
+        {
+            <div class="ajaxLink">
+                @Ajax.ActionLink(i.ToString(), "GetTeacherData",
+                new { Page = i },
+                   new AjaxOptions {
+                       UpdateTargetId = "teacher_div",
+                       Url = Url.Action("Index") 
+                   })
+            </div>
+        }
+    </div>
+</div>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BushachFirstSchool.Domain.Entity;
 using BushachFirstSchool.Domain.Abstract;
 using BushachFirstSchool.Domain.Concrate;
+using BushachFirstSchool.Models;
 
 
 namespace BushachFirstSchool.Controllers
@@ -18,9 +19,28 @@ namespace BushachFirstSchool.Controllers
         }
  
         // GET: /Teacher/
-        public ActionResult Index()
+        public ActionResult Index(Int32 Page = 1)
         {
-            return View(_repository.Teachers);
+            return View(getPagingInfo(Page));
+        }
+        
+        public PartialViewResult GetTeacherData(Int32 Page = 1, String searshParametr = "") 
+        {
+            TeachersListViewModel model = new TeachersListViewModel
+            {
+                Teachers = _repository.Teachers
+                      .Where(x => x.Surname.Contains(searshParametr) || x.Name.Contains(searshParametr) || x.Lastname.Contains(searshParametr))
+                      .OrderBy(x => x.Surname)
+                      .Skip((Page - 1) * _itemPerPage)
+                      .Take(_itemPerPage),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = Page,
+                    ItemsPerPage = _itemPerPage,
+                    TotalItems = _repository.Teachers.Count()
+                }
+            };
+            return PartialView(model);
         }
         public ActionResult Create()
         {
@@ -39,14 +59,25 @@ namespace BushachFirstSchool.Controllers
                 }
                 _repository.SaveTeacher(teacher);
                 TempData["message"] = teacher.Surname + " " + teacher.Name + " успішно зареєстрований(на).";
-                return View("Index",_repository.Teachers);
+                return View("Index", getPagingInfo(1));
             }
             else
             {
                 return View(teacher);
             }
         }
+        private PagingInfo getPagingInfo(Int32 Page)
+        {
+            return new PagingInfo
+              {
+                  CurrentPage = Page,
+                  ItemsPerPage = _itemPerPage,
+                  TotalItems = _repository.Teachers.Count()
+              };                           
+        }
+        
         private  ISchoolRepositorycs _repository ;
+        private  readonly Int32 _itemPerPage = 5;
 
     }
 }
