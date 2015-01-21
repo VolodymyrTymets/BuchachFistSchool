@@ -1,0 +1,4 @@
+*.mdf
+*.LDF
+BushachFirstSchool/bin/*
+BushachFirstSchool/obj/Debug/*
