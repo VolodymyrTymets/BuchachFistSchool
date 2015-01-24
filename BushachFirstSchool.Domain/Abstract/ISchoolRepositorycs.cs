@@ -15,7 +15,7 @@ namespace BushachFirstSchool.Domain.Abstract
          Teacher SaveTeacher(Teacher teacher);
          Teacher DeleteTeacher(Guid  Id);
          News SaveNews(News news);
-         News DeleteNews(Guid Id);
+         News DeleteNews(Guid Id);     
 
     }
 }

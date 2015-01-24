@@ -32,7 +32,7 @@ namespace BushachFirstSchool.Domain.Concrate
                teacher.Foto.FotoId = Guid.NewGuid();
            }
            _context.Teachers.Add(teacher);               
-          }
+       }
           else
           {
               Entity.Teacher dbEntry = _context.Teachers.Find(teacher.TeacherId);
@@ -41,8 +41,13 @@ namespace BushachFirstSchool.Domain.Concrate
                   dbEntry.Name = teacher.Name;
                   dbEntry.Surname = teacher.Surname;
                   dbEntry.Lastname = teacher.Lastname;
-                  dbEntry.Description = teacher.Description;                
-                  dbEntry.Foto = teacher.Foto;                  
+                  dbEntry.Description = teacher.Description;
+                  dbEntry.Work = teacher.Work;
+                  if (teacher.Foto != null)
+                  {
+                      teacher.Foto.FotoId = Guid.NewGuid();
+                      dbEntry.Foto = teacher.Foto;
+                  }
               }
           }
           _context.SaveChanges();

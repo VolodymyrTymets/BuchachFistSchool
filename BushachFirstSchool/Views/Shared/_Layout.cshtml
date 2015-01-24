@@ -10,10 +10,14 @@
         @Scripts.Render("~/bundles/jquery")
         @Styles.Render("~/Content/Bootstrap/css")
         @Styles.Render("~/Content/elltments")
+        @Styles.Render("~/Content/Entity")
         @Styles.Render("~/Content/css")
-        
+      
     </head>
     <body>
+
+        <canvas class="backroung-canvas" id="backroung_canvas"></canvas>
+
         <div class="container-fluid">
             <div class="Navigation">
                 <nav>
@@ -32,7 +36,12 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </div>
+              </div>
             <!--   <header>
                <div class="content-wrapper">
                    <div class="float-left">
@@ -53,6 +62,7 @@
                </div>
            </header>-->
             <div id="body">
+                @{Html.RenderPartial("_message");}
                 @RenderBody()
             </div>
 
@@ -61,5 +71,7 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/Content/Bootstrap/js")
         @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/Scripts/background")
+        @Scripts.Render("~/Scripts/global")
     </body>
 </html>

@@ -12,12 +12,14 @@ namespace BushachFirstSchool.Domain.Entity
  public   partial class Teacher
     {
 
-     public Guid TeacherId { get; set; }   
+     public Guid TeacherId { get; set; }
+   //  public Guid? FotoId { get; set; }
      public String Name { get; set; }  
      public String Surname { get; set; }     
      public String Lastname { get; set; }
+     public String Work { get; set; }
      public String Description { get; set; } 
-     public Foto Foto { get; set; }
+     public virtual Foto Foto { get; set; }
      public HttpPostedFileBase PhotoBytes { get;  set;}
     }
 }

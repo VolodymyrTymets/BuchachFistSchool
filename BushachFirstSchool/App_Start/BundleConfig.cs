@@ -50,7 +50,18 @@ namespace BushachFirstSchool
             //ellements
             bundles.Add(new StyleBundle("~/Content/elltments").Include(
               "~/Content/buttons/buttons.css",
-              "~/Content/message/message.css"));
+              "~/Content/message/message.css",
+              "~/Content/loader/loader.css",
+              "~/Content/paginations/paginations.css"));
+            bundles.Add(new StyleBundle("~/Content/Entity").Include(
+             "~/Content/Entity/SingleTeacher.css"
+             ));
+
+            bundles.Add(new ScriptBundle("~/Scripts/global").Include(
+                        "~/Scripts/global.js"));
+            bundles.Add(new ScriptBundle("~/Scripts/background").Include(
+                       "~/Scripts/background/zero.js",
+                       "~/Scripts/background/background.js"));
         }
     }
 }

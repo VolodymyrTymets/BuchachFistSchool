@@ -8,8 +8,9 @@ body {
     line-height: 160%;
     //font-size: 100%;
     color: #4d4d4d;
+    background: #EEF2F2;
+  
    // background-color: #e6e6e6
-       
 }
 
 a {
@@ -17,7 +18,7 @@ a {
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
     a:link, a:visited,
@@ -56,41 +57,28 @@ mark {
     visibility: hidden;
 }
 
-h1, h2, h3,
-h4, h5, h6 {
-    color: #000;
-    margin-bottom: 0;
-    padding-bottom: 0;
+h1,h2,h3,h4,h5 {    
+  color:#3B8B87;
+  font-weight: 700;
+  font-family: cursive;
 }
 
-h1 {
-    font-size: 2em;
-}
-
-h2 {
-    font-size: 1.75em;
-}
-
-h3 {
-    font-size: 1.2em;
-}
-
-h4 {
-    font-size: 1.1em;
-}
-
-h5, h6 {
-    font-size: 1em;
-}
-
-    h5 a:link, h5 a:visited, h5 a:active {
-        padding: 0;
-        text-decoration: none;
-    }
-
-
+s
 /* main layout
 ----------------------------------------------------------*/
+
+#backroung_canvas {
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+.backroung-canvas {
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
 .content-wrapper {
     margin: 0 auto;
     max-width: 960px;
@@ -100,6 +88,7 @@ h5, h6 {
   //  background-color: #efeeef;
     clear: both;
     padding-bottom: 35px;
+    padding-top:50px;
 }
 
     .main-content {
@@ -125,8 +114,14 @@ footer {
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+.Navigation {
+z-index:3;
+position:fixed;
+width:100%;
+
+}
 .Navigation nav {
-  max-width: 960px;
+ // max-width: 960px;
   mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
   margin: 0 auto;
 
@@ -134,8 +129,11 @@ footer {
 
 .Navigation nav ul {
       text-align: center;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0)  0%, 
+      rgba(255, 255, 255, 1) 25%,
+       rgba(255, 255, 255, 0.94) 75%, 
+       rgba(255, 255, 255, 0) 100%);
+      
     }
 
     .Navigation nav ul li {
@@ -158,7 +156,10 @@ footer {
           color: rgba(0, 35, 122, 0.7);
         }
 
-
+.panel {
+   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, white 25%, white 75%, rgba(255, 255, 255, 0) 100%);
+   padding: 10px 20px 20px 20px;
+}
 
 /* site title
 ----------------------------------------------------------*/

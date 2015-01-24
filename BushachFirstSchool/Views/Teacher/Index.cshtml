@@ -6,28 +6,59 @@
     AjaxOptions ajaxOpts = new AjaxOptions
     {
         UpdateTargetId = "teacher_div",
-        Url = Url.Action("Index"),
+        Url = Url.Action("GetTeacherData"),
         LoadingElementId = "loading",
         LoadingElementDuration = 1000
     };
 }
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Вчителі";
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Index</h2>
-<div id="loading" class="load" style="display: none">
-    <p>Loading Data...</p>
+<div class="center-block">
+    <h2>
+        Вчителі
+    </h2>
+    <!---------------------------------------------------
+     // Searsh button---->
+    @using (Ajax.BeginForm("GetTeacherData", ajaxOpts))
+    {
+      <div class="row">
+          <div class="col-md-3 col-md-offset-8">
+              <a class="button small gray left" href="@Url.Action("Create")" data-toggle="tooltip" data-placement="top" title="Додати Нового">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </a>
+              <div class="input-group">
+                  <span class="input-group-btn">      
+                      <input type="text" class="form-control" placeholder="Пошук..." name="searshParametr">
+                      <button class="button small gray right" type="submit">
+                          <span class="glyphicon glyphicon-search">
+                          </span>
+                      </button>
+                  </span>
+              </div>
+          </div>
+       </div>
+    }
+   
+    <!-----------------------------------------------------------
+     //Loader-->
+    <div id="loading" style="display:none" class="pull-right">
+        Зачекайте
+        <div id="followingBallsG">
+            <div id="followingBallsG_1" class="followingBallsG">
+            </div>
+            <div id="followingBallsG_2" class="followingBallsG">
+            </div>
+            <div id="followingBallsG_3" class="followingBallsG">
+            </div>
+            <div id="followingBallsG_4" class="followingBallsG">
+            </div>
+        </div>
+    </div>
+   
+    <!-----------------------------------------------------------
+     //Table-->
+    @Html.Action("GetTeacherData", new { Page = 1 })
 </div>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@using (Ajax.BeginForm("GetPeopleData", ajaxOpts)) {
-
-   <input type="text" name="searshParametr" />
-   <button type="submit">ok</button>
-}
-
-@Html.Action("GetTeacherData", new { Page = 1 })

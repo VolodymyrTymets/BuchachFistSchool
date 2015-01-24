@@ -194,6 +194,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\HtmlOpearations.cs" />
+    <Compile Include="Infrastructure\MyViewEngine.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Migrations\201501201216092_MetadataToTeacher.cs" />
     <Compile Include="Migrations\201501201216092_MetadataToTeacher.Designer.cs">
@@ -201,11 +203,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\PagingInfo.cs" />
-    <Compile Include="Models\TeachersListViewModel.cs" />
+    <Compile Include="Models\Admin\PagingInfo.cs" />
+    <Compile Include="Models\Admin\TeachersListViewModel.cs" />
+    <Compile Include="Models\Entitys\SingleTeacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-BushachFirstSchool-20150111134804.mdf" />
+    <Content Include="App_Data\aspnet-BushachFirstSchool-20150111134804_log.ldf">
+      <DependentUpon>aspnet-BushachFirstSchool-20150111134804.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\School.mdf" />
     <Content Include="App_Data\SchoolDB.mdf" />
     <Content Include="App_Data\SchoolDB_log.ldf">
@@ -223,7 +230,10 @@
     <Content Include="Content\bootstrap-3.3.1-dist\dist\js\npm.js" />
     <Content Include="Content\buttons\buttons.css" />
     <Content Include="Content\buttons\button_bg.png" />
+    <Content Include="Content\Entity\SingleTeacher.css" />
+    <Content Include="Content\loader\loader.css" />
     <Content Include="Content\message\message.css" />
+    <Content Include="Content\paginations\paginations.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -287,7 +297,10 @@
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\background\background.js" />
+    <Content Include="Scripts\background\zero.js" />
+    <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\jquery-1.11.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -348,6 +361,9 @@
     <Content Include="Views\Shared\EditorTemplates\Foto.cshtml" />
     <Content Include="Views\Teacher\GetTeacherData.cshtml" />
     <Content Include="Views\Teacher\Table.cshtml" />
+    <Content Include="Views\Shared\Entitys\SingleTeasher.cshtml" />
+    <Content Include="Views\Teacher\Edit.cshtml" />
+    <Content Include="Views\Shared\_message.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

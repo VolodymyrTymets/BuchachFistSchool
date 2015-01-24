@@ -1,22 +1,60 @@
 ﻿@model BushachFirstSchool.Models.TeachersListViewModel
 
+
 <div id="teacher_div">
-
-    @{
-        Html.RenderPartial("Table", Model.Teachers);
-     }
-
-    <div>
+    @{Html.RenderPartial("_message");}
+   
+    
+    <!-----------------------------------------------------------------------
+      //Paginations -->   
+    
+    <div class="pagination panel">
         @for (Int32 i = 1; i < Model.PagingInfo.TotalPages + 1; i++)
         {
-            <div class="ajaxLink">
-                @Ajax.ActionLink(i.ToString(), "GetTeacherData",
-                new { Page = i },
-                   new AjaxOptions {
-                       UpdateTargetId = "teacher_div",
-                       Url = Url.Action("Index") 
-                   })
-            </div>
+
+            if (i == Model.PagingInfo.CurrentPage)
+            {
+
+                @Ajax.ActionLink(" ", "GetTeacherData",
+                                  new { Page = i },
+                                      new AjaxOptions
+                                      {
+                                          UpdateTargetId = "teacher_div",
+                                          Url = Url.Action("GetTeacherData", new { Page = i }),
+                                          LoadingElementId = "loading",
+                                          LoadingElementDuration = 1000,
+                                      }, new
+                                      {
+                                          @class = "pagination__dot active",
+                                          @data_tooltip = "сторінка" + i.ToString()
+                                      });
+            }
+            else
+            {
+                @Ajax.ActionLink(" ", "GetTeacherData",
+                                   new { Page = i },
+                                       new AjaxOptions
+                                       {
+                                           UpdateTargetId = "teacher_div",
+                                           Url = Url.Action("GetTeacherData", new { Page = i }),
+                                           LoadingElementId = "loading",
+                                           LoadingElementDuration = 1000,
+                                       }, new
+                                       {
+                                           @class = "pagination__dot ",
+                                           @data_tooltip = "сторінка" + i.ToString()
+                                       });
+            }
+
         }
+
+
+
     </div>
+
+
+    
+    @{
+        Html.RenderPartial("Table", Model.Teachers);
+    }
 </div>

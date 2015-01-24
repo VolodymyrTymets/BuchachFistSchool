@@ -24,7 +24,7 @@ namespace BushachFirstSchool
         {
             AreaRegistration.RegisterAllAreas();
 
-        
+            ViewEngines.Engines.Add(new MyViewEngine());
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

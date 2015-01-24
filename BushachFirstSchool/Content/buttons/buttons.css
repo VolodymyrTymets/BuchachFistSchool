@@ -67,7 +67,24 @@
 
 .button.big		{ font-size:30px;}
 .button.medium	{ font-size:18px;}
-.button.small	{ font-size:13px;}
+.button.small	{ 
+                    font-size: 10px;
+                    margin-top: 4px;
+                   
+                }
+    .button.left {
+                  float: left;
+                    border-top-left-radius: 1em;
+                    border-bottom-right-radius: 0em;
+                    border-bottom-left-radius: 2em;
+                    border-top-right-radius: 0em;
+                 }
+    .button.right {
+                   border-top-left-radius: 0em;                    
+                    border-bottom-right-radius: 2em;
+                    border-bottom-left-radius: 0em;
+                 }
+    
 
 /* A more rounded button */
 

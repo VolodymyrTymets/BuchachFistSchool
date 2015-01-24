@@ -28,6 +28,10 @@ namespace BushachFirstSchool.Domain.Entity
         public String Lastname { get; set; }
 
         [Required(ErrorMessage = "Заповніть дане поле")]
+        [Display(Name = "Посада")]
+        public String Work { get; set; }
+
+        [Required(ErrorMessage = "Заповніть дане поле")]
         [Display(Name = "Про вчителя")]
         [DataType(DataType.MultilineText)]
         public String Description { get; set; }
@@ -35,7 +39,7 @@ namespace BushachFirstSchool.Domain.Entity
         [Display(Name = "Фото")]        
         public Foto Foto { get; set; }
 
-        [Required(ErrorMessage = "Вчитель повинен мати фото")]
+        
         [Display(Name = "Виберіть фото")]
         [NotMapped]
         [ValidateFile]

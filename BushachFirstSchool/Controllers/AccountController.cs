@@ -60,7 +60,7 @@ namespace BushachFirstSchool.Controllers
         //
         // GET: /Account/Register
 
-        [AllowAnonymous]
+        [Authorize(Roles = "admin")]
         public ActionResult Register()
         {
             return View();
@@ -70,7 +70,7 @@ namespace BushachFirstSchool.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
@@ -79,8 +79,14 @@ namespace BushachFirstSchool.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
+              
+                   WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    if (!Roles.RoleExists("admin")) 
+                    {
+                        Roles.CreateRole("admin");
+                    }
+                    Roles.AddUserToRole(model.UserName,"admin");
+                    WebSecurity.Login(model.UserName, model.Password);                   
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

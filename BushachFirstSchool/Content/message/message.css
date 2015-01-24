@@ -35,3 +35,7 @@
   -moz-border-radius: 0 0 0 5px;
   border-radius: 0 0 0 5px;
 }
+
+    .msg.err {
+        background-color:red;
+    }
