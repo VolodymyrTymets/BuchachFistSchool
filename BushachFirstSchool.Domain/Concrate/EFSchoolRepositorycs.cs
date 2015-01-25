@@ -21,6 +21,10 @@ namespace BushachFirstSchool.Domain.Concrate
       {
           get { return _context.Newses; }
       }
+      public IQueryable<Entity.Foto> Fotos
+      {
+          get { return _context.Fotos; }
+      }
 
       public Teacher SaveTeacher(Entity.Teacher teacher)
       {      
@@ -70,6 +74,14 @@ namespace BushachFirstSchool.Domain.Concrate
           if (news.NewsId == Guid.Empty)
           {
               news.NewsId = Guid.NewGuid();
+              news.DataOfCreations = DateTime.Now;
+              if (news.Fotos != null)
+              {
+                  foreach (var item in news.Fotos)
+                  {
+                      item.FotoId = Guid.NewGuid();
+                  }
+              }
               _context.Newses.Add(news);
           }
           else
@@ -79,7 +91,15 @@ namespace BushachFirstSchool.Domain.Concrate
               {
                   dbEntry.Title = news.Title;
                   dbEntry.Description = news.Description;
-                  dbEntry.Fotos = news.Fotos;
+                  if (news.Fotos != null)
+                  {
+                      foreach (var item in news.Fotos)
+                      {
+                          item.FotoId = Guid.NewGuid();
+                      }
+                      dbEntry.Fotos = news.Fotos;
+                  }
+
               }
           }
           _context.SaveChanges();

@@ -8,3 +8,12 @@ C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFi
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.dll
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.pdb
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.csprojResolveAssemblyReference.cache
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\BushachFirstSchool.Domain.dll.config
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\BushachFirstSchool.Domain.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\BushachFirstSchool.Domain.pdb
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.xml
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.pdb

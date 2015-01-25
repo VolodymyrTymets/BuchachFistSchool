@@ -73,6 +73,7 @@
     <Compile Include="Concrate\ShoolInitializer.cs" />
     <Compile Include="Entity\Foto.cs" />
     <Compile Include="Entity\Metadata\FotoMetadata.cs" />
+    <Compile Include="Entity\Metadata\NewsMetadata.cs" />
     <Compile Include="Entity\Metadata\TeacherMetadata.cs" />
     <Compile Include="Entity\Metadata\ValidateFile.cs" />
     <Compile Include="Entity\News.cs" />

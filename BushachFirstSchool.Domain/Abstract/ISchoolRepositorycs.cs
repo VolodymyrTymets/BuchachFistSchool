@@ -12,6 +12,7 @@ namespace BushachFirstSchool.Domain.Abstract
     {
          IQueryable<Teacher> Teachers { get; }
          IQueryable<News> Newses { get; }
+         IQueryable<Foto> Fotos { get; }
          Teacher SaveTeacher(Teacher teacher);
          Teacher DeleteTeacher(Guid  Id);
          News SaveNews(News news);

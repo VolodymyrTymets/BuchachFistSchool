@@ -86,3 +86,4 @@ C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFi
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Tests\bin\Debug\zh-Hant\System.Spatial.resources.dll
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Tests\obj\Debug\BushachFirstSchool.Tests.dll
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool.Tests\obj\Debug\BushachFirstSchool.Tests.pdb
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\obj\Debug\BushachFirstSchool.Tests.csprojResolveAssemblyReference.cache
