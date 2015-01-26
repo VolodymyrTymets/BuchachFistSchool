@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using BushachFirstSchool.Domain.Entity;
 using BushachFirstSchool.Domain.Concrate;
 
+using BushachFirstSchool.Models;
 namespace BushachFirstSchool.Controllers
 {
     [HandleError]
@@ -19,11 +20,10 @@ namespace BushachFirstSchool.Controllers
         
         //
         // GET: /News/
-
         public ActionResult Index()
         {
-         //   var arr = _repository.Newses.ToArray();
-            return View(_repository.Newses.ToList());
+         
+            return View();
         }
         public ActionResult Create() 
         {
@@ -31,7 +31,8 @@ namespace BushachFirstSchool.Controllers
         }
         [HttpPost]
         public ActionResult Create( News news , IEnumerable<HttpPostedFileBase> files) 
-        {
+        {   
+            
             if (ModelState.IsValid)
             {
                 //  var upload = Request.Files["Photo"];
@@ -57,20 +58,59 @@ namespace BushachFirstSchool.Controllers
             }
            
         }
+        public PartialViewResult getNews(Int32 page = 1, String searshParametr = "", String deleteParametr = "") 
+        {
+            DeleteNews(deleteParametr);
+            IEnumerable<News> newses = _repository.Newses
+                     .Where(x => x.Title.Contains(searshParametr))
+                     .OrderByDescending(x => x.DataOfCreations);
 
-       
+
+            var model = new NewsListViewsModels
+            {
+                News = newses.Take(_itemPerPage * page).ToList(),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = _itemPerPage,
+                    TotalItems = newses.Count()
+                }
+            };
+            return PartialView(model);
+        }
+
+        private void DeleteNews(String Id)
+        {
+            if (Id != "")
+            {
+               // try
+                //{
+                    var news = _repository.DeleteNews(new Guid(Id));
+                    TempData["message"] = "Новина "+ news.Title + " успішно видалений.";
+               /* }
+                catch (Exception e)
+                {
+                    TempData["message_error"] = e.Message;
+                }*/
+            }
+        }
         private IEnumerable <Foto> FilesToFoto(IEnumerable<HttpPostedFileBase> files)
         {
-            var fotos = new List<Foto>();           
-            foreach (var item in files)
-            {
-                var foto = new Foto();
-                foto.Content = item.InputStream.ToArray();
-                fotos.Add(foto);              
-            }
-            return fotos;
+            
+                var fotos = new List<Foto>();
+                foreach (var item in files)
+                {
+                    var foto = new Foto();
+                    if (item != null)
+                    {
+                         foto.Content = item.InputStream.ToArray();
+                         fotos.Add(foto);
+                    }                   
+                }
+                return fotos;          
         }
 
         private ISchoolRepositorycs _repository;
+        private readonly Int32 _itemPerPage = 5; 
     }
 }

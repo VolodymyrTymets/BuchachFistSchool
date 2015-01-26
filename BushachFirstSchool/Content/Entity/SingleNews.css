@@ -1,0 +1,28 @@
+﻿.carousel-helper {
+margin: 0px -21px 0px -21px;
+
+}
+.carousel-img-helper {
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width:100%;
+  max-height:500px;
+}
+.news-description {
+padding: 50px 30px 20px 30px;
+background: linear-gradient(180deg, white 80%, rgba(255, 255, 255, 0.07) 100%);
+margin:0px -21px 0px -21px;
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  color: #fff;
+  text-decoration: none;
+  filter: alpha(opacity=10);
+  outline: 0;
+  opacity: .1;
+}
+.admin_news_container {
+  float: left;
+    position: relative;
+}

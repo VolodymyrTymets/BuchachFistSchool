@@ -1,0 +1,63 @@
+﻿@using BushachFirstSchool.HtmlHelpers
+@using BushachFirstSchool.Models
+@model NewsListViewsModels
+
+<div id="newsHolder" >
+    <div class="row">
+        @foreach (var item in @Model.News)
+        {
+         <div class="admin_news_container col-md-9 col-md-offset-1">
+           @{
+               Html.RenderPartial("SingleNews", item);
+            }
+            <div class="container_labels">
+                     @Html.ActionLink(" ", "Edit", new { id = item.NewsId }, new
+                      {
+                           @class = "glyphicon glyphicon-edit",
+                           @data_toggle = "tooltip",
+                           @data_placement = "top",
+                           @title = "Редагувати"
+                       }).If(User.IsInRole("admin"))
+
+                      @Ajax.ActionLink(" ", "getNews", new
+                        {
+                            deleteParametr = item.NewsId.ToString()
+                        }, new AjaxOptions
+                        {
+                            UpdateTargetId = "newsHolder",
+                            LoadingElementId = "loading",
+                            LoadingElementDuration = 1000,
+                            Confirm = "Ви дійсно бажаєте видалити? Усі дані буде втрачено.",
+                            OnSuccess = "updateCarusel"
+                        }, new
+                        {
+                            @class = "glyphicon glyphicon-trash",
+                            @data_toggle = "tooltip",
+                            @data_placement = "top",
+                            @title = "Видалити"
+                        }).If(User.IsInRole("admin"))
+                  </div>
+          </div>
+        }
+    </div>
+    <div id="row">
+        @if (Model.PagingInfo.IsHasMoreItem)
+        {
+            @Ajax.ActionLink("Далі ", "getNews", new
+                         {
+                             page = Model.PagingInfo.CurrentPage + 1
+                         }, new AjaxOptions
+                         {
+                             UpdateTargetId = "newsHolder",
+                             LoadingElementId = "loading",
+                             LoadingElementDuration = 1000,
+                             OnSuccess = "updateCarusel"
+
+                         }, new
+                         {
+                             @class = "button big gray col-md-offset-5",
+
+                         });
+        }
+    </div>
+    </div>

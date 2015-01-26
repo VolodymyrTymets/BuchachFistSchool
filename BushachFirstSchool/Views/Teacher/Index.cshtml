@@ -1,7 +1,7 @@
 ﻿@model BushachFirstSchool.Models.PagingInfo
 
 @{
-    ViewBag.Title = "Вчителі";
+  
    
     AjaxOptions ajaxOpts = new AjaxOptions
     {
@@ -42,23 +42,7 @@
        </div>
     }
    
-    <!-----------------------------------------------------------
-     //Loader-->
-    <div id="loading" style="display:none" class="pull-right">
-        Зачекайте
-        <div id="followingBallsG">
-            <div id="followingBallsG_1" class="followingBallsG">
-            </div>
-            <div id="followingBallsG_2" class="followingBallsG">
-            </div>
-            <div id="followingBallsG_3" class="followingBallsG">
-            </div>
-            <div id="followingBallsG_4" class="followingBallsG">
-            </div>
-        </div>
-    </div>
-   
-    <!-----------------------------------------------------------
+    @{Html.RenderPartial("_loading");}
      //Table-->
     @Html.Action("GetTeacherData", new { Page = 1 })
 </div>

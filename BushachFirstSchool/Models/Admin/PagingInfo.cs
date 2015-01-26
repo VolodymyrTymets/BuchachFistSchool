@@ -14,5 +14,9 @@ namespace BushachFirstSchool.Models
         {
             get { return (Int32)Math.Ceiling((Decimal)TotalItems / ItemsPerPage); }
         }
+        public Boolean IsHasMoreItem 
+        {
+            get { return (CurrentPage * ItemsPerPage) < TotalItems ? true : false;  }
+        }
     }
 }

@@ -60,7 +60,8 @@ namespace BushachFirstSchool.Controllers
         //
         // GET: /Account/Register
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
+         [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -70,8 +71,9 @@ namespace BushachFirstSchool.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)

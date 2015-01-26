@@ -92,9 +92,6 @@ C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFi
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\bin\Ninject.xml
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.Migrations.MetadataToTeacher.resources
 C:\Users\Vova\Documents\Visual Studio 2013\Projects\BushachFirstSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.csproj.GenerateResource.Cache
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.csprojResolveAssemblyReference.cache
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.Migrations.MetadataToTeacher.resources
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.csproj.GenerateResource.Cache
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\bin\BushachFirstSchool.dll.config
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\bin\BushachFirstSchool.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\bin\BushachFirstSchool.pdb
@@ -184,5 +181,8 @@ E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFir
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\bin\ru\System.Spatial.resources.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\bin\zh-Hans\System.Spatial.resources.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\bin\zh-Hant\System.Spatial.resources.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.csprojResolveAssemblyReference.cache
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.Migrations.MetadataToTeacher.resources
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.csproj.GenerateResource.Cache
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool\obj\Debug\BushachFirstSchool.pdb

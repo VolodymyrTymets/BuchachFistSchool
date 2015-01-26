@@ -205,8 +205,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Admin\NewsListViewsModels.cs" />
     <Compile Include="Models\Admin\PagingInfo.cs" />
     <Compile Include="Models\Admin\TeachersListViewModel.cs" />
+    <Compile Include="Models\Entitys\ForoCarousel.cs" />
     <Compile Include="Models\Entitys\SingleTeacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -232,6 +234,7 @@
     <Content Include="Content\bootstrap-3.3.1-dist\dist\js\npm.js" />
     <Content Include="Content\buttons\buttons.css" />
     <Content Include="Content\buttons\button_bg.png" />
+    <Content Include="Content\Entity\SingleNews.css" />
     <Content Include="Content\Entity\SingleTeacher.css" />
     <Content Include="Content\loader\loader.css" />
     <Content Include="Content\message\message.css" />
@@ -368,6 +371,10 @@
     <Content Include="Views\Shared\_message.cshtml" />
     <Content Include="Views\News\Create.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Shared\Entitys\SingleNews.cshtml" />
+    <Content Include="Views\Shared\Entitys\FotoCarousel.cshtml" />
+    <Content Include="Views\Shared\_loading.cshtml" />
+    <Content Include="Views\News\getNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">
