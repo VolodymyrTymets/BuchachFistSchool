@@ -25,6 +25,27 @@ namespace BushachFirstSchool.Controllers
          
             return View();
         }
+        public PartialViewResult getNews(Int32 page = 1, String searshParametr = "", String deleteParametr = "")
+        {
+            DeleteNews(deleteParametr);
+            IEnumerable<News> newses = _repository.Newses
+                     .Where(x => x.Title.Contains(searshParametr))
+                     .OrderByDescending(x => x.DataOfCreations);
+
+
+            var model = new NewsListViewsModels
+            {
+                News = newses.Take(_itemPerPage * page).ToList(),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = _itemPerPage,
+                    TotalItems = newses.Count()
+                }
+            };
+            return PartialView(model);
+        }
+       
         public ActionResult Create() 
         {
             return View(new News());
@@ -58,40 +79,51 @@ namespace BushachFirstSchool.Controllers
             }
            
         }
-        public PartialViewResult getNews(Int32 page = 1, String searshParametr = "", String deleteParametr = "") 
+
+        public ActionResult Edit(Guid Id) 
         {
-            DeleteNews(deleteParametr);
-            IEnumerable<News> newses = _repository.Newses
-                     .Where(x => x.Title.Contains(searshParametr))
-                     .OrderByDescending(x => x.DataOfCreations);
-
-
-            var model = new NewsListViewsModels
+            return View(_repository.Newses.FirstOrDefault(x => x.NewsId == Id));
+        }
+        [HttpPost]
+        public ActionResult Edit(News news, IEnumerable<HttpPostedFileBase> files)
+        {
+            if (ModelState.IsValid)
             {
-                News = newses.Take(_itemPerPage * page).ToList(),
-                PagingInfo = new PagingInfo
+
+                if (files != null)
                 {
-                    CurrentPage = page,
-                    ItemsPerPage = _itemPerPage,
-                    TotalItems = newses.Count()
+                    news.Fotos = (ICollection<Foto>)FilesToFoto(files);
                 }
-            };
-            return PartialView(model);
+                try
+                {
+                    _repository.SaveNews(news);
+                }
+                catch (Exception e)
+                {
+                    TempData["message_error"] = e.Message;
+                }
+                TempData["message"] = "Новина  "+ news.Title  + " успішно відредагованa.";
+                return View("Index");
+            }
+            else
+            {
+                return View(news);
+            }
         }
 
         private void DeleteNews(String Id)
         {
             if (Id != "")
             {
-               // try
-                //{
+                try
+                {
                     var news = _repository.DeleteNews(new Guid(Id));
                     TempData["message"] = "Новина "+ news.Title + " успішно видалений.";
-               /* }
+               } 
                 catch (Exception e)
                 {
                     TempData["message_error"] = e.Message;
-                }*/
+                }
             }
         }
         private IEnumerable <Foto> FilesToFoto(IEnumerable<HttpPostedFileBase> files)

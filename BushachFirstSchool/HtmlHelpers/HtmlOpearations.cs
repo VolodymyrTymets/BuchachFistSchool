@@ -10,7 +10,7 @@ namespace BushachFirstSchool.HtmlHelpers
     {
         public static MvcHtmlString If(this MvcHtmlString value, bool evaluation)
         {
-            return evaluation ? value : MvcHtmlString.Empty;
+            return value;//evaluation ? value : MvcHtmlString.Empty;
         }
     }
 }

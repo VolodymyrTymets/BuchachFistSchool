@@ -91,7 +91,7 @@ namespace BushachFirstSchool.Domain.Concrate
               {
                   dbEntry.Title = news.Title;
                   dbEntry.Description = news.Description;
-                  if (news.Fotos != null)
+                  if (news.Fotos.Count() != 0)
                   {
                       foreach (var item in news.Fotos)
                       {
@@ -108,9 +108,11 @@ namespace BushachFirstSchool.Domain.Concrate
 
       public News DeleteNews(Guid Id)
       {
+
          var dbEntry = _context.Newses.Find(Id);
-          if (dbEntry != null)
-          {
+          if (dbEntry != null)          {
+
+              dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
               _context.Newses.Remove(dbEntry);
               _context.SaveChanges();
           }

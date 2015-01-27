@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
@@ -38,7 +38,7 @@ namespace BushachFirstSchool.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("EFDbContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

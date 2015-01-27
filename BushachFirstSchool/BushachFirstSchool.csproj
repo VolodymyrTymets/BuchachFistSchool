@@ -375,6 +375,7 @@
     <Content Include="Views\Shared\Entitys\FotoCarousel.cshtml" />
     <Content Include="Views\Shared\_loading.cshtml" />
     <Content Include="Views\News\getNews.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

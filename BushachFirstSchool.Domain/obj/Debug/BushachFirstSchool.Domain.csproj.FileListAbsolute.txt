@@ -17,3 +17,4 @@ E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFir
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Debug\EntityFramework.SqlServer.xml
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.pdb
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Debug\BushachFirstSchool.Domain.csprojResolveAssemblyReference.cache
