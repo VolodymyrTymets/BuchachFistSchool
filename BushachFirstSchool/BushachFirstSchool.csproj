@@ -236,7 +236,9 @@
     <Content Include="Content\buttons\button_bg.png" />
     <Content Include="Content\Entity\SingleNews.css" />
     <Content Include="Content\Entity\SingleTeacher.css" />
+    <Content Include="Content\history\history.css" />
     <Content Include="Content\loader\loader.css" />
+    <Content Include="Content\logotype\logotype.css" />
     <Content Include="Content\message\message.css" />
     <Content Include="Content\paginations\paginations.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -376,6 +378,8 @@
     <Content Include="Views\Shared\_loading.cshtml" />
     <Content Include="Views\News\getNews.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\Home\_logoPartial.cshtml" />
+    <Content Include="Views\Home\_historyPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

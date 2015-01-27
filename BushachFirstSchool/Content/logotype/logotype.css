@@ -1,0 +1,107 @@
+﻿.logotype-holder {
+  
+position: absolute;
+top: 300px;
+right: 12%;
+    }
+.logotype{
+	
+	width: 360px;
+	height: 360px;
+	top: 50%;
+	left: 50%;
+	margin: -180px 0 0 -180px;
+	cursor: pointer;
+}
+.logotype .square{
+	position: absolute;
+	width: 360px;
+	height: 360px;
+	background-color: #347478;
+	box-shadow: 0px 0px 25px 5px rgba(1, 1, 1, 0.4);
+	transition-duration: 600ms;
+	transition-property: transform;
+	transition-timing-function: ease-in-out;
+}
+.logotype .square:nth-child(odd){
+	background-color: #529186;
+}
+.logotype .square-1{
+	transform: rotate(-30deg) scale(0.5);
+	transition-delay: 40ms;
+}
+.logotype .square-2{
+	transform: rotate(-15deg) scale(0.5);
+	transition-delay: 80ms;
+}
+.logotype .square-3{
+	transform: rotate(0deg) scale(0.5);
+	transition-delay: 120ms;
+}
+.logotype .square-4{
+	transform: rotate(15deg) scale(0.5);
+	transition-delay: 160ms;
+}
+.logotype .square-5{
+	transform: rotate(30deg) scale(0.5);
+	transition-delay: 200ms;
+}
+.logotype .square-6{
+	transform: rotate(45deg) scale(0.5);
+	transition-delay: 240ms;
+}
+.logotype.active .square-1,
+.logotype:hover .square-1{
+	transform: rotate(15deg) scale(1);
+}
+.logotype.active .square-2,
+.logotype:hover .square-2{
+	transform: rotate(30deg) scale(1);
+}
+.logotype.active .square-3,
+.logotype:hover .square-3{
+	transform: rotate(45deg) scale(1);
+}
+.logotype.active .square-4,
+.logotype:hover .square-4{
+	transform: rotate(60deg) scale(1);
+}
+.logotype.active .square-5,
+.logotype:hover .square-5{
+	transform: rotate(75deg) scale(1);
+}
+.logotype.active .square-6,
+.logotype:hover .square-6{
+	transform: rotate(90deg) scale(1);
+}
+.logotype .circle{
+	position: absolute;
+	width: 360px;
+	height: 360px;
+	background-color: #f2dbb7;
+	border-radius: 50%;
+	box-shadow: 0px 0px 25px 5px rgba(1, 1, 1, 0.4);
+	transition: all 500ms;
+}
+.logotype .circle h1{
+	font-family: "Oleo Script";
+	text-align: center;
+	font-weight: normal;
+	color: #21626f;
+	font-size: 60px;
+	padding: 0;
+	margin: 120px 0 0 0;
+}
+.logotype .circle h2{
+	font-family: "Oleo Script";
+	text-align: center;
+	font-weight: normal;
+	color: #529186;
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+}
+.logotype .circle h2 a{
+	color: #21626f;
+	text-decoration: underline;
+}

@@ -13,6 +13,12 @@ onload = function () {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
-
+    //for logo
+    setTimeout(function () {
+        $(".logotype").removeClass("active");
+    }, 3000);
     updateCarusel()
+}
+window.onscroll = function (event) {
+    window.pageYOffset + 100;
 }

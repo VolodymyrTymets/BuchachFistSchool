@@ -1,8 +1,61 @@
-﻿@{
-    Layout = "_Layout.cshtml";
-}
+﻿
+<!DOCTYPE html>
+<html>
+<head>
 
-<div class="container">
-    
-    @RenderBody()
-</div>
+    <title>@ViewBag.Title </title>
+
+    <!--   <meta name="viewport" content="width=device-width" />-->
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/Bootstrap/css")
+    @Styles.Render("~/Content/elltments")
+    @Styles.Render("~/Content/Entity")
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+
+    <canvas class="backroung-canvas" id="backroung_canvas"></canvas>
+
+    <div class="container-fluid">
+        <div class="Navigation">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+        </div>
+   
+        <div id="body">
+            @{Html.RenderPartial("_message");}
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Content/Bootstrap/js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/background")
+    @Scripts.Render("~/Scripts/global")
+</body>
+</html>
