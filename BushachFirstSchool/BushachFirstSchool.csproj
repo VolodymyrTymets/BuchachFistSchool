@@ -210,18 +210,11 @@
     <Compile Include="Models\Admin\TeachersListViewModel.cs" />
     <Compile Include="Models\Entitys\ForoCarousel.cs" />
     <Compile Include="Models\Entitys\SingleTeacher.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-BushachFirstSchool-20150111134804.mdf" />
-    <Content Include="App_Data\aspnet-BushachFirstSchool-20150111134804_log.ldf">
-      <DependentUpon>aspnet-BushachFirstSchool-20150111134804.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\School.mdf" />
-    <Content Include="App_Data\SchoolDB.mdf" />
-    <Content Include="App_Data\SchoolDB_log.ldf">
-      <DependentUpon>SchoolDB.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\School_log.ldf">
       <DependentUpon>School.mdf</DependentUpon>
     </Content>
@@ -236,9 +229,10 @@
     <Content Include="Content\buttons\button_bg.png" />
     <Content Include="Content\Entity\SingleNews.css" />
     <Content Include="Content\Entity\SingleTeacher.css" />
-    <Content Include="Content\history\history.css" />
+    <Content Include="Content\home\history.css" />
+    <Content Include="Content\home\team.css" />
     <Content Include="Content\loader\loader.css" />
-    <Content Include="Content\logotype\logotype.css" />
+    <Content Include="Content\home\logotype.css" />
     <Content Include="Content\message\message.css" />
     <Content Include="Content\paginations\paginations.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -380,6 +374,7 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\Home\_logoPartial.cshtml" />
     <Content Include="Views\Home\_historyPartial.cshtml" />
+    <Content Include="Views\Home\_teamPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

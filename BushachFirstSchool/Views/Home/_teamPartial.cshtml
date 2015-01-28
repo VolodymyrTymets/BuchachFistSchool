@@ -1,0 +1,20 @@
+﻿@model IEnumerable<BushachFirstSchool.Domain.Entity.Teacher>
+<div class="team-holder">
+    <h1>Викладачі</h1>
+    <div class="team-container center-block">
+        @foreach (var item in @Model)
+        {
+            <div class="wrap">
+                <div class="crop">
+                    <a href="/teacer">
+                        <img src="@Url.Action("GetImage", "Foto", new
+                                   {
+                                       Id = item.Foto.FotoId
+                                   })" alt="@item.Surname +@item.Name">
+                    </a>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

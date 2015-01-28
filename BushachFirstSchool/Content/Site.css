@@ -789,3 +789,8 @@ input[type="checkbox"].input-validation-error {
     background-color:#e6e6e6;
     width:100%;
 }
+  .team-holder {
+      padding-top: 20px;
+    background-color:rgba(255, 255, 255, 1);
+    width:100%;
+}

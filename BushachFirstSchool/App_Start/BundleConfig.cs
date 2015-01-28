@@ -53,8 +53,9 @@ namespace BushachFirstSchool
               "~/Content/message/message.css",
               "~/Content/loader/loader.css",
               "~/Content/paginations/paginations.css",
-              "~/Content/logotype/logotype.css",
-              "~/Content/history/history.css"));
+              "~/Content/home/logotype.css",
+              "~/Content/home/history.css",
+              "~/Content/home/team.css"));
             bundles.Add(new StyleBundle("~/Content/Entity").Include(
              "~/Content/Entity/SingleTeacher.css",
              "~/Content/Entity/SingleNews.css"

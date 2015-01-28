@@ -1,4 +1,5 @@
-﻿@{
+﻿@model BushachFirstSchool.Models.HomeViewModel
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -8,4 +9,7 @@ Html.RenderPartial("_logoPartial");
 
 @{
     Html.RenderPartial("_historyPartial");
+}
+@{
+    Html.RenderPartial("_teamPartial",@Model.Teacher);
 }
