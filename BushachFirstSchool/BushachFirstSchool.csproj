@@ -211,6 +211,7 @@
     <Compile Include="Models\Entitys\ForoCarousel.cs" />
     <Compile Include="Models\Entitys\SingleTeacher.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +231,8 @@
     <Content Include="Content\Entity\SingleNews.css" />
     <Content Include="Content\Entity\SingleTeacher.css" />
     <Content Include="Content\home\history.css" />
+    <Content Include="Content\home\news.css" />
+    <Content Include="Content\home\position.css" />
     <Content Include="Content\home\team.css" />
     <Content Include="Content\loader\loader.css" />
     <Content Include="Content\home\logotype.css" />
@@ -297,10 +300,14 @@
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\p1.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\FotoScholl.jpg" />
     <Content Include="Scripts\background\background.js" />
     <Content Include="Scripts\background\zero.js" />
     <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\home\homeglobal.js" />
+    <Content Include="Scripts\home\navigations.js" />
     <Content Include="Scripts\jquery-1.11.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -375,6 +382,9 @@
     <Content Include="Views\Home\_logoPartial.cshtml" />
     <Content Include="Views\Home\_historyPartial.cshtml" />
     <Content Include="Views\Home\_teamPartial.cshtml" />
+    <Content Include="Views\Home\_newsPartial.cshtml" />
+    <Content Include="Views\Home\_positionPartial.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">
@@ -390,6 +400,7 @@
       <Name>BushachFirstSchool.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

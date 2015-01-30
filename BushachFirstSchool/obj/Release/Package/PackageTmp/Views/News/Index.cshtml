@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "newsHolder",
+        Url = Url.Action("getNews"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+        OnSuccess = "updateCarusel"
+    };
+}
+<div class="center-block">
+    <h2>
+        Новини
+    </h2>
+    <!---------------------------------------------------
+    // Searsh button---->
+    @using (Ajax.BeginForm("getNews", ajaxOpts))
+    {
+        <div class="row">
+            <div class="col-md-3 col-md-offset-8">
+                <a class="button small gray left" href="@Url.Action("Create")" data-toggle="tooltip" data-placement="top" title="Додати Новину">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <input type="text" class="form-control" placeholder="Пошук..." name="searshParametr">
+                        <button class="button small gray right" type="submit">
+                            <span class="glyphicon glyphicon-search">
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+    @{Html.RenderPartial("_loading");}
+   
+    @Html.Action("getNews", new { page = 1 })
+
+</div>

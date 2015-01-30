@@ -26,6 +26,12 @@ namespace BushachFirstSchool.Controllers
 
             return View(model);
         }
+        [HttpPost]
+        public JsonResult SendMessage( MailModel model )
+        {
+
+            return Json(new { message = "На даний момент цей функціонал ще не реалізовано."}, JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult About()
         {
@@ -40,6 +46,7 @@ namespace BushachFirstSchool.Controllers
 
             return View();
         }
+
        private  ISchoolRepositorycs _repository ;
        private readonly Int32 CountTeacherPerPage = 10;
        private readonly Int32 CountNewsPerPage = 5;

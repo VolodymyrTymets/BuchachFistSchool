@@ -1,0 +1,47 @@
+﻿@using BushachFirstSchool.HtmlHelpers
+@model IEnumerable<BushachFirstSchool.Domain.Entity.Teacher>
+
+
+    @foreach (var item in Model)
+{
+    <div class="admin_teacher_container">
+        @{
+        Html.RenderPartial("SingleTeasher", new BushachFirstSchool.Models.Entitys.SingleTeacher
+               {
+                   Teacher = item,
+                   TeacherImageUrl = Url.Action("GetImage", "Teacher", new
+                   {
+                       Id = item.TeacherId
+                   })
+               });
+        }
+        <div class="container_labels">
+            @Html.ActionLink(" ", "Edit", new { id = item.TeacherId }, new {
+                                                    @class = "glyphicon glyphicon-edit",
+                                                    @data_toggle = "tooltip",
+                                                    @data_placement="top",
+                                                    @title="Редагувати"
+                             }).If(User.IsInRole("admin")) 
+         
+            @Ajax.ActionLink(" ", "GetTeacherData",new 
+                    {
+                        deleteParametr = item.TeacherId.ToString()
+                    },new AjaxOptions
+                    {
+                        UpdateTargetId = "teacher_div",                        
+                        LoadingElementId = "loading",
+                        LoadingElementDuration = 1000,
+                        Confirm = "Ви дійсно бажаєте видалити? Усі дані буде втрачено."
+                    },new 
+                    {
+                        @class = "glyphicon glyphicon-trash",
+                        @data_toggle = "tooltip",
+                        @data_placement = "top",
+                        @title = "Видалити"
+                    }).If(User.IsInRole("admin"))
+
+        </div>
+    </div>
+
+}
+

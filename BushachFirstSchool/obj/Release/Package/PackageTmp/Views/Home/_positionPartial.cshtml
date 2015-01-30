@@ -1,0 +1,85 @@
+﻿@model BushachFirstSchool.Models.MailModel 
+@{  
+
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "submitmailmessage",
+        Url = Url.Action("SendMessage"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+        OnSuccess = "mailSendCallBack"
+    };
+}
+<div class="position-holder" id="contact">
+    <div class="position-header">
+        <h2>Ми тут</h2>
+
+    </div>
+   
+    <div class="contact-form-holder">
+        
+@using (Ajax.BeginForm("getNews", "Home", ajaxOpts, new  { @class = "contact-form" }))
+{
+            <h4>Звяжіться з нами!</h4>
+
+            <ul>
+                <li>
+                    <i class="fa fa-user form-icon"></i>
+                   
+                    @Html.TextBoxFor(x => x.Name, new { placeholder = "Ім'я" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                    
+                </li>
+                <li>
+                    <i class="fa fa-at form-icon"></i>
+                   @Html.TextBoxFor(x => x.Email, new { placeholder = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </li>
+                <li>
+                    <i class="fa fa-university form-icon"></i>
+                    @Html.TextBoxFor(x => x.Organization, new { placeholder = "Організація" })
+                    @Html.ValidationMessageFor(model => model.Organization)
+                </li>
+                <li>
+                    <i class="fa fa-phone form-icon"></i>
+                    @Html.TextBoxFor(x => x.Phone, new { placeholder = "Телефон" })
+                    @Html.ValidationMessageFor(model => model.Phone)
+                </li>
+                <li>
+                    <i class="fa fa-paper-plane form-icon"></i>
+                    @Html.TextBoxFor(x => x.Subject, new { placeholder = "Тема" })
+                    @Html.ValidationMessageFor(model => model.Subject)
+                </li>
+                <li>
+                    <i class="fa fa-envelope form-icon"></i>
+                    @Html.TextAreaFor(x => x.Message, new { placeholder = "Повідомлення", row = 2 })
+                    @Html.ValidationMessageFor(model => model.Message)
+                   
+                </li>
+                <li>
+                    <input type="submit" placeholder="Submit" />
+                </li>
+            </ul>
+}
+
+    </div>
+    <!--Botstrap Modal------------------------------------>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="calbackModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Повідомлення</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body" style="color:black;" >
+                     
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!--Google map------------------------------------->
+    <div id="map-canvas" class="map-canvas">
+
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@model String
+@{
+    var validationAttributes = Html.GetUnobtrusiveValidationAttributes("");
+}
+
+@Html.TextArea(
+    "",
+    Model != null ? Model.ToString() : string.Empty,
+    new RouteValueDictionary(validationAttributes)
+    {
+        { "class", "form-control" }
+
+    })

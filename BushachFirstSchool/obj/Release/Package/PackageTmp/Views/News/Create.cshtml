@@ -1,0 +1,54 @@
+﻿@model BushachFirstSchool.Domain.Entity.News
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="col-md-6 col-md-offset-3 panel">
+    <div class="page-header">
+        <h2>Створення нової новини</h2>
+    </div>
+
+    @using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Title)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fotos)
+            </div>
+            <div class="editor-field">
+                <input type="file"  multiple name="files">
+            </div>
+            <p>
+                <input type="submit" value="Створити" class="button medium gray pull-right" />
+            </p>
+        </fieldset>
+    }
+    <div>
+        <a href="@Url.Action("Index","News")">
+            <span class="glyphicon glyphicon-indent-right" aria-hidden="true">
+            </span>
+            Повернутися до списку
+        </a>
+    </div>
+</div>

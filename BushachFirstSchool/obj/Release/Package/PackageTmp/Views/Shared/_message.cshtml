@@ -1,0 +1,19 @@
+﻿
+@if (TempData["message"] != null)
+{
+  <div class="msg">
+    <p>
+        @TempData["message"]
+    </p>
+</div>
+
+}
+@if (TempData["message_error"] != null)
+{
+<div class="msg err">
+    <p>
+        @TempData["message_error"]
+    </p>
+</div>
+
+}

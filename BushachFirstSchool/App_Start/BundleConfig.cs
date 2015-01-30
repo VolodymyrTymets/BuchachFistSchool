@@ -47,20 +47,32 @@ namespace BushachFirstSchool
             bundles.Add(new ScriptBundle("~/Content/Bootstrap/js").Include(
                "~/Content/bootstrap-3.3.1-dist/dist/js/bootstrap.js",
                "~/Content/bootstrap-3.3.1-dist/dist/js/npm.js"));
+         
+
             //ellements
             bundles.Add(new StyleBundle("~/Content/elltments").Include(
               "~/Content/buttons/buttons.css",
-              "~/Content/message/message.css",
-              "~/Content/loader/loader.css",
-              "~/Content/paginations/paginations.css",
+              "~/Content/message/message.css"  
+             ));
+
+            bundles.Add(new StyleBundle("~/Content/HomePage").Include(
               "~/Content/home/logotype.css",
               "~/Content/home/history.css",
-              "~/Content/home/team.css"));
+              "~/Content/home/team.css",
+              "~/Content/home/news.css",
+              "~/Content/home/position.css"
+             ));
+            bundles.Add(new StyleBundle("~/Content/ContentPage").Include(
+             "~/Content/loader/loader.css",
+             "~/Content/paginations/paginations.css"
+             ));
             bundles.Add(new StyleBundle("~/Content/Entity").Include(
              "~/Content/Entity/SingleTeacher.css",
              "~/Content/Entity/SingleNews.css"
              ));
-
+            bundles.Add(new ScriptBundle("~/Scripts/Home").Include(
+                        "~/Scripts/home/navigations.js",
+                        "~/Scripts/home/homeglobal.js"));
             bundles.Add(new ScriptBundle("~/Scripts/global").Include(
                         "~/Scripts/global.js"));
             bundles.Add(new ScriptBundle("~/Scripts/background").Include(

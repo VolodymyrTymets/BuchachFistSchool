@@ -10,5 +10,6 @@ namespace BushachFirstSchool.Models
     {
         public IEnumerable<Teacher> Teacher { get; set; }
         public IEnumerable<News> News { get; set; }
+  
     }
 }

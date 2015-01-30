@@ -1,0 +1,10 @@
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Release\BushachFirstSchool.Domain.dll.config
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Release\BushachFirstSchool.Domain.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Release\BushachFirstSchool.Domain.pdb
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Release\EntityFramework.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Release\EntityFramework.SqlServer.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Release\EntityFramework.xml
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\bin\Release\EntityFramework.SqlServer.xml
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Release\BushachFirstSchool.Domain.csprojResolveAssemblyReference.cache
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Release\BushachFirstSchool.Domain.dll
+E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Domain\obj\Release\BushachFirstSchool.Domain.pdb
