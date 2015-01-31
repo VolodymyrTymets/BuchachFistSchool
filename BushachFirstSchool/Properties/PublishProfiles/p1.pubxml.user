@@ -6,20 +6,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\inetpub\1School</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\syte</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/School.mdf">
-      <publishTime>01/30/2015 15:56:46</publishTime>
+      <publishTime>01/31/2015 14:23:57</publishTime>
     </File>
     <File Include="App_Data/School_log.ldf">
-      <publishTime>01/30/2015 15:56:46</publishTime>
+      <publishTime>01/31/2015 14:23:57</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>01/25/2015 16:40:45</publishTime>
     </File>
     <File Include="bin/BushachFirstSchool.dll">
-      <publishTime>01/30/2015 16:23:12</publishTime>
+      <publishTime>01/31/2015 17:08:39</publishTime>
     </File>
     <File Include="bin/BushachFirstSchool.Domain.dll">
       <publishTime>01/30/2015 16:23:10</publishTime>
@@ -172,7 +172,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/25/2015 16:40:45</publishTime>
     </File>
     <File Include="bin/WebMatrix.Data.dll">
-      <publishTime>07/09/2013 12:05:10</publishTime>
+      <publishTime>09/07/2013 12:05:10</publishTime>
     </File>
     <File Include="bin/WebMatrix.WebData.dll">
       <publishTime>01/25/2015 16:40:43</publishTime>
@@ -586,13 +586,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/29/2015 21:45:03</publishTime>
     </File>
     <File Include="Views/Home/_newsPartial.cshtml">
-      <publishTime>01/30/2015 15:40:46</publishTime>
+      <publishTime>01/31/2015 16:50:11</publishTime>
     </File>
     <File Include="Views/Home/_positionPartial.cshtml">
       <publishTime>01/29/2015 21:48:40</publishTime>
     </File>
     <File Include="Views/Home/_teamPartial.cshtml">
-      <publishTime>01/30/2015 15:39:49</publishTime>
+      <publishTime>01/31/2015 16:51:03</publishTime>
     </File>
     <File Include="Views/News/Create.cshtml">
       <publishTime>01/27/2015 14:55:07</publishTime>
@@ -631,10 +631,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/29/2015 20:56:14</publishTime>
     </File>
     <File Include="Views/Shared/_Admin.cshtml">
-      <publishTime>01/29/2015 21:34:21</publishTime>
+      <publishTime>01/31/2015 17:04:20</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/29/2015 21:23:07</publishTime>
+      <publishTime>01/31/2015 15:52:36</publishTime>
     </File>
     <File Include="Views/Shared/_loading.cshtml">
       <publishTime>01/26/2015 15:57:11</publishTime>
@@ -643,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/30/2015 15:01:41</publishTime>
     </File>
     <File Include="Views/Shared/_message.cshtml">
-      <publishTime>01/25/2015 17:34:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Teacher/Create.cshtml">
       <publishTime>01/25/2015 16:40:41</publishTime>
@@ -667,7 +667,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/25/2015 16:40:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/30/2015 16:23:14</publishTime>
+      <publishTime>01/31/2015 17:08:42</publishTime>
     </File>
   </ItemGroup>
 </Project>

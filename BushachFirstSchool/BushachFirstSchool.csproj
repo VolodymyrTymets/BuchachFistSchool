@@ -215,10 +215,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\School.mdf" />
-    <Content Include="App_Data\School_log.ldf">
-      <DependentUpon>School.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-3.3.1-dist\dist\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\css\bootstrap.css" />
@@ -400,7 +396,9 @@
       <Name>BushachFirstSchool.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

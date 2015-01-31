@@ -10,7 +10,7 @@
            @foreach (var item in @Model) 
            {  
              <div class="item" style="background-image: url('@Url.Action("GetImage", "Foto", new
-                                                                { Id = item.Fotos.FirstOrDefault().FotoId}
+                                                                { Id = item.Fotos != null ? item.Fotos.FirstOrDefault().FotoId : Guid.Empty}
                                                                 )');">
                 <div class="title">@item.Title</div>
                 <div class="text">@item.Description.ToString().Substring(0, item.Description.ToString().Length > 200 ? 200 : item.Description.ToString().Length)...</div>
