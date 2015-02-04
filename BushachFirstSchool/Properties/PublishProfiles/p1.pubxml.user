@@ -172,7 +172,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/25/2015 16:40:45</publishTime>
     </File>
     <File Include="bin/WebMatrix.Data.dll">
-      <publishTime>09/07/2013 12:05:10</publishTime>
+      <publishTime>07/09/2013 12:05:10</publishTime>
     </File>
     <File Include="bin/WebMatrix.WebData.dll">
       <publishTime>01/25/2015 16:40:43</publishTime>
@@ -643,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/30/2015 15:01:41</publishTime>
     </File>
     <File Include="Views/Shared/_message.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>01/25/2015 17:34:00</publishTime>
     </File>
     <File Include="Views/Teacher/Create.cshtml">
       <publishTime>01/25/2015 16:40:41</publishTime>
@@ -667,7 +667,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/25/2015 16:40:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/31/2015 17:08:42</publishTime>
+      <publishTime>02/04/2015 13:30:35</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -14,7 +14,7 @@ namespace BushachFirstSchool.Domain.Entity
 
         [Required(ErrorMessage = "Заповніть дане поле")]
         [Display(Name = "Заголовок")]
-        [StringLength(20, MinimumLength = 3)]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Довжина поля становить від 3 до 20 символів")]
         public String Title { get; set; }
         [Required(ErrorMessage = "Заповніть дане поле")]
         [Display(Name = "Опис")]

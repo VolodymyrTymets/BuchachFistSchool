@@ -8,6 +8,8 @@
     Model != null? Model.ToString() : string.Empty, 
     new RouteValueDictionary(validationAttributes) 
     { 
-        { "class", "form-control" }
+        { 
+           "placeholder", Html.DisplayNameFor(x => x) 
+        }
        
     })
