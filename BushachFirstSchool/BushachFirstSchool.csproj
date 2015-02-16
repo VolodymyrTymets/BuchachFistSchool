@@ -197,6 +197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\HtmlOpearations.cs" />
+    <Compile Include="Infrastructure\EmailSender.cs" />
     <Compile Include="Infrastructure\MyViewEngine.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Migrations\201501201216092_MetadataToTeacher.cs" />
@@ -381,6 +382,7 @@
     <Content Include="Views\Home\_newsPartial.cshtml" />
     <Content Include="Views\Home\_positionPartial.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\_message_ajax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

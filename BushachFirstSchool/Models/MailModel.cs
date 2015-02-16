@@ -14,7 +14,7 @@ namespace BushachFirstSchool.Models
 
         [Required(ErrorMessage = "Заповніть дане поле")]
         [EmailAddress(ErrorMessage = "Невірний формат")]
-        [StringLength(20, MinimumLength = 3, ErrorMessage = "Довжина поля становить від 3 до 20 символів")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Довжина поля становить від 3 до 50 символів")]
         public String Email { get; set; }
 
         [Required(ErrorMessage = "Заповніть дане поле")]
@@ -22,7 +22,7 @@ namespace BushachFirstSchool.Models
         public String Organization { get; set; }
 
         [Required(ErrorMessage = "Заповніть дане поле")]
-        [Range(1, 11,  ErrorMessage = "Невірний формат")]
+        [Range(1, 99999999999,  ErrorMessage = "Невірний формат")]
         [StringLength(11, MinimumLength = 3, ErrorMessage = "Довжина поля становить від 3 до 11 символів")]
         public String Phone { get; set; }
 

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using BushachFirstSchool.Models;
 using BushachFirstSchool.Domain.Entity;
+using BushachFirstSchool.Infrastructure;
 
 namespace BushachFirstSchool.Controllers
 {
@@ -29,8 +30,16 @@ namespace BushachFirstSchool.Controllers
         [HttpPost]
         public JsonResult SendMessage( MailModel model )
         {
+            try
+            {
+               EmailSender.EmailSend(model); 
+            }
+            catch (Exception e)
+            {
+                return Json(new { message = "Сталася помилка під час відправлення: " + e.Message }, JsonRequestBehavior.AllowGet);
+            }
 
-            return Json(new { message = "На даний момент цей функціонал ще не реалізовано."}, JsonRequestBehavior.AllowGet);
+            return Json(new { message = "Ваше повідомлення відправленно. Його буде розглянуто на протязі кількох днів. Хорошого вам дня."}, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult About()

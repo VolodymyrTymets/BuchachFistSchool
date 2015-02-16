@@ -4,6 +4,8 @@
 
 <div id="newsHolder" >
     <div class="row">
+        @{Html.RenderPartial("_message_ajax");}
+        
         @foreach (var item in @Model.News)
         {
          <div class="admin_news_container col-md-9 col-md-offset-1">

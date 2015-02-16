@@ -146,11 +146,11 @@ namespace BushachFirstSchool.Controllers
                 try 
                 { 
                     var teacher = _repository.DeleteTeacher(new Guid(Id));
-                    TempData["message"] = teacher.Surname + " " + teacher.Name + " успішно видалений.";
+                    TempData["message_ajax"] = teacher.Surname + " " + teacher.Name + " успішно видалений.";
                 }
                 catch (Exception e) 
                 {
-                    TempData["message_error"] = e.Message;
+                    TempData["message_error_ajax"] = e.Message;
                 }
             }
         }

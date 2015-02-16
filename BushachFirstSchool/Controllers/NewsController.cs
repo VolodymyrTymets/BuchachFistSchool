@@ -118,11 +118,11 @@ namespace BushachFirstSchool.Controllers
                 try
                 {
                     var news = _repository.DeleteNews(new Guid(Id));
-                    TempData["message"] = "Новина "+ news.Title + " успішно видалений.";
+                    TempData["message_ajax"] = "Новина "+ news.Title + " успішно видалений.";
                } 
                 catch (Exception e)
                 {
-                    TempData["message_error"] = e.Message;
+                    TempData["message_error_ajax"] = e.Message;
                 }
             }
         }
