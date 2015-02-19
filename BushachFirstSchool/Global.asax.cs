@@ -11,6 +11,8 @@ using BushachFirstSchool.Domain.Concrate;
 using System.Data.Entity;
 using BushachFirstSchool.Domain.Entity;
 using BushachFirstSchool.Infrastructure;
+using System.Web.Security;
+using WebMatrix.WebData;
 
 
 namespace BushachFirstSchool
@@ -31,6 +33,9 @@ namespace BushachFirstSchool
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+
+            
+
         }    
     }
 }

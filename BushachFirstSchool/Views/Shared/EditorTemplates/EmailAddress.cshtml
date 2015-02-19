@@ -1,0 +1,22 @@
+﻿@model String
+@{
+    var validationAttributes = Html.GetUnobtrusiveValidationAttributes("");
+}
+
+@Html.TextBox(
+    "",
+    Model != null ? Model.ToString() : string.Empty,
+    new RouteValueDictionary(validationAttributes)
+    {
+        {
+           "placeholder", Html.DisplayNameFor(x => x)
+
+        },
+        {
+            "class", "form-control"
+        },
+        {
+            "type","email"
+        }
+
+    })

@@ -1,0 +1,39 @@
+﻿@model BushachFirstSchool.Domain.Entity.SchoolClass
+
+ @{
+   AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "schollClassTable",
+        Url = Url.Action("getShoolClassData"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+        
+    };
+}
+
+<div class="col-md-4  mini-panel" style="background-color:white">
+
+    @using (Ajax.BeginForm("getShoolClassData", ajaxOpts))
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Тут можна додати новий клас</legend>
+        <div class="form-group">
+            <label for="inputEmail" class="col-lg-3 control-label">@Html.DisplayNameFor(model => model.Name)</label>
+            <div class="col-lg-9">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-lg-3 col-lg-offset-6">
+                <button type="submit" class="btn btn-primary">Додати</button>
+            </div>
+        </div>
+    </fieldset>
+
+    }
+</div>

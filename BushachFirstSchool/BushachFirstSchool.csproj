@@ -191,13 +191,17 @@
     <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\SchoolClassController.cs" />
+    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\HtmlOpearations.cs" />
+    <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
     <Compile Include="Infrastructure\EmailSender.cs" />
+    <Compile Include="Infrastructure\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\MyViewEngine.cs" />
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Migrations\201501201216092_MetadataToTeacher.cs" />
@@ -208,11 +212,14 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin\NewsListViewsModels.cs" />
     <Compile Include="Models\Admin\PagingInfo.cs" />
-    <Compile Include="Models\Admin\TeachersListViewModel.cs" />
+    <Compile Include="Models\SubjectModel\SubjectIndexViewModel.cs" />
+    <Compile Include="Models\TeacherModel\TeacherCreateViewModel.cs" />
+    <Compile Include="Models\TeacherModel\TeachersListViewModel.cs" />
     <Compile Include="Models\Entitys\ForoCarousel.cs" />
-    <Compile Include="Models\Entitys\SingleTeacher.cs" />
+    <Compile Include="Models\TeacherModel\SingleTeacher.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\MailModel.cs" />
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +230,18 @@
     <Content Include="Content\bootstrap-3.3.1-dist\dist\js\bootstrap.js" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\js\bootstrap.min.js" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\js\npm.js" />
+    <Content Include="Content\bootstrap-material\dist\css\material-wfont.css" />
+    <Content Include="Content\bootstrap-material\dist\css\material-wfont.min.css" />
+    <Content Include="Content\bootstrap-material\dist\css\material.css" />
+    <Content Include="Content\bootstrap-material\dist\css\material.min.css" />
+    <Content Include="Content\bootstrap-material\dist\css\ripples.css" />
+    <Content Include="Content\bootstrap-material\dist\css\ripples.min.css" />
+    <Content Include="Content\bootstrap-material\dist\fonts\LICENSE.txt" />
+    <Content Include="Content\bootstrap-material\dist\js\material.js" />
+    <Content Include="Content\bootstrap-material\dist\js\material.min.js" />
+    <Content Include="Content\bootstrap-material\dist\js\ripples.js" />
+    <Content Include="Content\bootstrap-material\dist\js\ripples.min.js" />
+    <Content Include="Content\bootstrap-material\dist\test.html" />
     <Content Include="Content\buttons\buttons.css" />
     <Content Include="Content\buttons\button_bg.png" />
     <Content Include="Content\Entity\SingleNews.css" />
@@ -297,6 +316,18 @@
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap-3.3.1-dist\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-material\dist\css\material-wfont.css.map" />
+    <Content Include="Content\bootstrap-material\dist\css\material-wfont.min.css.map" />
+    <Content Include="Content\bootstrap-material\dist\css\material.css.map" />
+    <Content Include="Content\bootstrap-material\dist\css\material.min.css.map" />
+    <Content Include="Content\bootstrap-material\dist\css\ripples.css.map" />
+    <Content Include="Content\bootstrap-material\dist\css\ripples.min.css.map" />
+    <Content Include="Content\bootstrap-material\dist\fonts\Material-Design-Icons.eot" />
+    <Content Include="Content\bootstrap-material\dist\fonts\Material-Design-Icons.svg" />
+    <Content Include="Content\bootstrap-material\dist\fonts\Material-Design-Icons.ttf" />
+    <Content Include="Content\bootstrap-material\dist\fonts\Material-Design-Icons.woff" />
+    <Content Include="Content\bootstrap-material\dist\js\material.min.js.map" />
+    <Content Include="Content\bootstrap-material\dist\js\ripples.min.js.map" />
     <None Include="Properties\PublishProfiles\p1.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\FotoScholl.jpg" />
@@ -342,15 +373,6 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -383,6 +405,15 @@
     <Content Include="Views\Home\_positionPartial.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\_message_ajax.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\SchoolClass\Index.cshtml" />
+    <Content Include="Views\SchoolClass\_сreate.cshtml" />
+    <Content Include="Views\SchoolClass\getShoolClassData.cshtml" />
+    <Content Include="Views\Subject\Index.cshtml" />
+    <Content Include="Views\Subject\_сreate.cshtml" />
+    <Content Include="Views\Subject\Error.cshtml" />
+    <Content Include="Views\Subject\getSubjectData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

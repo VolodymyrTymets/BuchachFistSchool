@@ -112,13 +112,6 @@ E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFir
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\System.Web.WebPages.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\System.Web.Optimization.dll
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.AspNet.dll
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.Core.dll
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.dll
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OAuth.dll
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.dll
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OpenId.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\BushachFirstSchool.Domain.pdb
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\BushachFirstSchool.pdb
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\EntityFramework.xml
@@ -138,13 +131,6 @@ E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFir
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\Microsoft.Data.Edm.xml
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\Microsoft.Data.OData.xml
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\System.Spatial.xml
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.xml
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.AspNet.xml
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.Core.xml
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.xml
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OAuth.xml
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.xml
-E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\DotNetOpenAuth.OpenId.xml
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\de\Microsoft.Data.Edm.resources.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\es\Microsoft.Data.Edm.resources.dll
 E:\Універ\5 курс\магістерська\BuchachFistSchool\BushachFirstSchool.Tests\bin\Debug\fr\Microsoft.Data.Edm.resources.dll

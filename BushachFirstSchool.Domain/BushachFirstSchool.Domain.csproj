@@ -71,13 +71,21 @@
     <Compile Include="Concrate\EFSchoolRepositorycs.cs" />
     <Compile Include="Concrate\FileConvertot.cs" />
     <Compile Include="Concrate\ShoolInitializer.cs" />
+    <Compile Include="Entity\Concept.cs" />
     <Compile Include="Entity\Foto.cs" />
     <Compile Include="Entity\Metadata\FotoMetadata.cs" />
     <Compile Include="Entity\Metadata\NewsMetadata.cs" />
+    <Compile Include="Entity\Metadata\SchoolClassMetadata.cs" />
+    <Compile Include="Entity\Metadata\SubjectMetadata.cs" />
+    <Compile Include="Entity\Metadata\SubjectTheamMetadata.cs" />
     <Compile Include="Entity\Metadata\TeacherMetadata.cs" />
-    <Compile Include="Entity\Metadata\ValidateFile.cs" />
     <Compile Include="Entity\News.cs" />
+    <Compile Include="Entity\RequiredAttribute\IsSchoolClassAttriburte.cs" />
+    <Compile Include="Entity\SchoolClass.cs" />
+    <Compile Include="Entity\Subject.cs" />
+    <Compile Include="Entity\SubjectTheam.cs" />
     <Compile Include="Entity\Teacher.cs" />
+    <Compile Include="Entity\Thesis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

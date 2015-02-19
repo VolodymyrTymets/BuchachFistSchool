@@ -1,4 +1,4 @@
-﻿using BushachFirstSchool.Domain.Entity.Metadata;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -45,9 +45,10 @@ namespace BushachFirstSchool.Domain.Entity
 
         
         [Display(Name = "Виберіть фото")]
-        [NotMapped]
-        [ValidateFile]
+        [NotMapped]     
         public HttpPostedFileBase PhotoBytes{ get; set;}
+
+      
 
      
     }

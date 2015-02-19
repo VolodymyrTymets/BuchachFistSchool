@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BushachFirstSchool.Domain.Entity.Subject>
+
+<div id="SubjectTable">
+    @{Html.RenderPartial("_message_ajax");}
+
+
+    <div class="col-lg-12">
+        <table class="table  table-hover mini-panel">
+            <tr>
+                <th>
+                    Таблиця предметів
+                </th>
+                <th>
+                    Викладачі, які ведуть предмет
+                </th>
+                <th>
+
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <div class="list-group">
+                            <div class="list-group-item">
+                                <div class="row-picture">
+                                    <img class="circle" src="@Url.Action("GetImage", "Foto", new
+                                       {
+                                           Id = item.Teacher.Foto.FotoId
+                                       })" alt="icon">
+                                </div>
+                                <div class="row-content">
+                                    <h4 class="list-group-item-heading">@item.Teacher.Surname &nbsp; @item.Teacher.Name &nbsp; @item.Teacher.Lastname </h4>
+                                    <p class="list-group-item-text">@item.Teacher.Work</p>
+                                </div>
+                            </div>
+                            <div class="list-group-separator"></div>
+                          </div>
+                       
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                @Html.ActionLink(" Правка", "Edit", new { id = item.SubjectId }, new { @class = "mdi-editor-border-color btn btn-default" })
+                            </li>
+                            <li>
+                                @Html.ActionLink(" Управляння", "Details", new { id = item.SubjectId }, new { @class = "mdi-av-playlist-add btn btn-default" })
+                            </li>
+                            <li>
+                                 @Ajax.ActionLink(" Видалити", "Delete", new
+                                {
+                                    Id = item.SubjectId.ToString()
+                                }, new AjaxOptions
+                                {
+                                    UpdateTargetId = "SubjectTable",
+                                    LoadingElementId = "loading",
+                                    LoadingElementDuration = 1000,
+                                    Confirm = "Ви дійсно бажаєте видалити? Усі дані буде втрачено.",
+
+                                }, new
+                                {
+                                    @class = "mdi-content-clear btn btn-default",
+                                })
+                                </li>
+                            </ul>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

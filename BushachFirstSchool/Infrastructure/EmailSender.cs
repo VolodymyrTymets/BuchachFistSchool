@@ -10,7 +10,7 @@ namespace BushachFirstSchool.Infrastructure
 {
     public static class EmailSender
     {
-        public static void EmailSend(MailModel model) 
+        public static void SendContactMessage(MailModel model) 
         {
             using (var smtpClient = new SmtpClient())
             {
@@ -33,5 +33,28 @@ namespace BushachFirstSchool.Infrastructure
 
             }
         }
+        public static void SendRegisterMessage(String email, String password, String username ) 
+        {
+            using (var smtpClient = new SmtpClient())
+            {
+                
+                MailMessage message = new MailMessage();
+                message.Subject = "Реєстрація на сайті: ";
+                StringBuilder body = new StringBuilder();
+                body.Append("Ви були зареєстровна на сайті :<br>");
+                body.Append("   <i>логін: </i>" + username + "<br>");
+                body.Append("   <i>пароль: </i>" + password+ "<br>");
+               
+
+                body.Append("<br> Ви можете зайти на сайт " );              
+                message.To.Add(email);
+                message.Body = body.ToString();
+                message.IsBodyHtml = true;
+                smtpClient.Send(message);
+
+            }
+        }
     }
+    
+
 }

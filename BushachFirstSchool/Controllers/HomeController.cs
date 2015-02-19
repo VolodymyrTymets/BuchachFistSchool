@@ -32,7 +32,7 @@ namespace BushachFirstSchool.Controllers
         {
             try
             {
-               EmailSender.EmailSend(model); 
+               EmailSender.SendContactMessage(model); 
             }
             catch (Exception e)
             {

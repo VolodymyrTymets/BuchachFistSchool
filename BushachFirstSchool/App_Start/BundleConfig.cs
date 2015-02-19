@@ -42,11 +42,20 @@ namespace BushachFirstSchool
             // bootstrap
             bundles.Add(new StyleBundle("~/Content/Bootstrap/css").Include(
                 "~/Content/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.css",
-                "~/Content/bootstrap-3.3.1-dist/dist/css/bootstrap.css"));
+                "~/Content/bootstrap-3.3.1-dist/dist/css/bootstrap.css"));  
 
             bundles.Add(new ScriptBundle("~/bundles/Bootstrap/js").Include(
                "~/Content/bootstrap-3.3.1-dist/dist/js/bootstrap.js",
                "~/Content/bootstrap-3.3.1-dist/dist/js/npm.js"));
+
+            // bootstrap-material
+            bundles.Add(new StyleBundle("~/Content/Bootstrap-material/css").Include(
+               "~/Content/bootstrap-material/dist/css/ripples.css",
+               "~/Content/bootstrap-material/dist/css/material.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/Bootstrap-material/js").Include(
+               "~/Content/bootstrap-material/dist/js/ripples.js",
+               "~/Content/bootstrap-material/dist/js/material.js"));
          
 
             //ellements

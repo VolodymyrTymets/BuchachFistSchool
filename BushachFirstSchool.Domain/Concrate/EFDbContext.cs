@@ -14,6 +14,12 @@ namespace BushachFirstSchool.Domain.Concrate
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<News> Newses { get; set; }
         public DbSet<Foto> Fotos { get; set; }
+        public DbSet<SchoolClass> SchoolClases { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<SubjectTheam> SubjectTheams { get; set; }
+        public DbSet<Concept> Concepts { get; set; }
+        public DbSet<Thesis> Thesises { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

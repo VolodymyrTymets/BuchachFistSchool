@@ -1,66 +1,106 @@
-﻿@model BushachFirstSchool.Domain.Entity.Teacher
+﻿@model BushachFirstSchool.Models.TeacherModel.TeacherCreateViewModel
 
 @{
     ViewBag.Title = "Бучацька ЗОШ №1 Вчителі/Створити";
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<div class="col-md-6 col-md-offset-3 panel">
+<div class="col-md-6 col-md-offset-3 shadow-z-2" style="background-color:white">
 
 
-        @using (Html.BeginForm("Create", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-to-fill" }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
+    @using (Html.BeginForm("Create", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-           <h4>Створення вчителя</h4>
 
-            <ul>
-                <li>
-                    <i class="fa fa-user form-icon"></i>
 
-                    @Html.EditorFor(model => model.Surname)
-                    @Html.ValidationMessageFor(model => model.Surname)
-
-                </li>
-                <li>
-                    <i class="fa fa-at form-icon"></i>
-                    @Html.EditorFor(model => model.Name)
-                    @Html.ValidationMessageFor(model => model.Name)
-                </li>
-                <li>
-                    <i class="fa fa-at form-icon"></i>
-                    @Html.EditorFor(model => model.Lastname)
-                    @Html.ValidationMessageFor(model => model.Lastname)
-                </li>
-                <li>
-                    <i class="fa fa-at form-icon"></i>
-                    @Html.EditorFor(model => model.Work)
-                    @Html.ValidationMessageFor(model => model.Work)
-                </li>
-                <li>
-                    <i class="fa fa-at form-icon"></i>
-                    @Html.EditorFor(model => model.Description)
-                    @Html.ValidationMessageFor(model => model.Description)
-                </li>
-                <li>
-                    <i class="fa fa-university form-icon"></i>
-                    Виберіть фото
-                    <input type="file" id="PhotoBytes" name="PhotoBytes" />
-                </li>
-
-                <li>
-                    <input type="submit" placeholder="Submit" value="Підтвердити" />
-                </li>
-            </ul>
-        }
-
-        <div>
-            <a href="@Url.Action("Index","Teacher")">
-                <span class="glyphicon glyphicon-indent-right" aria-hidden="true">
-                </span>
-                Повернутися до списку 
-            </a>  
+        <h4>Створення вчителя</h4>
+           <fieldset>
+        <legend>Дані для ситеми</legend>
+        <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.UserData.UserName)</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.UserData.UserName)
+                @Html.ValidationMessageFor(model => model.UserData.UserName)
+            </div>
         </div>
-    </div>
+
+        <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.UserData.Email)</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.UserData.Email)
+                @Html.ValidationMessageFor(model => model.UserData.Email)
+            </div>
+        </div>
+
+
+        <legend>Дані Вчителя</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.Teacher.Surname)</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.Teacher.Surname)
+                @Html.ValidationMessageFor(model => model.Teacher.Surname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.Teacher.Name)</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.Teacher.Name)
+                @Html.ValidationMessageFor(model => model.Teacher.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.Teacher.Lastname)</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.Teacher.Lastname)
+                @Html.ValidationMessageFor(model => model.Teacher.Lastname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.Teacher.Work)</label>
+            <div class="col-lg-10">
+                @Html.EditorFor(model => model.Teacher.Work)
+                @Html.ValidationMessageFor(model => model.Teacher.Work)
+            </div>
+        </div>
+
+        <div class="form-group">
+           
+                @Html.EditorFor(model => model.Teacher.Description)
+                @Html.ValidationMessageFor(model => model.Teacher.Description)
+            
+        </div>
+
+        
+          <div class="form-group">
+            <label for="inputFile" class="col-lg-2 control-label">File</label>
+            <div class="col-lg-10">
+               
+                <input type="file" id="inputFile" multiple="" name="Teacher.PhotoBytes" class="form-control floating-label">
+            </div>
+        </div>
+         <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+      </fieldset>
+
+    }
+
+<div>
+    <a href="@Url.Action("Index","Teacher")">
+        <span class="glyphicon glyphicon-indent-right" aria-hidden="true">
+        </span>
+        Повернутися до списку
+    </a>
+</div>
+</div>
+
+
 

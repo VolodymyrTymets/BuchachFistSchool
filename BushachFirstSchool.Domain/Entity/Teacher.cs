@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
+
 namespace BushachFirstSchool.Domain.Entity
 {
  [MetadataType(typeof(TeacherMetadata))]
@@ -20,6 +21,9 @@ namespace BushachFirstSchool.Domain.Entity
      public String Work { get; set; }
      public String Description { get; set; } 
      public virtual Foto Foto { get; set; }
+     public Int32 AccountId { get; set; }
+     //not maped
      public HttpPostedFileBase PhotoBytes { get;  set;}
+    
     }
 }

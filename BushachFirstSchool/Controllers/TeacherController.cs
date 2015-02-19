@@ -8,15 +8,20 @@ using BushachFirstSchool.Domain.Abstract;
 using BushachFirstSchool.Domain.Concrate;
 using BushachFirstSchool.Models;
 using System.Threading;
+using BushachFirstSchool.Infrastructure.Abstract;
+using BushachFirstSchool.Models.TeacherModel;
+using BushachFirstSchool.Filters;
 
 
 namespace BushachFirstSchool.Controllers
 {
+    [InitializeSimpleMembership]
     public class TeacherController : Controller
     {
-        public TeacherController( ISchoolRepositorycs repository) 
+        public TeacherController( ISchoolRepositorycs repository, IAuthProvider auth) 
         {
             _repository = repository;
+            _authProvider = auth;
         }
  
         // GET: /Teacher/
@@ -48,36 +53,38 @@ namespace BushachFirstSchool.Controllers
             return PartialView(model);
         }
 
-        [Authorize(Roles = "admin")]
+      //  [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
-            return View(new Teacher());
+            return View(new TeacherCreateViewModel());
         }
         [HttpPost]
-        public ActionResult Create(Teacher teacher  )
+        public ActionResult Create( TeacherCreateViewModel model  )
         {
             if (ModelState.IsValid)
             {
               //  var upload = Request.Files["Photo"];
-                if (teacher.PhotoBytes != null)
+                if (model.Teacher.PhotoBytes != null)
                 {
-                    teacher.Foto = new Foto();
-                    teacher.Foto.Content = teacher.PhotoBytes.InputStream.ToArray();                   
+                    model.Teacher.Foto = new Foto();
+                    model.Teacher.Foto.Content = model.Teacher.PhotoBytes.InputStream.ToArray();                   
                 }
                 try
                 {
-                    _repository.SaveTeacher(teacher);
-                }
+                    model.Teacher.AccountId =   _authProvider.RegisretTeacher(model.UserData.UserName, model.UserData.Email);
+                    _repository.SaveTeacher(model.Teacher);
+               }
                 catch (Exception e) 
                 {
                     TempData["message_error"] = e.Message;
+                    return View();
                 }
-                TempData["message"] = teacher.Surname + " " + teacher.Name + " успішно зареєстрований(на).";
+                TempData["message"] = model.Teacher.Surname + " " + model.Teacher.Name + " успішно зареєстрований(на).";
                 return View("Index", getPagingInfo(1));
             }
             else
             {
-                return View(teacher);
+                return View(model);
             }
         }
         public FileContentResult GetImage(Guid Id)
@@ -110,7 +117,7 @@ namespace BushachFirstSchool.Controllers
                 }
                 try
                 {
-                    _repository.SaveTeacher(teacher);
+                    _repository.EditTeacher(teacher);
                 }
                 catch (Exception e) 
                 {
@@ -156,6 +163,7 @@ namespace BushachFirstSchool.Controllers
         }
         
         private  ISchoolRepositorycs _repository ;
+        private IAuthProvider _authProvider;
         private  readonly Int32 _itemPerPage = 4;
 
     }

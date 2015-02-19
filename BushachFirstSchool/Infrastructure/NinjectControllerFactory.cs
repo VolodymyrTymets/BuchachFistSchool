@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using BushachFirstSchool.Domain.Abstract;
 using BushachFirstSchool.Domain.Concrate;
+using BushachFirstSchool.Infrastructure.Abstract;
 
 
 namespace BushachFirstSchool.Infrastructure
@@ -27,6 +28,7 @@ namespace BushachFirstSchool.Infrastructure
         private void AddBindings()
         {          
            _ninjectKernal.Bind<ISchoolRepositorycs>().To<EFSchoolRepositorycs>();
+           _ninjectKernal.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
         private IKernel _ninjectKernal;
     }
