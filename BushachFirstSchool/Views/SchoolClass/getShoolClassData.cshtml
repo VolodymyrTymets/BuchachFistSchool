@@ -35,7 +35,10 @@
 
                     </td>
                     <td>
-                        @Html.ActionLink(" Управляння", "Details", new { id = item.SchoolClassId }, new { @class = "mdi-av-playlist-add btn btn-default" })
+                        @Html.ActionLink(" Передмети", "DetailsSubject", new { id = item.SchoolClassId }, new { @class = "mdi-av-playlist-add btn btn-default" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(" Учні", "DetailsPupil", new { id = item.SchoolClassId }, new { @class = "mdi-av-playlist-add btn btn-default" })
                     </td>
                     <td>
 

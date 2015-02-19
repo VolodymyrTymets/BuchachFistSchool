@@ -19,7 +19,7 @@ namespace BushachFirstSchool.Domain.Concrate
         public DbSet<SubjectTheam> SubjectTheams { get; set; }
         public DbSet<Concept> Concepts { get; set; }
         public DbSet<Thesis> Thesises { get; set; }
-
+        public DbSet<Pupil> Pupils { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

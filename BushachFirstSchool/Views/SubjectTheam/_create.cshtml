@@ -1,0 +1,38 @@
+﻿@model BushachFirstSchool.Domain.Entity.SubjectTheam
+
+@{
+    AjaxOptions ajaxOpts = new AjaxOptions
+     {
+         UpdateTargetId = "SubjectTheamTable",
+         Url = Url.Action("Add"),
+         LoadingElementId = "loading",
+         LoadingElementDuration = 1000,
+
+     };
+}
+
+<div class="col-md-4  mini-panel" style="background-color:white">
+
+    @using (Ajax.BeginForm("Add", ajaxOpts))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Тут можна додати нову тему</legend>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-3 control-label">@Html.DisplayNameFor(model => model.Name)</label>
+                <div class="col-lg-9">
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </div>           
+
+            <div class="form-group">
+                <div class="col-lg-3 col-lg-offset-4">
+                    <button type="submit" class="btn btn-primary">Додати</button>
+                </div>
+            </div>
+        </fieldset>
+
+    }
+</div>

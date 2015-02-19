@@ -163,22 +163,23 @@ namespace BushachFirstSchool.Domain.Concrate
           }
           return dbEntry;
       }
-      public void AddSubjectToShoolClass(Guid IdSchoolClass , Subject subject) 
+
+
+      /**********************-----SubjectClasses-----*******************/
+      public void AddSubjectToShoolClass(Guid IdSchoolClass, Subject subject)
       {
           if (subject.SubjectId == Guid.Empty)
           {
               subject.SubjectId = Guid.NewGuid();
           }
-         var dbEntry = _context.SchoolClases.Find(IdSchoolClass);
-         if (dbEntry.Subjects == null) 
-         {
-             dbEntry.Subjects = new List<Subject>();
-         }
-         dbEntry.Subjects.Add(subject);
-         _context.SaveChanges();
+          var dbEntry = _context.SchoolClases.Find(IdSchoolClass);
+          if (dbEntry.Subjects == null)
+          {
+              dbEntry.Subjects = new List<Subject>();
+          }
+          dbEntry.Subjects.Add(subject);
+          _context.SaveChanges();
       }
-
-      /**********************-----SubjectClasses-----*******************/
       public IQueryable<Subject> Subjects
       {
           get { return _context.Subjects; }
@@ -224,5 +225,106 @@ namespace BushachFirstSchool.Domain.Concrate
           }
           return dbEntry;
       }
+
+      /**********************-----SubjectTheam-----*******************/
+      public IQueryable<SubjectTheam> SubjectsTheam
+      {
+          get { return _context.SubjectTheams; }
+      }
+      public void AddSubjectTheamToSubject(Guid IdSubject, SubjectTheam theam)
+      {
+          if (theam.TheamId == Guid.Empty)
+          {
+              theam.TheamId = Guid.NewGuid();
+          }
+          var dbEntry = _context.Subjects.Find(IdSubject);
+          if (dbEntry.Theams == null)
+          {
+              dbEntry.Theams = new List<SubjectTheam>();
+          }
+          dbEntry.Theams.Add(theam);
+          _context.SaveChanges();
+      }
+      public SubjectTheam EditSubjectTheam(SubjectTheam theam)
+      {
+          Entity.SubjectTheam dbEntry = _context.SubjectTheams.Find(theam.TheamId);
+          if (dbEntry != null)
+          {
+              dbEntry.Name = theam.Name;
+
+              if (theam.Thesises != null)
+              {
+                  dbEntry.Thesises = theam.Thesises;
+              }
+              if (theam.Concepts != null)
+              {
+                  dbEntry.Concepts = theam.Concepts;
+              }
+          }
+          _context.SaveChanges();
+          return theam;
+      }
+      public SubjectTheam DeleteSubjectTheam(Guid Id)
+      {
+          var dbEntry = _context.SubjectTheams.Find(Id);
+          if (dbEntry != null)
+          {
+
+              //dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
+              _context.SubjectTheams.Remove(dbEntry);
+              _context.SaveChanges();
+          }
+          return dbEntry;
+      }
+
+      /**********************-----SubjectTheam-----*******************/
+      public IQueryable<Pupil> Pupils
+      {
+          get { return _context.Pupils; }
+      }
+      public void AddPupilToSchoolClass(Guid IdClass, Pupil pupil)
+      {
+          if (pupil.PupilId == Guid.Empty)
+          {
+              pupil.PupilId = Guid.NewGuid();
+          }
+          var dbEntry = _context.SchoolClases.Find(IdClass);
+          if (dbEntry.Pupils == null)
+          {
+              dbEntry.Pupils = new List<Pupil>();
+          }
+          dbEntry.Pupils.Add(pupil);
+          _context.SaveChanges();
+      }
+      public Pupil EditPupil(Pupil pupil)
+      {
+          Entity.Pupil dbEntry = _context.Pupils.Find(pupil.PupilId);
+          if (dbEntry != null)
+          {
+              dbEntry.Name = pupil.Name;
+              dbEntry.Surname = pupil.Surname;
+              dbEntry.Lastname = pupil.Lastname;             
+          }
+          _context.SaveChanges();
+          return pupil;
+      }
+      public Pupil DeletePupil(Guid Id)
+      {
+          var dbEntry = _context.Pupils.Find(Id);
+          if (dbEntry != null)
+          {
+
+              //dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
+              _context.Pupils.Remove(dbEntry);
+              _context.SaveChanges();
+          }
+          return dbEntry;
+      }
+
+
+
+
+
+      
     }
 }

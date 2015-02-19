@@ -9,8 +9,9 @@ namespace BushachFirstSchool.Infrastructure.Abstract
     {
         bool Authenticate(String username, String password);
         void Logout();
-        Int32 RegisterPupil(String username, String email);
-        Int32 RegisretTeacher(String username, String email);
+        String RegisterPupil(String username, String email);
+        String RegisretTeacher(String username, String email);
         bool ChangePassword(String oldPassword, String newPassword);
+        void DeleteUser(String userName);
     }
 }

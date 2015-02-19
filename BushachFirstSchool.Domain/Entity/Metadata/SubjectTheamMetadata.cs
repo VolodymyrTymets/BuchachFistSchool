@@ -9,7 +9,8 @@ namespace BushachFirstSchool.Domain.Entity.Metadata
 {
     public partial class SubjectTheamMetadata
     {
-        public Guid SubjectId { get; set; }
+        
+        public Guid TheamId { get; set; }
 
         [Required(ErrorMessage = "Заповніть дане поле")]
         [Display(Name = "Назва")]

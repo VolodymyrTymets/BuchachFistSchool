@@ -6,7 +6,7 @@ using BushachFirstSchool.Infrastructure.Abstract;
 using System.Web.Security;
 using BushachFirstSchool.Filters;
 using WebMatrix.WebData;
-
+using System.Linq;
 
 
 namespace BushachFirstSchool.Infrastructure
@@ -29,21 +29,21 @@ namespace BushachFirstSchool.Infrastructure
             FormsAuthentication.SignOut();
         }
 
-        public Int32 RegisterPupil(string username, string email)
+        public String RegisterPupil(string username, string email)
         {
 
             String Password = GenereteRandomPassword(_passwordLength);
-          Membership.CreateUser(username,Password,email);
+            WebSecurity.CreateUserAndAccount(username, Password);
             if (!Roles.RoleExists("people"))
             {
                 Roles.CreateRole("people");
             }
             Roles.AddUserToRole(username, "people");
             EmailSender.SendRegisterMessage(email,Password,username);
-            return WebSecurity.GetUserId(username);
+            return username;
         }
 
-        public Int32 RegisretTeacher(string username, string email)
+        public String RegisretTeacher(string username, string email)
         {
             String Password = GenereteRandomPassword(_passwordLength);
           //  Membership.CreateUser(username, Password,email);
@@ -54,7 +54,7 @@ namespace BushachFirstSchool.Infrastructure
             }
             Roles.AddUserToRole(username, "theacher");           
             EmailSender.SendRegisterMessage(email, Password, username);
-            return WebSecurity.GetUserId(username);
+            return username;
 
         }      
 
@@ -70,5 +70,19 @@ namespace BushachFirstSchool.Infrastructure
 
         private const Int32 _passwordLength = 6;
 
+
+
+        public void DeleteUser(String userName)
+        {            
+            if (Roles.GetRolesForUser(userName).Count() > 0)
+            {
+                Roles.RemoveUserFromRoles(userName, Roles.GetRolesForUser(userName));
+            }
+            ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(userName); // deletes record from webpages_Membership table
+            ((SimpleMembershipProvider)Membership.Provider).DeleteUser(userName, true); // deletes record from UserProfile table
+        }
+
+
+        
     }
 }

@@ -75,11 +75,13 @@
     <Compile Include="Entity\Foto.cs" />
     <Compile Include="Entity\Metadata\FotoMetadata.cs" />
     <Compile Include="Entity\Metadata\NewsMetadata.cs" />
+    <Compile Include="Entity\Metadata\PupilMetadata.cs" />
     <Compile Include="Entity\Metadata\SchoolClassMetadata.cs" />
     <Compile Include="Entity\Metadata\SubjectMetadata.cs" />
     <Compile Include="Entity\Metadata\SubjectTheamMetadata.cs" />
     <Compile Include="Entity\Metadata\TeacherMetadata.cs" />
     <Compile Include="Entity\News.cs" />
+    <Compile Include="Entity\Pupil.cs" />
     <Compile Include="Entity\RequiredAttribute\IsSchoolClassAttriburte.cs" />
     <Compile Include="Entity\SchoolClass.cs" />
     <Compile Include="Entity\Subject.cs" />

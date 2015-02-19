@@ -14,8 +14,7 @@ namespace BushachFirstSchool.Controllers
 
         public SubjectController(ISchoolRepositorycs repository) 
         {
-            _repository = repository;
-            
+            _repository = repository;            
         }
 
         public ActionResult Index()
@@ -42,9 +41,18 @@ namespace BushachFirstSchool.Controllers
         {
             if (GetSchoolClassId() != Guid.Empty)
             {
-                var teacher = _repository.Teachers.FirstOrDefault(x => x.TeacherId == new Guid(teacherId));
-                subject.Teacher = teacher;
-                _repository.AddSubjectToShoolClass(GetSchoolClassId(), subject);
+                try
+                {
+                    var teacher = _repository.Teachers.FirstOrDefault(x => x.TeacherId == new Guid(teacherId));
+                    subject.Teacher = teacher;
+                    _repository.AddSubjectToShoolClass(GetSchoolClassId(), subject);
+                    TempData["message_ajax"] = subject.Name + " успішно доданий.";
+                }
+                catch (Exception e)
+                {
+                    TempData["message_error_ajax"] = e.Message;
+                }
+                
 
                 return PartialView("getSubjectData", getSubjects(GetSchoolClassId()));
             }
@@ -53,13 +61,26 @@ namespace BushachFirstSchool.Controllers
         public PartialViewResult Delete(String Id)
         {
             if (GetSchoolClassId() != Guid.Empty)
-            {
-                _repository.DeleteSubject(new Guid(Id));
+            {               
+                try
+                {
+                    _repository.DeleteSubject(new Guid(Id));
+                    TempData["message_ajax"] = "Предмет успішно видалений.";
+                }
+                catch (Exception e)
+                {
+                    TempData["message_error_ajax"] = e.Message;                   
+                }
+                
                 return PartialView("getSubjectData", getSubjects(GetSchoolClassId()));
             }
             return PartialView("Error", null);
         }
-
+        public ActionResult Details(Guid Id)
+        {
+            Session["SubjectId"] = Id.ToString();
+            return RedirectToAction("Index", "SubjectTheam");
+        }
 
         private IEnumerable<Subject> getSubjects(Guid shoolClassId) 
         {
@@ -68,11 +89,9 @@ namespace BushachFirstSchool.Controllers
                                           .Subjects.ToList();
         }
         private Guid GetSchoolClassId()
-        {
-            
+        {            
            return  Session["ShoolClassId"] != null ? new Guid(Session["ShoolClassId"] as String) : Guid.Empty;
-        }
-      
+        }      
         private ISchoolRepositorycs _repository;
      
     }

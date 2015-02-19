@@ -1,0 +1,71 @@
+﻿@model BushachFirstSchool.Models.PupilModel.PupilCreateViewModel
+@{
+    AjaxOptions ajaxOpts = new AjaxOptions
+     {
+         UpdateTargetId = "PupilTable",
+         Url = Url.Action("Add"),
+         LoadingElementId = "loading",
+         LoadingElementDuration = 1000,
+
+     };
+}
+
+<div class="col-md-4  mini-panel" style="background-color:white">
+
+    @using (Ajax.BeginForm("Add", ajaxOpts))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Дані для ситеми</legend>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.UserData.UserName)</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.UserData.UserName)
+                    @Html.ValidationMessageFor(model => model.UserData.UserName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.UserData.Email)</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.UserData.Email)
+                    @Html.ValidationMessageFor(model => model.UserData.Email)
+                </div>
+            </div>
+
+
+            <legend>Дані учня</legend>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.Pupil.Surname)</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Pupil.Surname)
+                    @Html.ValidationMessageFor(model => model.Pupil.Surname)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.Pupil.Name)</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Pupil.Name)
+                    @Html.ValidationMessageFor(model => model.Pupil.Name)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.Pupil.Lastname)</label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Pupil.Lastname)
+                    @Html.ValidationMessageFor(model => model.Pupil.Lastname)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-3 col-lg-offset-4">
+                    <button type="submit" class="btn btn-primary">Додати</button>
+                </div>
+            </div>
+        </fieldset>
+
+    }
+</div>

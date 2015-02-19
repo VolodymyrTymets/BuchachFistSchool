@@ -71,7 +71,7 @@ namespace BushachFirstSchool.Controllers
                 }
                 try
                 {
-                    model.Teacher.AccountId =   _authProvider.RegisretTeacher(model.UserData.UserName, model.UserData.Email);
+                    model.Teacher.userName =   _authProvider.RegisretTeacher(model.UserData.UserName, model.UserData.Email);
                     _repository.SaveTeacher(model.Teacher);
                }
                 catch (Exception e) 
@@ -113,7 +113,8 @@ namespace BushachFirstSchool.Controllers
                 if (teacher.PhotoBytes != null)
                 {
                     teacher.Foto = new Foto();
-                    teacher.Foto.Content = teacher.PhotoBytes.InputStream.ToArray();                   
+                    teacher.Foto.Content = teacher.PhotoBytes.InputStream.ToArray();
+                    TempData["message"] = teacher.Surname + " " + teacher.Name + " успішно відредагований.";
                 }
                 try
                 {
@@ -123,7 +124,7 @@ namespace BushachFirstSchool.Controllers
                 {
                     TempData["message_error"] = e.Message;
                 }
-                TempData["message"] = teacher.Surname + " " + teacher.Name + " успішно відредагований.";
+                
                 return View("Index", getPagingInfo(1));
             }
             else
@@ -150,9 +151,10 @@ namespace BushachFirstSchool.Controllers
         {
             if (Id != "")
             {
-                try 
-                { 
+                try
+                {                    
                     var teacher = _repository.DeleteTeacher(new Guid(Id));
+                    _authProvider.DeleteUser(teacher.userName);
                     TempData["message_ajax"] = teacher.Surname + " " + teacher.Name + " успішно видалений.";
                 }
                 catch (Exception e) 

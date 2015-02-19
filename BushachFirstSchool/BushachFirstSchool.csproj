@@ -191,8 +191,10 @@
     <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PupilController.cs" />
     <Compile Include="Controllers\SchoolClassController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
+    <Compile Include="Controllers\SubjectTheamController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -212,7 +214,10 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin\NewsListViewsModels.cs" />
     <Compile Include="Models\Admin\PagingInfo.cs" />
+    <Compile Include="Models\PupilModel\PupilCreateViewModel.cs" />
+    <Compile Include="Models\PupilModel\PupilListViewModel.cs" />
     <Compile Include="Models\SubjectModel\SubjectIndexViewModel.cs" />
+    <Compile Include="Models\SubjectTheamModel\SubjectTheamListViewModel.cs" />
     <Compile Include="Models\TeacherModel\TeacherCreateViewModel.cs" />
     <Compile Include="Models\TeacherModel\TeachersListViewModel.cs" />
     <Compile Include="Models\Entitys\ForoCarousel.cs" />
@@ -414,6 +419,12 @@
     <Content Include="Views\Subject\_сreate.cshtml" />
     <Content Include="Views\Subject\Error.cshtml" />
     <Content Include="Views\Subject\getSubjectData.cshtml" />
+    <Content Include="Views\SubjectTheam\Index.cshtml" />
+    <Content Include="Views\SubjectTheam\_create.cshtml" />
+    <Content Include="Views\SubjectTheam\getSubjectTheamData.cshtml" />
+    <Content Include="Views\Pupil\List.cshtml" />
+    <Content Include="Views\Pupil\_create.cshtml" />
+    <Content Include="Views\Pupil\getPupilsData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

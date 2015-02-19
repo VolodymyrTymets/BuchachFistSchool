@@ -28,10 +28,15 @@ namespace BushachFirstSchool.Controllers
 
             return PartialView(_repository.ShoolClasses.ToList());
         }
-        public ActionResult Details(Guid Id) 
+        public ActionResult DetailsSubject(Guid Id) 
         {
             Session["ShoolClassId"] = Id.ToString();
             return RedirectToAction("Index", "Subject");
+        }
+        public ActionResult DetailsPupil(Guid Id)
+        {
+            Session["ShoolClassId"] = Id.ToString();
+            return RedirectToAction("List", "Pupil");
         }
         private void AddNewShollCalas(SchoolClass scholClass)
         {
@@ -40,13 +45,14 @@ namespace BushachFirstSchool.Controllers
                 try
                 {
                     _repository.SaveSchoolClass(scholClass);
+                    TempData["message_ajax"] = scholClass.Name + " клас  успішно доданий.";
                 }
                 catch (Exception e)
                 {
                     TempData["message_error_ajax"] = e.Message;
                     return;                    
                 }
-                TempData["message_ajax"] = scholClass.Name + " клас  успішно доданий.";
+               
                 
             }
         }
@@ -56,13 +62,14 @@ namespace BushachFirstSchool.Controllers
             {
              try{
                     _repository.DeleteSchoolClass(new Guid(deleteParametr));
+                    TempData["message_ajax"] = "Клас успішно видалений.";
                 }
                 catch (Exception e)
                 {
                     TempData["message_error_ajax"] = e.Message;
                     return;                    
                 }
-             TempData["message_ajax"] = "Клас успішно видалений.";
+           
             }
         }
         

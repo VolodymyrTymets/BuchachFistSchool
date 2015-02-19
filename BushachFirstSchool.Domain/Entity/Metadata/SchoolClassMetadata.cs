@@ -16,6 +16,7 @@ namespace BushachFirstSchool.Domain.Entity.Metadata
       [Display(Name = "Назва")]
       public String Name { get; set; }
       public virtual ICollection<Subject> Subjects { get; set; }
+      public virtual ICollection<Pupil> Pupils { get; set; }
         
     }
 }

@@ -21,7 +21,7 @@ namespace BushachFirstSchool.Domain.Entity
      public String Work { get; set; }
      public String Description { get; set; } 
      public virtual Foto Foto { get; set; }
-     public Int32 AccountId { get; set; }
+     public String userName { get; set; }
      //not maped
      public HttpPostedFileBase PhotoBytes { get;  set;}
     

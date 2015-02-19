@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace BushachFirstSchool.Domain.Entity
 {
-    [MetadataType(typeof(SchoolClassMetadata))]
-    public  partial class SchoolClass
+  [MetadataType(typeof(PupilMetadata))]
+  public partial  class Pupil
     {
-        public Guid SchoolClassId { get; set; }        
+        public Guid PupilId { get; set; }
+        //  public Guid? FotoId { get; set; }
         public String Name { get; set; }
-        public virtual ICollection<Subject> Subjects { get; set; }
-        public virtual ICollection<Pupil> Pupils { get; set; }
-
+        public String Surname { get; set; }
+        public String Lastname { get; set; }
+        public String userName { get; set; }
     }
 }
