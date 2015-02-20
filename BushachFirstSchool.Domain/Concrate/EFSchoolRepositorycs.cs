@@ -62,6 +62,13 @@ namespace BushachFirstSchool.Domain.Concrate
          Teacher dbEntry = _context.Teachers.Find(Id);
           if (dbEntry != null)
           {
+              foreach (var subject in _context.Subjects)
+              {
+                  if (subject.Teacher == dbEntry)
+                  {
+                      throw new FieldAccessException();
+                  }
+              }
               _context.Teachers.Remove(dbEntry);
               _context.SaveChanges();
           }
@@ -157,7 +164,10 @@ namespace BushachFirstSchool.Domain.Concrate
           if (dbEntry != null)
           {
 
-              //dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
+              if (dbEntry.Pupils.Count() != 0 || dbEntry.Subjects.Count() !=0)
+              {
+                  throw new FieldAccessException();
+              }
               _context.SchoolClases.Remove(dbEntry);
               _context.SaveChanges();
           }
@@ -165,7 +175,7 @@ namespace BushachFirstSchool.Domain.Concrate
       }
 
 
-      /**********************-----SubjectClasses-----*******************/
+      /**********************-----Subject-----*******************/
       public void AddSubjectToShoolClass(Guid IdSchoolClass, Subject subject)
       {
           if (subject.SubjectId == Guid.Empty)
@@ -220,6 +230,10 @@ namespace BushachFirstSchool.Domain.Concrate
           {
 
               //dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
+              if (dbEntry.Theams.Count() != 0) 
+              {
+                  throw new FieldAccessException();
+              }
               _context.Subjects.Remove(dbEntry);
               _context.SaveChanges();
           }
@@ -277,7 +291,7 @@ namespace BushachFirstSchool.Domain.Concrate
           return dbEntry;
       }
 
-      /**********************-----SubjectTheam-----*******************/
+      /**********************-----Pupil-----*******************/
       public IQueryable<Pupil> Pupils
       {
           get { return _context.Pupils; }

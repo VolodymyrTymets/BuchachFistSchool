@@ -61,15 +61,19 @@ namespace BushachFirstSchool.Controllers
         public PartialViewResult Delete(String Id)
         {
             if (GetSchoolClassId() != Guid.Empty)
-            {               
+            {
                 try
                 {
                     _repository.DeleteSubject(new Guid(Id));
                     TempData["message_ajax"] = "Предмет успішно видалений.";
                 }
+                catch (FieldAccessException ) 
+                {
+                    TempData["message_error_ajax"] = "Ви не можите видалити предмет, поки йому належить хоть одна тема. Спершу видаліть усі теми цього предмету.";
+                }
                 catch (Exception e)
                 {
-                    TempData["message_error_ajax"] = e.Message;                   
+                    TempData["message_error_ajax"] = e.Message;
                 }
                 
                 return PartialView("getSubjectData", getSubjects(GetSchoolClassId()));

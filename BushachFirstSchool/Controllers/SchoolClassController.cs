@@ -46,7 +46,7 @@ namespace BushachFirstSchool.Controllers
                 {
                     _repository.SaveSchoolClass(scholClass);
                     TempData["message_ajax"] = scholClass.Name + " клас  успішно доданий.";
-                }
+                }             
                 catch (Exception e)
                 {
                     TempData["message_error_ajax"] = e.Message;
@@ -64,6 +64,10 @@ namespace BushachFirstSchool.Controllers
                     _repository.DeleteSchoolClass(new Guid(deleteParametr));
                     TempData["message_ajax"] = "Клас успішно видалений.";
                 }
+                 catch (FieldAccessException)
+                 {
+                     TempData["message_error_ajax"] = "Ви не можите видалити клас, поки йому належить хоть один предмет чи учень. Спершу видаліть усі предмети та учнів, які належать до цього класу.";
+                 }
                 catch (Exception e)
                 {
                     TempData["message_error_ajax"] = e.Message;

@@ -425,6 +425,9 @@
     <Content Include="Views\Pupil\List.cshtml" />
     <Content Include="Views\Pupil\_create.cshtml" />
     <Content Include="Views\Pupil\getPupilsData.cshtml" />
+    <Content Include="Views\Teacher\PersonalPage.cshtml" />
+    <Content Include="Views\Teacher\getSubject.cshtml" />
+    <Content Include="Views\Teacher\getClasses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

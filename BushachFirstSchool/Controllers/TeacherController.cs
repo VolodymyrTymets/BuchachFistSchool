@@ -11,6 +11,7 @@ using System.Threading;
 using BushachFirstSchool.Infrastructure.Abstract;
 using BushachFirstSchool.Models.TeacherModel;
 using BushachFirstSchool.Filters;
+using WebMatrix.WebData;
 
 
 namespace BushachFirstSchool.Controllers
@@ -137,7 +138,44 @@ namespace BushachFirstSchool.Controllers
         {
             return GetTeacherData(1);
         }
-        
+
+        public ActionResult PersonalPage() 
+        {
+            return View();
+        }
+       
+
+        public PartialViewResult getSubject( Guid IdClass)
+        {
+            return PartialView(getSubjectBelongToTeacher(IdClass));
+        }
+        public PartialViewResult getClasses()
+        {
+            return PartialView(getClassesInWhichTeacherHasSubject());
+        }
+        public ActionResult RedirectToTheamPage(Guid Id)
+        {
+            Session["SubjectId"] = Id.ToString();
+            return RedirectToAction("Index", "SubjectTheam");
+        }
+
+        private IEnumerable<SchoolClass> getClassesInWhichTeacherHasSubject()
+        {
+            var teacherId = _repository.Teachers.FirstOrDefault(x => x.userName == WebSecurity.CurrentUserName).TeacherId;
+            return _repository.ShoolClasses.Where(x => x.Subjects
+                                                .Where(subject => subject.Teacher.TeacherId == teacherId).Count() != 0)
+                                                .Select(schoolClass => schoolClass).ToList();
+        }
+        private IEnumerable<Subject> getSubjectBelongToTeacher(Guid IdClass)
+        {
+            var teacherId = _repository.Teachers.FirstOrDefault(x => x.userName == WebSecurity.CurrentUserName).TeacherId;
+            return _repository.ShoolClasses
+                                          .FirstOrDefault(x => x.SchoolClassId == IdClass)
+                                          .Subjects
+                                          .Where(subject => subject.Teacher.TeacherId == teacherId)
+                                          .ToList();
+        }
+
         private PagingInfo getPagingInfo(Int32 Page)
         {
             return new PagingInfo
@@ -156,6 +194,10 @@ namespace BushachFirstSchool.Controllers
                     var teacher = _repository.DeleteTeacher(new Guid(Id));
                     _authProvider.DeleteUser(teacher.userName);
                     TempData["message_ajax"] = teacher.Surname + " " + teacher.Name + " успішно видалений.";
+                }
+                catch (FieldAccessException)
+                {
+                    TempData["message_error_ajax"] = "Ви не можите видалити вчителя, поки він належить хоть до одного предмет. Спершу видаліть усі предмети звязані з ним.";
                 }
                 catch (Exception e) 
                 {

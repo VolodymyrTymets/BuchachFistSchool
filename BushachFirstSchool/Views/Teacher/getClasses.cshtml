@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BushachFirstSchool.Domain.Entity.SchoolClass>
+
+@foreach (var item in Model)
+{
+
+    <div class="list-group-item">
+        <div class="row-action-primary">
+            <i class="mdi-social-people">
+
+            </i>
+        </div>
+        <div class="row-content">
+            <div class="action-secondary">
+                <i class="mdi-material-info">
+                </i>
+            </div>
+            <h4 class="list-group-item-heading">
+                @Ajax.ActionLink(@item.Name, "getSubject", new
+                                {
+                                    IdClass = item.SchoolClassId
+                                }, new AjaxOptions
+                                {
+                                    UpdateTargetId = "subjectList",
+                                    Url = Url.Action("getSubject", new
+                                    {
+                                        IdClass = item.SchoolClassId
+                                    }),
+                                    LoadingElementId = "loading",
+                                    LoadingElementDuration = 1000,
+
+                                }, new
+                                {
+                                    @class = "btn btn-default",
+                                })
+            </h4>
+            
+        </div>
+    </div>
+    <div class="list-group-separator"></div>
+}
