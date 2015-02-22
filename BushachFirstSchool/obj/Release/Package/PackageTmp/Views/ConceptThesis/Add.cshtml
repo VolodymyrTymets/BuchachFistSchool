@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <h1>Генератор понять та тез</h1>
+    <p class="text-muted">Введіть у це поле текст який потрібно розбити на поняття і тези.</p>
+    <textarea id="input_generate" class="form-control"></textarea>
+    <p class="text-info">Для кращої генерації, у тексті кожне речення повинне закінчуватися на крапку. Кожне поняття повинне бутти розділеним симаолом '-'.</p>
+    <input type="submit" class="btn btn-primary pull-right" id="btn_generate" value="Згенерувати" />
+
+    <div class="row">
+        <div class="col-md-4 mini-panel">
+            <p class="text-muted">Або введіть сюди власні  поняття і тези.</p>
+            <input id="input_auto_concept" type="text" class="form-control" placeholder="Поняття" />
+            <textarea id="input_auto_thesis" class="form-control" placeholder="Теза"></textarea>
+            <input type="submit" class="btn btn-primary pull-right" id="btn_auto_add" value="Додати" />
+        </div>
+    </div>
+    <h4 class="text-primary">Таблиця згенерованих понять та тез </h4>
+    <table id="table_genetate" class="table mini-panel">
+        <thead>
+            <tr>
+                <th>Поняття</th>
+                <th>Замінити</th>
+                <th>Тези</th>
+                <th>Видалити</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <h4 class="text-primary">Таблиця ваших понять та тез </h4>
+    <table id="table_auto" class="table mini-panel">
+        <thead>
+            <tr>
+                <th>Поняття</th>
+                <th>Замінити</th>
+                <th>Тези</th>
+                <th>Видалити</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div class="row">
+        <div class="col-lg-2 col-lg-offset-10">
+            <button id="btn_send_to_server" class="btn btn-black"> Відправити</button>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/conceptThesisGenerator")

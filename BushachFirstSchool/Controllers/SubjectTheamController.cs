@@ -9,6 +9,7 @@ using BushachFirstSchool.Models.SubjectTheamModel;
 
 namespace BushachFirstSchool.Controllers
 {
+    [Authorize(Roles = "admin,theacher")]
     public class SubjectTheamController : Controller
     {
         public SubjectTheamController(ISchoolRepositorycs repository) 
@@ -78,6 +79,12 @@ namespace BushachFirstSchool.Controllers
             }
             return PartialView("Error", null);
         }
+        public ActionResult RedirectToConceptPage(Guid Id)
+        {
+            Session["SubjectTheamId"] = Id.ToString();
+            return RedirectToAction("Index", "ConceptThesis");
+        }
+
 
 
         private IEnumerable<SubjectTheam> getSubjectTheams(Guid subjectId)

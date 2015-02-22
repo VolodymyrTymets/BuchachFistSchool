@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BushachFirstSchool.Domain.Entity.Concept>
+
+@{
+    ViewBag.Title = "getConceptThesisData";
+   
+}
+
+<div id="ConceptThesisTable">
+    @{Html.RenderPartial("_message_ajax");}
+
+
+    <div class="col-lg-12">
+        <table class="table  table-hover mini-panel">
+            <tr>
+                <th>
+                    Поняття
+                </th>
+                <th>
+                    Тези
+                </th>
+                <th>
+
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.body)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Thesis.body)
+                    </td>
+                   
+                    <td>
+                        @Ajax.ActionLink(" Видалити", "Delete", new
+                                {
+                                    Id = item.ConceptId
+                                }, new AjaxOptions
+                                {
+                                    UpdateTargetId = "ConceptThesisTable",
+                                    LoadingElementId = "loading",
+                                    LoadingElementDuration = 1000,
+                                    Confirm = "Ви дійсно бажаєте видалити? Усі дані буде втрачено.",
+
+                                }, new
+                                {
+                                    @class = "mdi-content-clear btn btn-default",
+                                })
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

@@ -86,6 +86,11 @@ namespace BushachFirstSchool
             bundles.Add(new ScriptBundle("~/bundles/background").Include(
                        "~/Scripts/background/zero.js",
                        "~/Scripts/background/background.js"));
+            bundles.Add(new ScriptBundle("~/bundles/conceptThesisGenerator").Include(
+                     "~/Scripts/conceptThesisGenerator/ptparser.js",
+                     "~/Scripts/conceptThesisGenerator/pttableBuilder.js",
+                     "~/Scripts/conceptThesisGenerator/ptAjaxSender.js",
+                     "~/Scripts/conceptThesisGenerator/ptindex.js"));
         }
     }
 }

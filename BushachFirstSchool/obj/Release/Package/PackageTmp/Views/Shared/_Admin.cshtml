@@ -9,6 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/Bootstrap/css")
+    @Styles.Render("~/Content/Bootstrap-material/css")
     @Styles.Render("~/Content/elltments")
        @Styles.Render("~/Content/ContentPage")
     @Styles.Render("~/Content/css")
@@ -37,7 +38,7 @@
    
         <div id="body">
             @{Html.RenderPartial("_message");}
-            <div class="container">
+            <div class="container page-container appear_top">
                 @RenderBody()
             </div>
         </div>
@@ -46,6 +47,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/Bootstrap/js")
+    @Scripts.Render("~/Content/Bootstrap-material/js")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/background")
     @Scripts.Render("~/bundles/global")

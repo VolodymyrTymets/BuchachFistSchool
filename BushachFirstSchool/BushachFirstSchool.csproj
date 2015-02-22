@@ -188,6 +188,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConceptThesisController.cs" />
     <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Admin\NewsListViewsModels.cs" />
     <Compile Include="Models\Admin\PagingInfo.cs" />
+    <Compile Include="Models\ConceptTheam\ConceptTheamListViewModel.cs" />
     <Compile Include="Models\PupilModel\PupilCreateViewModel.cs" />
     <Compile Include="Models\PupilModel\PupilListViewModel.cs" />
     <Compile Include="Models\SubjectModel\SubjectIndexViewModel.cs" />
@@ -338,6 +340,10 @@
     <Content Include="Images\FotoScholl.jpg" />
     <Content Include="Scripts\background\background.js" />
     <Content Include="Scripts\background\zero.js" />
+    <Content Include="Scripts\conceptThesisGenerator\ptindex.js" />
+    <Content Include="Scripts\conceptThesisGenerator\ptAjaxSender.js" />
+    <Content Include="Scripts\conceptThesisGenerator\ptparser.js" />
+    <Content Include="Scripts\conceptThesisGenerator\pttableBuilder.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\home\homeglobal.js" />
     <Content Include="Scripts\home\navigations.js" />
@@ -428,6 +434,12 @@
     <Content Include="Views\Teacher\PersonalPage.cshtml" />
     <Content Include="Views\Teacher\getSubject.cshtml" />
     <Content Include="Views\Teacher\getClasses.cshtml" />
+    <Content Include="Views\ConceptThesis\Add.cshtml" />
+    <Content Include="Views\ConceptThesis\Index.cshtml" />
+    <Content Include="Views\ConceptThesis\getConceptThesisData.cshtml" />
+    <Content Include="Views\Pupil\Error.cshtml" />
+    <Content Include="Views\SubjectTheam\Error.cshtml" />
+    <Content Include="Views\ConceptThesis\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

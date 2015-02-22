@@ -9,7 +9,7 @@
                     <a href="/Teacher">
                         <img src="@Url.Action("GetImage", "Foto", new
                                    {
-                                       Id = item.Foto.FotoId
+                                       Id =  item.Foto != null ?  item.Foto.FotoId : Guid.Empty
                                    })" alt="@item.Surname +@item.Name">
                     </a>
                 </div>

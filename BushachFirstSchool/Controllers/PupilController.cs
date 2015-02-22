@@ -21,7 +21,7 @@ namespace BushachFirstSchool.Controllers
             _authProvider = auth;
         }
 
-
+        [Authorize(Roles = "admin")]
         public ActionResult List()
         {
             var schoolClassId = GetSchoolClassId();

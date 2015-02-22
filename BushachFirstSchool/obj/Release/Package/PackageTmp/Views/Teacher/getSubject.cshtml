@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BushachFirstSchool.Domain.Entity.Subject>
+
+<div class="list-group mini-panel">
+    @foreach (var item in Model)
+    {
+
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i class="mdi-social-school"></i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary"><i class="mdi-material-info"></i></div>
+                <h4 class="list-group-item-heading">
+                @Html.ActionLink(@item.Name, "RedirectToTheamPage",
+                                              new { Id = item.SubjectId},
+                                              new { @class = "btn btn-default" })
+                </h4>
+                <p class="list-group-item-text">
+
+                </p>
+            </div>
+        </div>
+        <div class="list-group-separator"></div>
+    }
+</div>

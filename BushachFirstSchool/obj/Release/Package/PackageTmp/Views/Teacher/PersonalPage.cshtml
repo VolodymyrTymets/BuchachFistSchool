@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "PersonalPage";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    
+  
+}
+
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <h2>Сторінка вчителя</h2>
+    <div class="row">
+        <div class="col-lg-8">
+            <p class="lead">Тут ви можете додавати чи видаляти нові тести для учннів</p>
+        </div>
+        <div class="col-lg-4">
+            @{Html.RenderPartial("_loading");}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 ">
+            <p>Спершу оберіть потрібний вам клас</p>
+            <p class="text-info">(Тут відображено тільки ті класи, у яких ви ведете предмет)</p>
+            <div class="list-group mini-panel ">
+                @Html.Action("getClasses")
+            </div>
+        </div>
+        <div class="col-lg-6 ">
+            <p>Потому оберіть потрібний вам предмет</p>
+            <p class="text-info">(Тут відображено тільки ті предмети, у які ви ведете)</p>
+            <div id="subjectList">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model BushachFirstSchool.Models.SubjectModel.SubjectIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i class="mdi-social-school">
+                </i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary">
+                    <i class="mdi-material-info">
+                    </i>
+                </div>
+                <h2>
+                    Предмети
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <ul class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Класи", "Index", "SchoolClass")
+                </li>
+                <li class="active">
+                   
+                    <b>@Model.ClassNme</b>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        @{Html.RenderPartial("_сreate", @Model);}
+        <div class="col-md-4 col-md-offset-4">
+            @{Html.RenderPartial("_loading");}
+        </div>
+    </div>
+    
+    @Html.Action("getSubjectData")
+</div>

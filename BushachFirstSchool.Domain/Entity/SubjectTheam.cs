@@ -15,8 +15,6 @@ namespace BushachFirstSchool.Domain.Entity
         public Guid TheamId { get; set; }
         public String Name { get; set; }
         public virtual ICollection<Concept> Concepts { get; set; }
-        public virtual ICollection<Thesis> Thesises { get; set; }
-
 
     }
 }

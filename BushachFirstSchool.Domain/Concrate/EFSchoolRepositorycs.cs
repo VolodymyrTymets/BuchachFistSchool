@@ -18,6 +18,10 @@ namespace BushachFirstSchool.Domain.Concrate
       {
           get { return _context.Fotos; }
       }
+      public IQueryable<Entity.Thesis> Thesises
+      {
+          get { return _context.Thesises; }
+      }
 
       /**********************-----Teacher-----************************/
       public IQueryable<Entity.Teacher> Teachers
@@ -252,10 +256,7 @@ namespace BushachFirstSchool.Domain.Concrate
               theam.TheamId = Guid.NewGuid();
           }
           var dbEntry = _context.Subjects.Find(IdSubject);
-          if (dbEntry.Theams == null)
-          {
-              dbEntry.Theams = new List<SubjectTheam>();
-          }
+          
           dbEntry.Theams.Add(theam);
           _context.SaveChanges();
       }
@@ -266,10 +267,7 @@ namespace BushachFirstSchool.Domain.Concrate
           {
               dbEntry.Name = theam.Name;
 
-              if (theam.Thesises != null)
-              {
-                  dbEntry.Thesises = theam.Thesises;
-              }
+             
               if (theam.Concepts != null)
               {
                   dbEntry.Concepts = theam.Concepts;
@@ -286,6 +284,74 @@ namespace BushachFirstSchool.Domain.Concrate
 
               //dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
               _context.SubjectTheams.Remove(dbEntry);
+              _context.SaveChanges();
+          }
+          return dbEntry;
+      }
+
+      /**********************-----Concept-----*******************/
+      public IEnumerable<Concept> Concepts
+      {
+          get { return _context.Concepts; }
+      }
+      public void AddConceptsToSubjectTheam(Guid IdSubjectTheam, IEnumerable<Concept> concept)
+      {
+          var dbEntry = _context.SubjectTheams.Find(IdSubjectTheam);
+          foreach (var item in concept)
+          {
+              if (item.ConceptId == Guid.Empty)
+              {
+                  item.ConceptId = Guid.NewGuid();
+              }
+              if (item.Thesis !=null && item.Thesis.ThesisId == Guid.Empty)
+              {
+                  item.Thesis.ThesisId = Guid.NewGuid();
+              }
+              _context.Thesises.Add(item.Thesis);
+              dbEntry.Concepts.Add(item);
+          }
+          _context.SaveChanges();
+      }
+      public void AddConceptsToSubjectTheam(Guid IdSubjectTheam, Concept concept)
+      {
+          if (concept.ConceptId == Guid.Empty)
+          {
+              concept.ConceptId = Guid.NewGuid();
+          }
+          if (concept.Thesis != null && concept.Thesis.ThesisId == Guid.Empty)
+          {
+              concept.Thesis.ThesisId = Guid.NewGuid();
+          }
+          var dbEntry = _context.SubjectTheams.Find(IdSubjectTheam);
+
+          dbEntry.Concepts.Add(concept);
+          _context.SaveChanges();
+      }
+      public Concept EditConcepts(Concept concepts)
+      {
+          Entity.Concept dbEntry = _context.Concepts.Find(concepts.ConceptId);
+          if (dbEntry != null)
+          {
+              dbEntry.body = concepts.body;
+
+
+              if (concepts.Thesis != null)
+              {
+                  dbEntry.Thesis = concepts.Thesis;
+              }
+          }
+          _context.SaveChanges();
+          return concepts;
+      }
+      public Concept DeleteConcept(Guid Id)
+      {
+          var dbEntry = _context.Concepts.Find(Id);
+          if (dbEntry != null)
+          {
+
+              //dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
+              _context.Thesises.Remove(dbEntry.Thesis);
+              _context.Concepts.Remove(dbEntry);             
               _context.SaveChanges();
           }
           return dbEntry;

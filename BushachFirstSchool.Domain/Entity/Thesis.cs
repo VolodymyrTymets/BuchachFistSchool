@@ -10,7 +10,7 @@ namespace BushachFirstSchool.Domain.Entity
     public  class Thesis
     {
         [Key]
-        public Guid ConceptId { get; set; }
+        public Guid ThesisId { get; set; }
         public String body { get; set; }
     }
 }

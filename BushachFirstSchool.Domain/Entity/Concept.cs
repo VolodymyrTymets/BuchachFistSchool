@@ -10,5 +10,6 @@ namespace BushachFirstSchool.Domain.Entity
     {
         public Guid ConceptId { get; set; }
         public String body { get; set; }
+        public virtual Thesis Thesis { get; set; }
     }
 }

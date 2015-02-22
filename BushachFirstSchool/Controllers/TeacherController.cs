@@ -54,7 +54,7 @@ namespace BushachFirstSchool.Controllers
             return PartialView(model);
         }
 
-      //  [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View(new TeacherCreateViewModel());
@@ -138,7 +138,7 @@ namespace BushachFirstSchool.Controllers
         {
             return GetTeacherData(1);
         }
-
+        [Authorize(Roles = "theacher")]
         public ActionResult PersonalPage() 
         {
             return View();

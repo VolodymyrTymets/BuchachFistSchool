@@ -1,0 +1,18 @@
+﻿@if (TempData["message_ajax"] != null)
+{
+    <div class="msg">
+        <p>
+            @TempData["message_ajax"]
+        </p>
+    </div>
+
+}
+@if (TempData["message_error_ajax"] != null)
+{
+    <div class="msg err">
+        <p>
+            @TempData["message_error_ajax"]
+        </p>
+    </div>
+
+}

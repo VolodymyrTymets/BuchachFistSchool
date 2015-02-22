@@ -1,0 +1,55 @@
+﻿@model BushachFirstSchool.Models.ConceptTheam.ConceptTheamListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i class="mdi-action-speaker-notes">
+                </i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary">
+                    <i class="mdi-material-info">
+                    </i>
+                </div>
+                <h2>
+                    Поняття
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <ul class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Класи", "Index", "SchoolClass")
+                </li>
+                <li>
+                    @Html.ActionLink(@Model.ClassName, "Index", "Subject")
+                </li>
+                <li>
+                    @Html.ActionLink(@Model.SubjectName, "Index", "SubjectTheam")
+                </li>
+                <li class="active">
+
+                    <b>@Model.TheamName</b>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">            
+            @Html.ActionLink("Додати", "Add",null,new { @class = "btn btn btn-primary"})            
+        </div>
+        <div class="col-lg-6">
+            @{Html.RenderPartial("_loading");}
+        </div>
+    </div>
+    
+   @Html.Action("getConceptThesisData")
+</div>

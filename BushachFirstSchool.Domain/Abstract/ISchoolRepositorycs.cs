@@ -17,6 +17,9 @@ namespace BushachFirstSchool.Domain.Abstract
          IQueryable<Subject> Subjects { get; }
          IQueryable<SubjectTheam> SubjectsTheam { get; }
          IQueryable<Pupil> Pupils { get; }
+         IEnumerable<Concept> Concepts { get; }
+         IQueryable<Entity.Thesis> Thesises { get; }
+       
 
          Teacher SaveTeacher(Teacher teacher);
          Teacher EditTeacher(Teacher teacher);
@@ -35,6 +38,12 @@ namespace BushachFirstSchool.Domain.Abstract
          void AddSubjectTheamToSubject(Guid IdSubject, SubjectTheam theam);
          SubjectTheam EditSubjectTheam(SubjectTheam theam);
          SubjectTheam DeleteSubjectTheam(Guid Id);
+
+         void AddConceptsToSubjectTheam(Guid IdSubjectTheam, IEnumerable<Concept> concept);     
+         void AddConceptsToSubjectTheam(Guid IdSubjectTheam, Concept concept);    
+         Concept EditConcepts(Concept concepts);
+         Concept DeleteConcept(Guid Id);
+        
 
          void AddPupilToSchoolClass(Guid IdClass, Pupil pupil);
          Pupil EditPupil(Pupil pupil);

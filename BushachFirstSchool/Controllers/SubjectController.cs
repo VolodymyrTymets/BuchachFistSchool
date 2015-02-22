@@ -9,6 +9,7 @@ using BushachFirstSchool.Models.SubjectModel;
 
 namespace BushachFirstSchool.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class SubjectController : Controller
     {
 

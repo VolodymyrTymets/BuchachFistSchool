@@ -8,6 +8,7 @@ using BushachFirstSchool.Domain.Entity;
 
 namespace BushachFirstSchool.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class SchoolClassController : Controller
     {
         public SchoolClassController(ISchoolRepositorycs repository) 
@@ -25,8 +26,9 @@ namespace BushachFirstSchool.Controllers
         {  
             AddNewShollCalas(scholClass);
             DeleteShollCalas(deleteParametr);
+          
 
-            return PartialView(_repository.ShoolClasses.ToList());
+            return PartialView(_repository.ShoolClasses);
         }
         public ActionResult DetailsSubject(Guid Id) 
         {
