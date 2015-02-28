@@ -18,7 +18,7 @@
     <body>
 
         <canvas class="backroung-canvas" id="backroung_canvas"></canvas>
-
+        @{Html.RenderPartial("_logmenu");}
             <div class="Navigation">
                 <nav>
                     <ul>
@@ -39,11 +39,7 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="float-right login-partial">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                </div>
+              
               </div>
          
                 @{Html.RenderPartial("_message");}

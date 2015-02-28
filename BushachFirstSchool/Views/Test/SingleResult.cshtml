@@ -1,0 +1,79 @@
+﻿@model BushachFirstSchool.Models.Test.SingleResultsViewModel
+
+@{
+    ViewBag.Title = "SingleResults";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    
+    var testAArr = Model.TestCollection.TeststACol.ToArray();
+    var testBArr = Model.TestCollection.TeststBCol.ToArray();
+    var testCArr = Model.TestCollection.TeststCCol.ToArray();
+    var testDArr = Model.TestCollection.TeststDCol.ToArray();
+
+    var resultBArr =
+                    (from i in Model.TestCollection.TeststBCol
+                     join o in Model.TestResult.testBColl
+                     on i.concept.ConceptId equals o.conceptId
+                     select o).ToArray();
+    var resultCArr =
+                     (from i in Model.TestCollection.TeststCCol
+                      join o in Model.TestResult.testCColl
+                      on i.thesis.ThesisId equals o.conceptId
+                      select o).ToArray();
+}
+
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i class="mdi-action-dns">
+                </i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary">
+                    <i class="mdi-material-info">
+                    </i>
+                </div>
+                <h2>
+                    @Model.TestResult.Pupil.Surname  @Model.TestResult.Pupil.Name @Model.TestResult.Pupil.Lastname
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    @for (int i = 0; i < testAArr.Length; i++)
+    {
+        var resultAArr = Model.TestResult.testAColl.ToArray();
+
+       Html.RenderPartial("_singleTestAReload", new BushachFirstSchool.Models.Test.SingleTestAReloadviewModel
+                          {
+                              AnswerA = resultAArr[i],
+                              TestA = testAArr[i]
+                          });
+    }
+    @for (int i = 0; i < testBArr.Length; i++)
+    {
+        Html.RenderPartial("_singleTestBReload", new BushachFirstSchool.Models.Test.SingleTestBReloadviewModel
+                           {
+                               AnswerB = resultBArr[i],
+                               TestB = testBArr[i]
+                           });
+    }
+    @for (int i = 0; i < testCArr.Length; i++)
+    {
+        Html.RenderPartial("_singleTestCReload", new BushachFirstSchool.Models.Test.SingleTestCReloadviewModel
+                           {
+                               AnswerC = resultCArr[i],
+                               TestC = testCArr[i]
+                           });
+    }
+    @for (int i = 0; i < testDArr.Length; i++)
+    {
+        var resultDArr = Model.TestResult.testDColl.ToArray();
+        Html.RenderPartial("_singleTestDReload", new BushachFirstSchool.Models.Test.SingleTestDReloadviewModel
+                           {
+                               AnswerD = resultDArr[i],
+                               TestD = testDArr[i]
+                           });
+    }
+
+ </div>

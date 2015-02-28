@@ -1,4 +1,5 @@
 ﻿using BushachFirstSchool.Domain.Entity;
+using BushachFirstSchool.Domain.Entity.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace BushachFirstSchool.Domain.Abstract
          IQueryable<Pupil> Pupils { get; }
          IEnumerable<Concept> Concepts { get; }
          IQueryable<Entity.Thesis> Thesises { get; }
+         IQueryable<TestCollection> Tests { get; }
+         IQueryable<TestResult> TestResults { get; }  
        
 
          Teacher SaveTeacher(Teacher teacher);
@@ -48,5 +51,13 @@ namespace BushachFirstSchool.Domain.Abstract
          void AddPupilToSchoolClass(Guid IdClass, Pupil pupil);
          Pupil EditPupil(Pupil pupil);
          Pupil DeletePupil(Guid Id);
+
+           
+         void SaveTest(Guid theamId, TestCollection testCollection);
+         void DeleteTestFronTheam(Guid theamId);
+         TestResult SaveTestResult(Guid testId, TestResult TestResult, String UserName);
+         void DeleteTestResult(TestResult testresult);
+          void EnableTest(Guid TheamId, bool Eable);
+          void ChangeResultTime(Guid ResultId, DateTime time);
     }
 }

@@ -1,0 +1,40 @@
+﻿@model BushachFirstSchool.Models.Test.TestGenerateViewModel
+
+@{
+    ViewBag.Title = "Generate";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i class="mdi-social-people">
+                </i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary">
+                    <i class="mdi-material-info">
+                    </i>
+                </div>
+                <h2>
+                    Генерація тестів
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">        
+        @{Html.RenderPartial("TestGenericOptions", @Model.TestGenericOptionsViewModel);}
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-8">
+            @{Html.RenderPartial("_loading");}
+        </div>
+    </div>
+ 
+    <div class="row">
+        <div id="TestsData">
+
+        </div>
+    </div>
+</div>

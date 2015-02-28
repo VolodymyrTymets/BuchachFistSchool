@@ -1,0 +1,42 @@
+﻿@model BushachFirstSchool.Models.Test.SingleTestDReloadviewModel
+@{
+  
+    var sortlistT = from i in Model.AnswerD.SingleAnswerD
+                    join o in Model.TestD.thesises 
+                    on i.thesisId equals o.ThesisId
+                    select o;
+    var sortlistC = from i in Model.AnswerD.SingleAnswerD
+                    join o in Model.TestD.concept
+                    on i.conceptId equals o.ConceptId
+                    select o;
+}
+<div class="row">
+    <div class="col-lg-12  mini-panel testD">
+        <div class="col-lg-3">
+
+            <div class="list" id="conceptlist">
+                <h1>Поняття</h1>
+                <ul>
+                    @foreach (var item in sortlistC)
+                    {
+                        <li id="@item.ConceptId">@item.body</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col-lg-9">
+            <div class="list" id="thesislist">
+                <h1>Teзи</h1>
+                <ul class="thesislist">
+                    @foreach (var item in sortlistT)
+                    {
+                        <li id="@item.ThesisId"><span>@item.body</span></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

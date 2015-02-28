@@ -53,7 +53,7 @@ namespace BushachFirstSchool.Infrastructure
                 Roles.CreateRole("theacher");
             }
             Roles.AddUserToRole(username, "theacher");           
-            EmailSender.SendRegisterMessage(email, Password, username);
+            //EmailSender.SendRegisterMessage(email, Password, username);
             return username;
 
         }      

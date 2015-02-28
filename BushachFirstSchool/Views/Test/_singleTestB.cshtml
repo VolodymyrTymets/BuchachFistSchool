@@ -1,0 +1,20 @@
+﻿@model BushachFirstSchool.Domain.Entity.Test.TestB
+
+<div class="row">
+    <div class="col-lg-12 mini-panel">
+        <form id="@Model.concept.ConceptId" class="testB">
+            <p>
+                Якому визначенню відповідає дане твердження: <b>@Model.concept.body</b> визначенню:
+            </p>
+            @foreach (var item in @Model.thesises)
+            {
+                <div class="radio radio-success">
+                    <label>
+                        <input type="radio" name="sample1" value="@item.ThesisId"><span class="circle"></span><span class="check"></span>
+                        @item.body
+                    </label>
+                </div>
+            }
+        </form>
+    </div>
+</div>

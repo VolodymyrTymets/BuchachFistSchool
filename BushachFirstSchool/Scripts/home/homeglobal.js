@@ -46,4 +46,23 @@ $(document).ready(function () {
     }, 3000);    
     mapinitialize();
     initializeNavigationMenu();
+
+    //log menu
+    $('.menu-icon').click(function () {
+        if ($('#logmenunavigator').css("left") == "-250px") {
+            $('#logmenunavigator').animate({ left: '0px' }, 350);
+            $('.menu-icon').animate({ left: '250px' }, 350);
+            $('.menu-text').animate({ left: '300px' }, 350).empty().text("Закрити");
+        }
+        else {
+            $('#logmenunavigator').animate({ left: '-250px' }, 350);
+            $(this).animate({ left: '0px' }, 350);
+            $('.menu-text').animate({ left: '50px' }, 350).empty().text("Меню");
+
+        }
+    });
+    $('.menu-icon').click(function () {
+        $(this).toggleClass("on");
+    });
+
 });

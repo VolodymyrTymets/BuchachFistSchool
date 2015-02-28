@@ -71,6 +71,7 @@
     <Compile Include="Concrate\EFSchoolRepositorycs.cs" />
     <Compile Include="Concrate\FileConvertot.cs" />
     <Compile Include="Concrate\ShoolInitializer.cs" />
+    <Compile Include="Concrate\TestInitializer.cs" />
     <Compile Include="Entity\Concept.cs" />
     <Compile Include="Entity\Foto.cs" />
     <Compile Include="Entity\Metadata\FotoMetadata.cs" />
@@ -87,6 +88,12 @@
     <Compile Include="Entity\Subject.cs" />
     <Compile Include="Entity\SubjectTheam.cs" />
     <Compile Include="Entity\Teacher.cs" />
+    <Compile Include="Entity\Test\TestA.cs" />
+    <Compile Include="Entity\Test\TestB.cs" />
+    <Compile Include="Entity\Test\TestC.cs" />
+    <Compile Include="Entity\Test\TestCollection.cs" />
+    <Compile Include="Entity\Test\TestD.cs" />
+    <Compile Include="Entity\Test\TestResult.cs" />
     <Compile Include="Entity\Thesis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -21,6 +21,7 @@ namespace BushachFirstSchool.Controllers
             _authProvider = auth;
         }
 
+        //pupi llsit page
         [Authorize(Roles = "admin")]
         public ActionResult List()
         {
@@ -41,7 +42,6 @@ namespace BushachFirstSchool.Controllers
             };
             return View(model);
         }
-
         public PartialViewResult getPupilsData()
         {
             return PartialView(getPupils(GetSchoolClassId()));
@@ -83,6 +83,21 @@ namespace BushachFirstSchool.Controllers
             }
             return PartialView("Error", null);
         }
+
+        // pupil test page
+        public ActionResult Test() 
+        {
+            return View(getSubjects());
+        }
+        public PartialViewResult getSubjectTheam(Guid IdSubject) 
+        {
+            return PartialView(_repository.Subjects
+                        .FirstOrDefault(x => x.SubjectId == IdSubject)
+                        .Theams);
+        }
+       
+        
+
         private IEnumerable<Pupil> getPupils(Guid shoolClassId)
         {
             return _repository.ShoolClasses
@@ -93,6 +108,15 @@ namespace BushachFirstSchool.Controllers
         {
             return Session["ShoolClassId"] != null ? new Guid(Session["ShoolClassId"] as String) : Guid.Empty;
         }
+        private IEnumerable<Subject> getSubjects() 
+        {
+            var pupilname = "pupil1";
+            return   _repository.ShoolClasses
+                       .FirstOrDefault(x => x.Pupils
+                                             .FirstOrDefault(pupil => pupil.userName == pupilname) != null)
+                       .Subjects;
+        }
+
         
         private ISchoolRepositorycs _repository;
         private IAuthProvider _authProvider;

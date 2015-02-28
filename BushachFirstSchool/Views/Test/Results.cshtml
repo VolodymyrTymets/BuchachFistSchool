@@ -1,0 +1,95 @@
+﻿@model IEnumerable< BushachFirstSchool.Domain.Entity.Test.TestResult>
+@{
+    ViewBag.Title = "Results";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+
+}
+
+
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i class="mdi-action-dns">
+                </i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary">
+                    <i class="mdi-material-info">
+                    </i>
+                </div>
+                <h2>
+                    Результат тестів
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <div id="reqestDiv">
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+           
+            @{Html.RenderPartial("_loading");}
+        </div>
+    </div>
+        <table class="table  table-hover mini-panel">
+            <tr>
+                <th>
+                   Учень
+                </th>
+                <th>
+                    Результат
+                </th>
+                <th>
+                    Змінити час учневі
+                </th>
+                <th>
+                    Переглянути тест учня
+                </th>
+            </tr>
+            @foreach (var item in @Model) {
+                <tr>
+                    <td>
+                        @item.Pupil.Surname  @item.Pupil.Name @item.Pupil.Lastname 
+                    </td>
+                    <td>
+                       результат
+                    </td>
+                    <td>
+                 
+                        @using (Ajax.BeginForm("Add", new { Id = @item.TestResultId }, 
+                                    new AjaxOptions
+                                                {
+                                                    UpdateTargetId = "reqestDiv",
+                                                    Url = Url.Action("SetResultTime", new { Id = @item.TestResultId }),
+                                                    LoadingElementId = "loading",
+                                                    LoadingElementDuration = 1000,
+
+                                                } ))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                         <div class="col-lg-4">
+                             <input name="time" type="number" max="60" min="0" value="@item.RemainderTime.Minute" class="form-control" />
+                         
+                         </div>  
+                          <div class="col-lg-6">
+                              <input type="submit" class="btn bg-primary" value="Підтвердити" />
+                          </div>
+                          
+                         
+
+                        }
+                        
+                    </td>
+                    <td>
+                     @Html.ActionLink("Детальніше", "SingleResult", new { resultId = @item.TestResultId }, new  {@class ="btn btn-default" })
+                    </td>
+                </tr> 
+            }
+        </table>
+
+</div>

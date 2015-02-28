@@ -14,6 +14,7 @@
        @Styles.Render("~/Content/ContentPage")
     @Styles.Render("~/Content/css")
 
+;
 </head>
 <body>
 
@@ -29,14 +30,11 @@
                     
                 </ul>
             </nav>
-            <div class="float-right  login-partial">
-                <section id="login">
-                    @Html.Partial("_LoginPartial")
-                </section>
-            </div>
+           
         </div>
-   
+      
         <div id="body">
+            @{Html.RenderPartial("_logmenu");}
             @{Html.RenderPartial("_message");}
             <div class="container page-container appear_top">
                 @RenderBody()
@@ -46,10 +44,12 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/Bootstrap/js")
     @Scripts.Render("~/Content/Bootstrap-material/js")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/background")
     @Scripts.Render("~/bundles/global")
+ 
 </body>
 </html>

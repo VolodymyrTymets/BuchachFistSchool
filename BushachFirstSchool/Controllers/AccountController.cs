@@ -22,7 +22,7 @@ namespace BushachFirstSchool.Controllers
 
         public ActionResult Login()
         {
-           /* WebSecurity.CreateUserAndAccount("Admin", "admin12345");
+          /* WebSecurity.CreateUserAndAccount("Admin", "admin12345");
             if (!Roles.RoleExists("Admin"))
             {
                 Roles.CreateRole("Admin");
@@ -52,6 +52,11 @@ namespace BushachFirstSchool.Controllers
                 return View();
             }
 
+        }
+        public ActionResult LogOut()
+        {
+            _authprovider.Logout();
+            return RedirectToAction("Index", "Home");
         }
         private IAuthProvider _authprovider ;
 

@@ -1,0 +1,93 @@
+﻿@model BushachFirstSchool.Models.Test.TestListViewModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "reqestDiv",
+        Url = Url.Action("EnableTest", new { Id = Request.QueryString["theamId"]}),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+
+    };
+}
+
+<div class="col-md-12 shadow-z-2" style="background-color:white">
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i class="mdi-action-dns">
+                </i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary">
+                    <i class="mdi-material-info">
+                    </i>
+                </div>
+                <h2>
+                    Тести
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <ul class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Класи", "Index", "SchoolClass")
+                </li>
+                <li>
+                    @Html.ActionLink(@Model.ClassName, "Index", "Subject")
+                </li>
+                <li>
+                    @Html.ActionLink(@Model.SubjectName, "Index", "SubjectTheam")
+                </li>
+                <li>
+
+                    <b>@Model.TheamName</b> 
+                </li>   
+            </ul>
+        </div>
+        <div class="col-lg-6">
+            @{Html.RenderPartial("_loading");}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="reqestDiv">
+
+            </div>
+        </div>
+        <div class="col-lg-5">
+            @Html.ActionLink("Згенерувати нові", "Generate", new { theamId = Request.QueryString["theamId"] }, new { @class = "btn btn btn-primary" })
+            @Html.ActionLink("Результати", "Results", new { theamId = Request.QueryString["theamId"] }, new { @class = "btn btn btn-primary" })
+        </div>
+        <div class="col-lg-4">
+           @using (Ajax.BeginForm("Add", new { Id = Request.QueryString["theamId"] }, ajaxOpts))
+           {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="checkbox">
+                    <label>
+                        @if (Model.TestEnabel == true) 
+                        { 
+                             <input type="checkbox" name="enable" checked>
+                        }
+                        else
+                        {
+                              <input type="checkbox" name="enable">
+                        }
+                        <span class="ripple"> </span><span class="check"></span> 
+                   </label>
+                    <input type="submit" class="btn bg-primary" value="Активувати тест" /> 
+                </div>
+               
+           }
+        </div>
+        
+    </div>
+    
+
+    @Html.Action("GetTests", new Guid(Request.QueryString["theamId"]))
+</div>

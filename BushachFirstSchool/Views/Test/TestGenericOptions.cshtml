@@ -1,0 +1,105 @@
+﻿@model BushachFirstSchool.Models.Test.TestGenericOptionsViewModel
+@{
+    AjaxOptions ajaxOpts = new AjaxOptions
+     {
+         UpdateTargetId = "TestsData",
+         Url = Url.Action("GetGeneratedTests", new { theamId = Request.QueryString["theamId"] }),
+         LoadingElementId = "loading",
+         LoadingElementDuration = 1000,
+
+     };
+}
+
+@using (Ajax.BeginForm("GetGeneratedTests", new { theamId = Request.QueryString["theamId"] }, ajaxOpts))
+{
+<div class="col-lg-12" >
+    <div class="col-lg-6">
+        <legend>Кількість тестів</legend>
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.countTestA)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.countTestA)
+                @Html.ValidationMessageFor(model => model.countTestA)
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.countTestB)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.countTestB)
+                @Html.ValidationMessageFor(model => model.countTestB)
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="col-lg-7 col-lg-offset-1 control-label">@Html.DisplayNameFor(model => model.countThesisInTestB)</label>
+            <div class="col-lg-3 col-lg-offset-1">
+                @Html.EditorFor(model => model.countThesisInTestB)
+                @Html.ValidationMessageFor(model => model.countThesisInTestB)
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.countTestC)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.countTestC)
+                @Html.ValidationMessageFor(model => model.countTestC)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.countTestD)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.countTestD)
+                @Html.ValidationMessageFor(model => model.countTestD)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-7 col-lg-offset-1 control-label">@Html.DisplayNameFor(model => model.countThesisInTestD)</label>
+            <div class="col-lg-3 col-lg-offset-1">
+                @Html.EditorFor(model => model.countThesisInTestD)
+                @Html.ValidationMessageFor(model => model.countThesisInTestD)
+            </div>
+        </div> 
+    </div>
+    <div class="col-lg-6">
+        <legend>Оцінювання тестів</legend>
+        <div class="form-group">
+            <label  class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.ratingTestA)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.ratingTestA)
+                @Html.ValidationMessageFor(model => model.ratingTestA)
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.ratingTestB)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.ratingTestB)
+                @Html.ValidationMessageFor(model => model.ratingTestB)
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.ratingTestC)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.ratingTestC)
+                @Html.ValidationMessageFor(model => model.ratingTestC)
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.ratingTestD)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.ratingTestD)
+                @Html.ValidationMessageFor(model => model.ratingTestD)
+            </div>
+        </div> 
+        <div class="form-group">
+            <label class="col-lg-8 control-label">@Html.DisplayNameFor(model => model.Durarion)</label>
+            <div class="col-lg-4">
+                @Html.EditorFor(model => model.Durarion)
+                @Html.ValidationMessageFor(model => model.Durarion)
+            </div>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-9">
+            <input  type="submit" class="btn btn-primary"/>
+        </div>
+    </div>
+</div>
+}

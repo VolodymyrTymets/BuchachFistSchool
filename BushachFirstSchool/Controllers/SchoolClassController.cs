@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BushachFirstSchool.Domain.Entity;
+using BushachFirstSchool.Domain.Concrate;
 
 namespace BushachFirstSchool.Controllers
 {
@@ -18,7 +19,8 @@ namespace BushachFirstSchool.Controllers
         }
 
         public ActionResult Index()
-        {             
+        {
+           
             return View(new SchoolClass());
         }
         
@@ -80,6 +82,7 @@ namespace BushachFirstSchool.Controllers
         }
         
         private ISchoolRepositorycs _repository;
-     
+
+      
     }
 }

@@ -197,12 +197,14 @@
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\SubjectTheamController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\HtmlOpearations.cs" />
     <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
+    <Compile Include="Infrastructure\DateChanger.cs" />
     <Compile Include="Infrastructure\EmailSender.cs" />
     <Compile Include="Infrastructure\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\MyViewEngine.cs" />
@@ -226,6 +228,16 @@
     <Compile Include="Models\TeacherModel\SingleTeacher.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\MailModel.cs" />
+    <Compile Include="Models\Test\SingleResultsViewModel.cs" />
+    <Compile Include="Models\Test\SingleTestAReloadviewModel.cs" />
+    <Compile Include="Models\Test\SingleTestBReloadviewModel.cs" />
+    <Compile Include="Models\Test\SingleTestCReloadviewModel.cs" />
+    <Compile Include="Models\Test\SingleTestDReloadviewModel.cs" />
+    <Compile Include="Models\Test\TestGenerateViewModel.cs" />
+    <Compile Include="Models\Test\TestGenericOptionsViewModel.cs" />
+    <Compile Include="Models\Test\TestListViewModel.cs" />
+    <Compile Include="Models\Test\TestPastViewModel.cs" />
+    <Compile Include="Models\Test\TestResultViewModel.cs" />
     <Compile Include="Models\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -346,15 +358,19 @@
     <Content Include="Scripts\conceptThesisGenerator\pttableBuilder.js" />
     <Content Include="Scripts\global.js" />
     <Content Include="Scripts\home\homeglobal.js" />
+    <Content Include="Scripts\jquery-ui-1.11.3.js" />
     <Content Include="Scripts\home\navigations.js" />
     <Content Include="Scripts\jquery-1.11.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\old-jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\old-jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\Test\testInitialiser.js" />
+    <Content Include="Scripts\Test\TestResultSender.js" />
+    <Content Include="Scripts\Test\testTimer.js" />
+    <Content Include="Views\SchoolClass\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
@@ -388,7 +404,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_Admin.cshtml" />
@@ -440,6 +455,30 @@
     <Content Include="Views\Pupil\Error.cshtml" />
     <Content Include="Views\SubjectTheam\Error.cshtml" />
     <Content Include="Views\ConceptThesis\Error.cshtml" />
+    <Content Include="Views\Test\Generate.cshtml" />
+    <Content Include="Views\Test\_singleTestA.cshtml" />
+    <Content Include="Views\Test\_singleTestB.cshtml" />
+    <Content Include="Views\Test\_singleTestC.cshtml" />
+    <Content Include="Views\Test\_singleTestD.cshtml" />
+    <Content Include="Views\Test\TestGenericOptions.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Test\GetGeneratedTests.cshtml" />
+    <Content Include="Views\Test\GenerateError.cshtml" />
+    <Content Include="Views\Test\List.cshtml" />
+    <Content Include="Views\Test\GetTests.cshtml" />
+    <Content Include="Views\Test\Past.cshtml" />
+    <Content Include="Views\Test\_singleTestAReload.cshtml" />
+    <Content Include="Views\Test\_singleTestBReload.cshtml" />
+    <Content Include="Views\Test\_singleTestCReload.cshtml" />
+    <Content Include="Views\Test\_singleTestDReload.cshtml" />
+    <Content Include="Views\Test\TestResult.cshtml" />
+    <Content Include="Views\Pupil\Test.cshtml" />
+    <Content Include="Views\Pupil\getSubjectTheam.cshtml" />
+    <Content Include="Views\Test\_ajaxMessage.cshtml" />
+    <Content Include="Views\Test\TestPermisionError.cshtml" />
+    <Content Include="Views\Test\Results.cshtml" />
+    <Content Include="Views\Test\SingleResult.cshtml" />
+    <Content Include="Views\Shared\_logmenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">

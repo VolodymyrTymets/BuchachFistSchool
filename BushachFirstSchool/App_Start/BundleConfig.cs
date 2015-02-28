@@ -91,6 +91,16 @@ namespace BushachFirstSchool
                      "~/Scripts/conceptThesisGenerator/pttableBuilder.js",
                      "~/Scripts/conceptThesisGenerator/ptAjaxSender.js",
                      "~/Scripts/conceptThesisGenerator/ptindex.js"));
+            bundles.Add(new ScriptBundle("~/bundles/testResult").Include(
+                  "~/Scripts/Test/TestResultSender.js",
+                  "~/Scripts/Test/testTimer.js",
+                   "~/Scripts/Test/testInitialiser.js"));
+
+            //logmenu
+            bundles.Add(new ScriptBundle("~/bundles/logmenu").Include(
+              "~/Content/logmenu/logmenuscript.js"));
+            bundles.Add(new StyleBundle("~/Content/logmenu").Include(
+            "~/Content/logmenu/logmenustyle.css"));
         }
     }
 }

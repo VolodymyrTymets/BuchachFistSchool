@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BushachFirstSchool.Domain.Abstract;
 using BushachFirstSchool.Domain.Entity;
+using BushachFirstSchool.Domain.Entity.Test;
+
 namespace BushachFirstSchool.Domain.Concrate
 {
   public  class EFSchoolRepositorycs  : ISchoolRepositorycs
@@ -401,10 +403,133 @@ namespace BushachFirstSchool.Domain.Concrate
           return dbEntry;
       }
 
+     /**********************-----Test-----*******************/
+      public IQueryable<TestCollection> Tests
+      {
+          get { return _context.TestCollections; }
+      }
+      public void SaveTest(Guid theamId, TestCollection testCollection) 
+      {
+          var dbEntry = _context.SubjectTheams.Find(theamId);
+          dbEntry.TestCollection = testCollection;          
+          _context.SaveChanges();
+      }
+      public void DeleteTestFronTheam(Guid theamId)
+      {
+          var dbEntry = _context.SubjectTheams.Find(theamId);
+          //delte child
+          if (dbEntry != null && dbEntry.TestCollection != null)
+          {
+              dbEntry.TestCollection.TeststACol.ToList().ForEach(x => _context.TestsA.Remove(x));
+              dbEntry.TestCollection.TeststCCol.ToList().ForEach(x => _context.TestsC.Remove(x));
+              dbEntry.TestCollection.TeststBCol.ToList().ForEach(x => _context.TestsB.Remove(x));
+              dbEntry.TestCollection.TeststDCol.ToList().ForEach(x => _context.TestsD.Remove(x));
+
+              if (dbEntry.TestCollection.TestResults != null) 
+              {
+                  dbEntry.TestCollection.TestResults.ToList().ForEach(x => DeleteTestResult(x));
+              }
+              _context.TestCollections.Remove(dbEntry.TestCollection);
+              _context.SaveChanges();
+          }
+      }
+
+      public IQueryable<TestResult> TestResults
+      {
+          get { return _context.TestResults; }
+      }
+
+      public TestResult SaveTestResult(Guid testId, TestResult testResult, String UserName)
+      {
+          if (testResult.TestResultId == Guid.Empty) 
+          {
+              testResult.TestResultId = Guid.NewGuid();
+          }
+          foreach (var item in testResult.testAColl) 
+          {
+              if (item.AnswerAId == Guid.Empty) 
+              {
+                  item.AnswerAId = Guid.NewGuid();
+              }
+          }
+          foreach (var item in testResult.testBColl)
+          {
+              if (item.AnswerBId == Guid.Empty)
+              {
+                  item.AnswerBId = Guid.NewGuid();
+              }
+          }
+          foreach (var item in testResult.testCColl)
+          {
+              if (item.AnswerCId == Guid.Empty)
+              {
+                  item.AnswerCId = Guid.NewGuid();
+              }
+          }
+          foreach (var item in testResult.testDColl)
+          {
+              if (item.AnswerDId == Guid.Empty)
+              {
+                  item.AnswerDId = Guid.NewGuid();
+              }
+              foreach (var x in item.SingleAnswerD)
+              {
+                  if (x.SingleAnswerDId == Guid.Empty)
+                  {
+                      x.SingleAnswerDId = Guid.NewGuid();
+                  }
+              }
+             
+          }
+          //testResult.RemainderTime = DateTime.Now;
+          var dbEntry = _context.TestCollections.Find(testId);
+          if (dbEntry.TestResults == null)
+          {
+              dbEntry.TestResults = new List<TestResult>();
+          }
+          var pupil = _context.Pupils.FirstOrDefault(x => x.userName == UserName);
+          testResult.Pupil = pupil;
+
+          var testresult = dbEntry.TestResults.FirstOrDefault(x => x.Pupil == pupil);
+          if (testresult != null)
+          {
+              DeleteTestResult(testresult);
+          }
+          dbEntry.TestResults.Add(testResult);
+          _context.SaveChanges();
+          return testResult;
+      }
+
+      public void DeleteTestResult(TestResult testresult)
+      {
+          testresult.testAColl.ToList().ForEach(x => _context.AnswersA.Remove(x));
+          testresult.testBColl.ToList().ForEach(x => _context.AnswersB.Remove(x));
+          testresult.testCColl.ToList().ForEach(x => _context.AnswersC.Remove(x));
+          var listd = testresult.testDColl.ToList();
+          listd.ForEach(x => x.SingleAnswerD
+                              .ToList()
+                              .ForEach(d => _context.SingleAnswersD.Remove(d)));         
+
+          listd.ForEach(x => _context.AnswersD.Remove(x));
+
+          _context.TestResults.Remove(testresult);
+          _context.SaveChanges();
+      }
 
 
+      public void EnableTest(Guid TheamId, bool Eable)
+      {
+          var test = _context.SubjectTheams.FirstOrDefault(x => x.TheamId == TheamId).TestCollection;
+          test.Enable = Eable;
+          _context.SaveChanges();
+      }
 
 
-      
+      public void ChangeResultTime(Guid ResultId, DateTime time)
+      {
+          var res = _context.TestResults.FirstOrDefault(x => x.TestResultId == ResultId);
+          res.RemainderTime = time;
+          _context.SaveChanges();
+      }
     }
 }
