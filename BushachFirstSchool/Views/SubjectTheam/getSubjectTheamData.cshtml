@@ -35,9 +35,7 @@
                     <td>
                         @Html.ActionLink(" Тести", "List", "Test", new { theamId = item.TheamId.ToString() }, new { @class = "mdi-action-dns btn btn-default" })
                     </td>
-                    <td>
-                        @Html.ActionLink(" Тести пройти", "Past", "Test", new { theamId = item.TheamId.ToString() }, new { @class = "mdi-action-dns btn btn-default" })
-                    </td>
+                   
                     <td>
                         @Ajax.ActionLink(" Видалити", "Delete", new
                                 {

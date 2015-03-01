@@ -68,11 +68,11 @@ namespace BushachFirstSchool.Domain.Concrate
        public Decimal RequireTest(Guid testId, TestResult testresult, ISchoolRepositorycs repository, ref Int16 CountPastTest) 
        {
            var test = repository.Tests.FirstOrDefault(x => x.TestCollectionId ==testId );
-           Decimal rating = 0;
-           Decimal singlRatingA = test.TestARating / test.TeststACol.Count();
-           Decimal singlRatingB = test.TestBRating / test.TeststBCol.Count();
-           Decimal singlRatingC = test.TestCRating / test.TeststCCol.Count();
-           Decimal singlRatingD = test.TestDRating / test.TeststDCol.Count();          
+           float rating = 0;
+           float singlRatingA = (float)test.TestARating / (float)test.TeststACol.Count();
+           float singlRatingB = (float)test.TestBRating / (float)test.TeststBCol.Count();
+           float singlRatingC = (float)test.TestCRating / (float)test.TeststCCol.Count();
+           float singlRatingD = (float)test.TestDRating / (float)test.TeststDCol.Count();          
 
            var concepts = repository.SubjectsTheam
                                     .FirstOrDefault(x => x.TestCollection.TestCollectionId == test.TestCollectionId)
@@ -123,21 +123,23 @@ namespace BushachFirstSchool.Domain.Concrate
                concept = concepts.FirstOrDefault(x => x.Thesis.ThesisId == item.conceptId);
                if (concept != null)
                 {
-                   
-                   if (String.Compare(concept.body.Replace("\n", string.Empty).Trim(), item.answer.Replace("\n", string.Empty).Trim()) == 0)
+                    if (item.answer != null)
                     {
-                        rating = rating + singlRatingC;
-                        CountPastTest++;
+                        if (String.Compare(concept.body.Replace("\n", string.Empty).Trim(), item.answer.Replace("\n", string.Empty).Trim(),true) == 0)
+                        {
+                            rating = rating + singlRatingC;
+                            CountPastTest++;
+                        }
                     }
                 }
            }
            //Test D
-           Decimal singlRatingDpart;
+           float singlRatingDpart;
           foreach (var item  in testresult.testDColl )
            {
              
                var singleAnswerD = item.SingleAnswerD.ToArray();
-               singlRatingDpart = singlRatingD / singleAnswerD.Length;
+               singlRatingDpart = (float)singlRatingD / (float)singleAnswerD.Length;
                for (int i = 0; i < singleAnswerD.Length; i++)
                 {
                     concept = concepts.FirstOrDefault(x => x.ConceptId == singleAnswerD[i].conceptId);
@@ -153,7 +155,7 @@ namespace BushachFirstSchool.Domain.Concrate
                 }
               
            }
-           return rating;
+          return Convert.ToDecimal( rating);
        }
        private ICollection<TestA> generateTeastACollection(Concept[] concepts , IEnumerable<Thesis> thesises)
        {

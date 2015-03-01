@@ -19,6 +19,8 @@
                       join o in Model.TestResult.testCColl
                       on i.thesis.ThesisId equals o.conceptId
                       select o).ToArray();
+    var resultDArr = Model.TestResult.testDColl.ToArray();
+    var resultAArr = Model.TestResult.testAColl.ToArray();
 }
 
 <div class="col-md-12 shadow-z-2" style="background-color:white">
@@ -42,7 +44,7 @@
 
     @for (int i = 0; i < testAArr.Length; i++)
     {
-        var resultAArr = Model.TestResult.testAColl.ToArray();
+       
 
        Html.RenderPartial("_singleTestAReload", new BushachFirstSchool.Models.Test.SingleTestAReloadviewModel
                           {
@@ -68,7 +70,7 @@
     }
     @for (int i = 0; i < testDArr.Length; i++)
     {
-        var resultDArr = Model.TestResult.testDColl.ToArray();
+      
         Html.RenderPartial("_singleTestDReload", new BushachFirstSchool.Models.Test.SingleTestDReloadviewModel
                            {
                                AnswerD = resultDArr[i],

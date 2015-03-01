@@ -285,6 +285,8 @@ namespace BushachFirstSchool.Domain.Concrate
           {
 
               //dbEntry.Fotos.ToList().ForEach(x => _context.Fotos.Remove(x));
+
+             
               _context.SubjectTheams.Remove(dbEntry);
               _context.SaveChanges();
           }
@@ -424,6 +426,8 @@ namespace BushachFirstSchool.Domain.Concrate
               dbEntry.TestCollection.TeststCCol.ToList().ForEach(x => _context.TestsC.Remove(x));
               dbEntry.TestCollection.TeststBCol.ToList().ForEach(x => _context.TestsB.Remove(x));
               dbEntry.TestCollection.TeststDCol.ToList().ForEach(x => _context.TestsD.Remove(x));
+              dbEntry.TestCollection.TestResults.ToList().ForEach(x => DeleteTestResult(x));
+           
 
               if (dbEntry.TestCollection.TestResults != null) 
               {

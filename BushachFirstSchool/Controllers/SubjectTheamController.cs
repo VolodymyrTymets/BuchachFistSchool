@@ -70,9 +70,9 @@ namespace BushachFirstSchool.Controllers
                     _repository.DeleteSubjectTheam(new Guid(Id));
                     TempData["message_ajax"] = "Тема успішно видалена.";
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
-                    TempData["message_error_ajax"] = e.Message;
+                    TempData["message_error_ajax"] = "Ви не можете видалити тему поки їй належать поняття і тести. спершу видаліть їх.";
                 }
                
                 return PartialView("getSubjectTheamData", getSubjectTheams(GetSubjectId()));

@@ -21,13 +21,17 @@ namespace BushachFirstSchool.Controllers
         {
             _repository = repository;            
         }
+        [Authorize(Roles = "admin,theacher")]
         public ActionResult Index()
         {
             return View();
         }
+        [Authorize(Roles = "admin,theacher")]
         public ActionResult List(String theamId)
         {
-            return View(GetListModel(new Guid(theamId)));
+           
+                return View(GetListModel(new Guid(theamId)));
+            
         }
         [HttpPost]
         public PartialViewResult EnableTest(Guid Id) 
@@ -52,6 +56,7 @@ namespace BushachFirstSchool.Controllers
 
             return PartialView("_ajaxMessage");
         }
+        [Authorize(Roles = "admin,theacher")]
         public ActionResult Generate(String theamId)
         {
             //TestCollection model = GetTestCollection(new Guid(theamId));
@@ -65,7 +70,7 @@ namespace BushachFirstSchool.Controllers
                     countTestA = 5,
                     countTestB = 5,
                     countTestC = 5,
-                    countTestD = 5,
+                    countTestD = 1,
                     ratingTestA = 25,
                     ratingTestB = 25,
                     ratingTestC = 25,
@@ -75,14 +80,27 @@ namespace BushachFirstSchool.Controllers
             };
             return View(model);
         }
+        [Authorize(Roles = "people")]
         public ActionResult Past(String theamId)
         {
             //TestCollection model = GetTestCollection(new Guid(theamId));
             var TheamId = new Guid(theamId);
            var test = _repository.SubjectsTheam.FirstOrDefault(x => x.TheamId == TheamId).TestCollection;
-           var result = test.TestResults.FirstOrDefault(x => x.Pupil.userName == "pupil1");
-           if (test.Enable == true && result.RemainderTime.Minute > 0)
+           TestResult result ;
+            try
            {
+               result = test.TestResults.FirstOrDefault(x => x.Pupil.userName == User.Identity.Name);
+           }
+           catch 
+           {
+               result = null;
+            }
+           if (test.Enable == true )
+           {
+               if(result != null && result.RemainderTime.Minute == 0 )
+               {
+                   return View("TestPermisionError");
+               }
                var model = new TestPastViewModel
                {
                    TestCollection = test,
@@ -90,25 +108,26 @@ namespace BushachFirstSchool.Controllers
                };
                return View(model);
            }
-           else 
-           {
-               return View("TestPermisionError");
-           }
+          
+            return View("TestPermisionError");
+          
         }
         [HttpPost]
         public ActionResult Past(Guid Id, TestResult testResult)
         {         
           var testId = _repository.SubjectsTheam.FirstOrDefault(x => x.TheamId == Id ).TestCollection.TestCollectionId;
           testResult.RemainderTime =   testResult.RemainderTime.ChangeTime(0,0,0,0);
-          var testresult = _repository.SaveTestResult(testId, testResult, "pupil1");
+     
           var testIni = new TestInitializer();
           Int16 CountOfPasetTest = 0;
-          var rating = testIni.RequireTest(testId, testresult, _repository,ref CountOfPasetTest);
-     
+          var rating = testIni.RequireTest(testId, testResult, _repository, ref CountOfPasetTest);
+          testResult.Rating = rating;
+          var testresult = _repository.SaveTestResult(testId, testResult, User.Identity.Name);
           var model = new TestResultViewModel
           {
               CountPasetTest = CountOfPasetTest,
-              Rating = rating
+              Rating = rating,
+              CountOfTest = CountOfPasetTest
           };
           if(Request.IsAjaxRequest())
           {
@@ -122,7 +141,7 @@ namespace BushachFirstSchool.Controllers
             try
            {
                 var testId = _repository.SubjectsTheam.FirstOrDefault(x => x.TheamId == Id).TestCollection.TestCollectionId;
-                var testresult = _repository.SaveTestResult(testId, testResult, "pupil1");
+                var testresult = _repository.SaveTestResult(testId, testResult, User.Identity.Name);
             }
             catch
             {
@@ -134,7 +153,7 @@ namespace BushachFirstSchool.Controllers
         {
             return PartialView("TestResult", model);
         }
-
+        [Authorize(Roles = "admin,theacher")]
         public ActionResult Results(String theamId)
         {            
             var TheamId = new Guid(theamId);
@@ -144,7 +163,12 @@ namespace BushachFirstSchool.Controllers
                                      .TestResults;      
             return View(results);
         }
-
+        public ActionResult DeleteTest(String theamId)
+        {
+            _repository.DeleteTestFronTheam(new Guid(theamId));
+            return RedirectToAction("List", theamId);
+        }
+        [Authorize(Roles = "admin,theacher")]
         public ActionResult SingleResult(String resultId)
         {
             
@@ -199,12 +223,13 @@ namespace BushachFirstSchool.Controllers
                                               testopt.countTestA,
                                               testopt.countTestB,
                                               testopt.countTestC,
-                                              testopt.countTestD,
+                                              1,
                                               testopt.ratingTestA,
                                               testopt.ratingTestB,
                                               testopt.ratingTestC,
                                               testopt.ratingTestD,
                                               testopt.Durarion);
+            
             return testini.GenetrateTest(listconcept, listThesis);
         }
         private TestListViewModel GetListModel(Guid subjectTheamId)
@@ -213,14 +238,16 @@ namespace BushachFirstSchool.Controllers
             var subject = _repository.Subjects
                                        .FirstOrDefault(x => x.Theams
                                                               .FirstOrDefault(theam => theam.TheamId == subjectTheamId) != null);
-            var model = new TestListViewModel
+
+            var testcol = _repository.SubjectsTheam.FirstOrDefault(x => x.TheamId == subjectTheamId).TestCollection;
+            var model = new TestListViewModel 
             {
                 ClassName = _repository.ShoolClasses
                                        .FirstOrDefault(x => x.Subjects
                                                              .FirstOrDefault(sub => sub.SubjectId == subject.SubjectId) != null).Name,
                 SubjectName = subject.Name,
                 TheamName = _repository.SubjectsTheam.FirstOrDefault(x => x.TheamId == subjectTheamId).Name,
-                TestEnabel = _repository.SubjectsTheam.FirstOrDefault(x => x.TheamId == subjectTheamId).TestCollection.Enable
+                TestEnabel = testcol != null ?  testcol.Enable : false
             };
             return model;
         }

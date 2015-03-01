@@ -60,6 +60,10 @@
         setTimeout(function () {
             $("#testresultdiv").show({ effect: 'slide', duration: 650 });
         }, 650);
+        setTimeout(function () {
+            window.location = "/Pupil/Test";
+        }, 1000*60);
+
         
     }
     var parsTestAform = function (testForms) {

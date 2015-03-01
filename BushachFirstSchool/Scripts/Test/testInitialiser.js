@@ -1,5 +1,6 @@
 ﻿var testResultSender = new TestResultSender();
 var CountOfSlide = 0;
+var testPast = false;
 
 $(document).ready(function () {
 
@@ -19,15 +20,18 @@ $(document).ready(function () {
         
     });
     $(".thesislist").sortable();
-    $("#doneTestButton").on("click", function () {    
+    $("#doneTestButton").on("click", function () {
+        testPast = true;
         testResultSender.sendToServer(testResultSender.getResaltData());        
     })
     var time = parseInt($("#timerValue").text());
     var testTimer = new TestTimer(time);
     testTimer.start();
 
-    setInterval(function () {
-        testResultSender.sendToServer(testResultSender.getResaltData());
+    setTimeout(function () {
+        if (!testPast) {
+            testResultSender.sendToServer(testResultSender.getResaltData());
+        }
     }, 1000 * time * 60);
 
 });

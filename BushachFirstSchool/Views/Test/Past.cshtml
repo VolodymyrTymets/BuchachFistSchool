@@ -1,4 +1,5 @@
-﻿@model BushachFirstSchool.Models.Test.TestPastViewModel
+﻿@using BushachFirstSchool.Domain.Entity.Test
+@model BushachFirstSchool.Models.Test.TestPastViewModel
 
 @{
     ViewBag.Title = "Past";
@@ -7,17 +8,8 @@
     var testBArr = Model.TestCollection.TeststBCol.ToArray();
     var testCArr = Model.TestCollection.TeststCCol.ToArray(); 
     var testDArr = Model.TestCollection.TeststDCol.ToArray();
-    
-    var resultBArr =
-                    (from i in Model.TestCollection.TeststBCol
-                     join o in Model.TestResult.testBColl
-                     on i.concept.ConceptId equals o.conceptId
-                     select o).ToArray();
-    var resultCArr =
-                     (from i in Model.TestCollection.TeststCCol
-                      join o in Model.TestResult.testCColl
-                      on i.thesis.ThesisId equals o.conceptId
-                      select o).ToArray();
+   
+   
 
 }
 @{
@@ -95,7 +87,8 @@
                     <div class="item carusel-test-item">
                         <div class="">
                             <span class="label label-info">@iterator тест із @countOfTest</span>
-                            @if (@Model.TestResult == null) { 
+                            @if (@Model.TestResult == null || Model.TestResult.testAColl == null)
+                            { 
                              Html.RenderPartial("_singleTestA", testAArr[i]);
                             }
                             else{
@@ -118,13 +111,18 @@
                     <div class="item carusel-test-item">
                         <div class="">
                             <span class="label label-info">@iterator тест із @countOfTest</span>
-                            @if (@Model.TestResult == null)
+                            @if (@Model.TestResult == null || Model.TestResult.testBColl == null)
                             {
                                 Html.RenderPartial("_singleTestB", testBArr[i]);
                             }
                             else
                             {
-                               // var resultBArr = Model.TestResult.testBColl.ToArray();
+                                // var resultBArr = Model.TestResult.testBColl.ToArray();
+                             var   resultBArr =
+                                               (from ii in Model.TestCollection.TeststBCol
+                                                join o in Model.TestResult.testBColl
+                                                on ii.concept.ConceptId equals o.conceptId
+                                                select o).ToArray();
 
                                 Html.RenderPartial("_singleTestBReload", new BushachFirstSchool.Models.Test.SingleTestBReloadviewModel
                                       {
@@ -142,13 +140,18 @@
                     <div class="item carusel-test-item">
                         <div class="">
                             <span class="label label-info">@iterator тест із @countOfTest</span>
-                            @if (@Model.TestResult == null)
+                            @if (@Model.TestResult == null  || Model.TestResult.testCColl == null)
                             {
                                 Html.RenderPartial("_singleTestC", testCArr[i]);
                             }
                             else
                             {
-                              //  var resultCArr = Model.TestResult.testCColl.ToArray();
+                                //  var resultCArr = Model.TestResult.testCColl.ToArray();
+                             var   resultCArr =
+                                            (from ii in Model.TestCollection.TeststCCol
+                                             join o in Model.TestResult.testCColl
+                                             on ii.thesis.ThesisId equals o.conceptId
+                                             select o).ToArray();
 
                                 Html.RenderPartial("_singleTestCReload", new BushachFirstSchool.Models.Test.SingleTestCReloadviewModel
                                       {
@@ -166,7 +169,7 @@
                     <div class="item carusel-test-item">
                         <div class="">
                             <span class="label label-info">@iterator тест із @countOfTest</span>
-                            @if (@Model.TestResult == null)
+                            @if (@Model.TestResult == null || Model.TestResult.testDColl == null)
                             {
                                 Html.RenderPartial("_singleTestD", testDArr[i]);
                             }

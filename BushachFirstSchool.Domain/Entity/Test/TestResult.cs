@@ -15,6 +15,7 @@ namespace BushachFirstSchool.Domain.Entity.Test
         public virtual ICollection<AnswerD> testDColl { get; set; }
         public virtual Pupil Pupil { get; set; }
         public DateTime RemainderTime { get; set; }
+        public Decimal Rating { get; set; }
     }
   
     public class AnswerA
@@ -47,7 +48,8 @@ namespace BushachFirstSchool.Domain.Entity.Test
      {
          public Guid SingleAnswerDId { get; set; }
          public Guid conceptId { get; set; }
-         public Guid thesisId { get; set; }
+         public Guid thesisId { get; set; }     
+
      }
    
 }
