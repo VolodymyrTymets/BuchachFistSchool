@@ -30,7 +30,7 @@ namespace BushachFirstSchool.Controllers
         [HttpPost]
         public JsonResult SendMessage( MailModel model )
         {
-            try
+          /*  try
             {
                EmailSender.SendContactMessage(model); 
             }
@@ -39,7 +39,8 @@ namespace BushachFirstSchool.Controllers
                 return Json(new { message = "Сталася помилка під час відправлення: " + e.Message }, JsonRequestBehavior.AllowGet);
             }
 
-            return Json(new { message = "Ваше повідомлення відправленно. Його буде розглянуто на протязі кількох днів. Хорошого вам дня."}, JsonRequestBehavior.AllowGet);
+            return Json(new { message = "Ваше повідомлення відправленно. Його буде розглянуто на протязі кількох днів. Хорошого вам дня."}, JsonRequestBehavior.AllowGet);*/
+            return Json(new { message = "Вибачте, через обмеження даного хостингу цей сервіс не працює. "  }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult About()

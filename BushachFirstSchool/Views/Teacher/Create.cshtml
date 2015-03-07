@@ -1,7 +1,7 @@
 ﻿@model BushachFirstSchool.Models.TeacherModel.TeacherCreateViewModel
 
 @{
-    ViewBag.Title = "Бучацька ЗОШ №1 Вчителі/Створити";
+    ViewBag.Title = "Вчителі - Створити";
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
@@ -18,7 +18,10 @@
         <h4>Створення вчителя</h4>
            <fieldset>
         <legend>Дані для ситеми</legend>
+               <input style="display:none" type="text" name="fakeusernameremembered" />
+               <input style="display:none" type="password" name="fakepasswordremembered" />
         <div class="form-group">
+
             <label for="inputEmail" class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.UserData.UserName)</label>
             <div class="col-lg-10">
                 @Html.EditorFor(model => model.UserData.UserName)
@@ -33,6 +36,13 @@
                 @Html.ValidationMessageFor(model => model.UserData.Email)
             </div>
         </div>
+               <div class="form-group">
+                   <label for="inputEmail" class="col-lg-2 control-label">@Html.DisplayNameFor(model => model.UserData.Password)</label>
+                   <div class="col-lg-10">
+                       @Html.EditorFor(model => model.UserData.Password)
+                       @Html.ValidationMessageFor(model => model.UserData.Password)
+                   </div>
+               </div>
 
 
         <legend>Дані Вчителя</legend>

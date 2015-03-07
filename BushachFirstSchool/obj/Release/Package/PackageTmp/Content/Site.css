@@ -30,6 +30,7 @@ h1,h2,h3 {
 z-index:3;
 position:fixed;
 width:100%;
+top:0;
 
 }
 .Navigation nav {
@@ -67,6 +68,84 @@ width:100%;
           background: rgba(255, 255, 255, 0.1);
           color: rgba(0, 35, 122, 0.7);
         }
+
+/*****log menu********************/
+#logmenunavigator{
+	width: 250px;
+	height:100%;
+	position: fixed;
+	top: 0;
+	left: -250px;
+	background: rgba(0, 149, 135, 0.65);
+	float: left;
+	z-index: 10;
+}
+    #logmenunavigator h3 {
+        color:white;
+    }
+#logmenunav{
+	width: 250px;
+	height: auto;
+	display: block;
+	margin: 0 ;
+	padding: 0;
+}
+.nav_tab{
+	width: 250px;
+	height: 50px;
+	display: block;
+}
+.nav_tab a p{
+	color: rgba(255,255,255,0.8);
+	font-size: 18px;
+	padding: 15px 0;
+	text-align: center;
+	transition:0.35s ease;
+	-webkit-transition:0.35s ease;
+	-moz-transition:0.35s ease;
+}
+.nav_tab a p:hover{
+	background: rgba(255,255,255,0.9);
+	color: rgba(0,0,0,1);	
+	letter-spacing: 2px;
+	transition:0.35s ease;
+	-webkit-transition:0.35s ease;
+	-moz-transition:0.35s ease;
+	}
+.menu-icon{
+	width: 150px;
+	height: 35px;
+	position: fixed;
+	top: 0;
+	left: 0px;
+	margin: 10px;
+	z-index: 10;
+}
+.menu-text {
+	width: 50px;
+	height: 35px;
+	font-size: 30px; 
+	color:#3B8B87;
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 50px;
+	margin: 10px;
+	z-index: 9;
+}
+
+.menu-icon div {
+  width: 40px;
+  height: 5px;
+  background: #3B8B87;
+  margin: 5px ;
+  transition: all 0.35s;
+  border-radius: 2px;
+}
+.on .line_one {transform: rotate(45deg) translate(7px, 7px);}
+.on .line_two {opacity: 0;}
+.on .line_three {transform: rotate(-45deg) translate(7px, -7px);}
+
 
 .panel {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, white 15%, white 85%, rgba(255, 255, 255, 0) 100%);
@@ -172,7 +251,10 @@ input[type="checkbox"].input-validation-error {
     -moz-animation-fill-mode: forwards;
 }
 
-
+.carusel-test-item {
+    min-height:250px;
+    padding-top:20px;
+}
 /***********************
   *    All Form *
      ********************/
@@ -228,6 +310,7 @@ form.form-to-fill ul li i.form-icon {
 form.form-to-fill ul li input[type="text"] {
   width: 90%;
   background: none;
+  color:black;
   margin: 0;
   padding: 10.33333385px 2%;
   border: 0;
@@ -369,6 +452,41 @@ form.form-to-fill ul li input[type="submit"]:active {
     right:0px;
     width:250px;
 }
+.list {
+  text-align: center;
+}
+
+.list a {
+  color: #07b;
+  text-decoration: none;
+}
+.list h1 {
+	margin: 0;
+	padding: 10px 15px;
+	background-color: #F4FDF9;
+	border-bottom: 1px solid #989077;
+	color: black;
+	
+	font-size: 16px;
+ text-align: left;
+}
+
+.list ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+ text-align: left;
+}
+
+.list li {
+	padding: 10px 15px;
+	border-bottom: 1px solid #ddd;
+}
+.list li:hover {
+	padding: 10px 15px;
+	border-bottom: 1px solid #ddd;
+       background-color: #f9f9f9;
+}
 
     /* Main page style
     ----------------------------------------------------------*/
@@ -385,12 +503,12 @@ height: 100%;
 .logo-holder-1 {
    width:100%;
    height:350px;
-   background-color:rgb(26, 15, 246);
+   background-color: rgb(39, 139, 246);
 }
 .logo-holder-2 {
    width:100%;
    height:370px;
-     background-color:rgb(224, 255, 0);
+     background-color:rgb(235, 231, 95);
 
 }
 .logo-title {   

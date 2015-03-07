@@ -31,7 +31,7 @@
                                 <div class="row-picture">
                                     <img class="circle" src="@Url.Action("GetImage", "Foto", new
                                        {
-                                           Id = item.Teacher.Foto.FotoId
+                                           Id =  item.Teacher.Foto == null? Guid.Empty :  item.Teacher.Foto.FotoId
                                        })" alt="icon">
                                 </div>
                                 <div class="row-content">

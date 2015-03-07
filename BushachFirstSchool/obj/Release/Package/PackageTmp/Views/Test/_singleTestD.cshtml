@@ -1,0 +1,32 @@
+﻿@model  BushachFirstSchool.Domain.Entity.Test.TestD
+
+<div class="row">
+    <div class="col-lg-12  mini-panel testD">
+        <div class="col-lg-3">
+
+            <div class="list" id="conceptlist">
+                <h1>Поняття</h1>
+                <ul>
+                    @foreach (var item in Model.concept)
+                    {
+                        <li id="@item.ConceptId">@item.body</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="col-lg-9">
+            <div class="list" id="thesislist">
+                <h1>Teзи</h1>
+                <ul class="thesislist">
+                    @foreach (var item in Model.thesises)
+                    {
+                        <li id="@item.ThesisId"><span>@item.body</span></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    </div>

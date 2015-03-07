@@ -310,6 +310,7 @@ form.form-to-fill ul li i.form-icon {
 form.form-to-fill ul li input[type="text"] {
   width: 90%;
   background: none;
+  color:black;
   margin: 0;
   padding: 10.33333385px 2%;
   border: 0;

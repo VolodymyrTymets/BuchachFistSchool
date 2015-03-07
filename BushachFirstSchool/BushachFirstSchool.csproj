@@ -265,6 +265,7 @@
     <Content Include="Content\buttons\button_bg.png" />
     <Content Include="Content\Entity\SingleNews.css" />
     <Content Include="Content\Entity\SingleTeacher.css" />
+    <Content Include="Content\fonts\LICENSE.txt" />
     <Content Include="Content\home\history.css" />
     <Content Include="Content\home\news.css" />
     <Content Include="Content\home\position.css" />
@@ -347,6 +348,10 @@
     <Content Include="Content\bootstrap-material\dist\fonts\Material-Design-Icons.woff" />
     <Content Include="Content\bootstrap-material\dist\js\material.min.js.map" />
     <Content Include="Content\bootstrap-material\dist\js\ripples.min.js.map" />
+    <Content Include="Content\fonts\Material-Design-Icons.eot" />
+    <Content Include="Content\fonts\Material-Design-Icons.svg" />
+    <Content Include="Content\fonts\Material-Design-Icons.ttf" />
+    <Content Include="Content\fonts\Material-Design-Icons.woff" />
     <None Include="Properties\PublishProfiles\p1.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\FotoScholl.jpg" />
@@ -434,10 +439,10 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
     <Content Include="Views\SchoolClass\Index.cshtml" />
-    <Content Include="Views\SchoolClass\_сreate.cshtml" />
+    <Content Include="Views\SchoolClass\_create.cshtml" />
     <Content Include="Views\SchoolClass\getShoolClassData.cshtml" />
     <Content Include="Views\Subject\Index.cshtml" />
-    <Content Include="Views\Subject\_сreate.cshtml" />
+    <Content Include="Views\Subject\_create.cshtml" />
     <Content Include="Views\Subject\Error.cshtml" />
     <Content Include="Views\Subject\getSubjectData.cshtml" />
     <Content Include="Views\SubjectTheam\Index.cshtml" />
@@ -479,6 +484,7 @@
     <Content Include="Views\Test\Results.cshtml" />
     <Content Include="Views\Test\SingleResult.cshtml" />
     <Content Include="Views\Shared\_logmenu.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201501201216092_MetadataToTeacher.resx">
@@ -494,9 +500,7 @@
       <Name>BushachFirstSchool.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

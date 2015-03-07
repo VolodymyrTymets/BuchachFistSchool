@@ -1,0 +1,19 @@
+﻿@model BushachFirstSchool.Models.Test.TestResultViewModel
+<div class="col-md-6  col-md-offset-3 shadow-z-2 alert alert-dismissable @Model.AlertClass ">
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="row-action-primary">
+                <i > @String.Format("{0:0.##}",@Model.Rating)</i>
+            </div>
+            <div class="row-content">
+                <div class="action-secondary"><i class="mdi-material-info"></i></div>
+                <h4 class="list-group-item-heading">Результати тесту</h4>
+               <p>Ви gройшли @Model.CountPasetTest  iз @Model.CountOfTest</p>
+               <p> Результат <b>@Model.LanguageRating</b></p>
+                <p> За пятибальною шкалою @String.Format("{0:0.0#}", @Model.Rating5System)</p>
+                <p> За дванадцятибально шкалою @String.Format("{0:0.0#}",@Model.Rating12System)</p>
+            </div>
+        </div>
+        <div class="list-group-separator"></div>
+     </div>
+ </div>

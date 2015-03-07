@@ -1,0 +1,35 @@
+﻿@model BushachFirstSchool.Domain.Entity.Test.TestCollection
+
+<div class="col-lg-10 col-lg-offset-1">
+   
+
+    <p class="lead">Тести першого типу </p>
+@if (Model != null) { 
+    foreach (var testA in Model.TeststACol)
+    {
+        Html.RenderPartial("_singleTestA", testA);
+    }
+
+    <p class="lead">Тести другого типу </p>
+
+    foreach (var testB in Model.TeststBCol)
+    {
+        Html.RenderPartial("_singleTestB", testB);
+    }
+
+    <p class="lead">Тести третього типу </p>
+
+    foreach (var testC in Model.TeststCCol)
+    {
+        Html.RenderPartial("_singleTestC", testC);
+    }
+
+    <p class="lead">Тести читвертого типу </p>
+
+    foreach (var testD in Model.TeststDCol)
+    {
+        Html.RenderPartial("_singleTestD", testD);
+        <br>
+    }
+}
+</div>

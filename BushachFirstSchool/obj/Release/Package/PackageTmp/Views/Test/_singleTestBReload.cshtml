@@ -1,0 +1,25 @@
+﻿@model BushachFirstSchool.Models.Test.SingleTestBReloadviewModel
+
+<div class="row">
+    <div class="col-lg-12 mini-panel">
+        <form id="@Model.TestB.concept.ConceptId" class="testB">
+            <p>
+                Якому визначенню відповідає дане твердження: <b>@Model.TestB.concept.body</b> визначенню:
+            </p>
+            @foreach (var item in @Model.TestB.thesises)
+            {
+                <div class="radio radio-success">
+                    <label>
+                        @if (item.ThesisId == @Model.AnswerB.thesisId) { 
+                        <input type="radio" name="sample1" value="@item.ThesisId" checked><span class="circle"></span><span class="check"></span>
+                        }
+                        else { 
+                            <input type="radio" name="sample1" value="@item.ThesisId"><span class="circle"></span><span class="check"></span>
+                        }
+                        @item.body
+                    </label>
+                </div>
+            }
+        </form>
+    </div>
+</div>

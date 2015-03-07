@@ -53,7 +53,7 @@ namespace BushachFirstSchool.Controllers
                 if (ModelState.IsValid)
                 {   
                   try{
-                        model.Pupil.userName = _authProvider.RegisterPupil(model.UserData.UserName, model.UserData.Email);
+                        model.Pupil.userName = _authProvider.RegisterPupil(model.UserData.UserName, model.UserData.Email,model.UserData.Password);
                         _repository.AddPupilToSchoolClass(GetSchoolClassId(), model.Pupil);
                         TempData["message_ajax"] =   model.Pupil.Surname + " " +   model.Pupil.Name + " успішно доданий.";
                      }
@@ -110,7 +110,7 @@ namespace BushachFirstSchool.Controllers
         }
         private IEnumerable<Subject> getSubjects() 
         {
-            var pupilname = "pupil1";
+            var pupilname = User.Identity.Name;
             return   _repository.ShoolClasses
                        .FirstOrDefault(x => x.Pupils
                                              .FirstOrDefault(pupil => pupil.userName == pupilname) != null)

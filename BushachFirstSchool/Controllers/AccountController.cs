@@ -22,7 +22,7 @@ namespace BushachFirstSchool.Controllers
 
         public ActionResult Login()
         {
-          /* WebSecurity.CreateUserAndAccount("Admin", "admin12345");
+         /*  WebSecurity.CreateUserAndAccount("Admin", "admin15b10");
             if (!Roles.RoleExists("Admin"))
             {
                 Roles.CreateRole("Admin");

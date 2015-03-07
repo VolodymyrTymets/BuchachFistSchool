@@ -1,0 +1,52 @@
+﻿@if (Request.IsAuthenticated) {
+    <div id="logmenunavigator">
+        <h3> Привіт @User.Identity.Name </h3>
+        <ul id="logmenunav">
+            @if (User.IsInRole("admin")) { 
+                <li class="nav_tab">
+                    <a href="/SchoolClass"><p>Класи</p></a>
+                </li>
+                <li class="nav_tab">
+                    <a href="/Teacher/Create"><p>Вчителі</p></a>
+                </li>
+                <li class="nav_tab">
+                    <a href="/SchoolClass"><p>Учні</p></a>
+                </li>                
+            }
+            @if (User.IsInRole("people"))
+            {
+                <li class="nav_tab">
+                    <a href="/Pupil/Test"><p>Пройти тести</p></a>
+                </li>
+               
+            }
+            @if (User.IsInRole("theacher"))
+            {
+                <li class="nav_tab">
+                    <a href="/Teacher/PersonalPage"><p>Тести</p></a>
+                </li>
+
+            }
+            <li class="nav_tab">
+                <a href="/Account/LogOut"><p>вийти</p></a>
+            </li>
+        </ul>
+    </div>
+}
+else
+{
+     <div id="logmenunavigator">
+         <h3> Привіт гість</h3>
+        <ul id="logmenunav">          
+            <li class="nav_tab">
+                <a href="/Account/Login"><p>Увійти</p></a>
+            </li>
+        </ul>
+    </div>
+}
+    <div class="menu-icon">
+        <div class="line_one"></div>
+        <div class="line_two"></div>
+        <div class="line_three"></div>
+    </div>
+    <p class="menu-text">Меню</p>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BushachFirstSchool.Domain.Entity.SchoolClass">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEABAAAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\SchoolClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Subject">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAEAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.SubjectTheam">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAEAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Entity\SubjectTheam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Pupil">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAIAAAAAAQABAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Entity\Pupil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Teacher">
+    <Position X="2.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAgAAAKAAAACAQABAAAAAAAAAAAQAEAAAA=</HashCode>
+      <FileName>Entity\Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.TestCollection">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAGAAAAACAAAACAAADAAAACAQAAAAAgUAAAAAAAA=</HashCode>
+      <FileName>Entity\Test\TestCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.TestA" Collapsed="true">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAABAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Test\TestA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.TestB" Collapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Test\TestB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.TestC" Collapsed="true">
+    <Position X="9" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Entity\Test\TestC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.TestD" Collapsed="true">
+    <Position X="9" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAgAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Test\TestD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.TestResult">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABABAAAAAAQAAAAAAQAAAAAAACEAAAAgAAAAAQA=</HashCode>
+      <FileName>Entity\Test\TestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.AnswerA" Collapsed="true">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAI=</HashCode>
+      <FileName>Entity\Test\TestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.AnswerB" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Entity\Test\TestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.AnswerC" Collapsed="true">
+    <Position X="10" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAACAAAAAAAAI=</HashCode>
+      <FileName>Entity\Test\TestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BushachFirstSchool.Domain.Entity.Test.AnswerD" Collapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAA=</HashCode>
+      <FileName>Entity\Test\TestResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

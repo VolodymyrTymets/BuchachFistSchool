@@ -26,26 +26,26 @@ namespace BushachFirstSchool.Infrastructure
 
         public void Logout()
         {
-            FormsAuthentication.SignOut();
+            WebSecurity.Logout();
         }
 
-        public String RegisterPupil(string username, string email)
+        public String RegisterPupil(string username, string email ,String Password)
         {
 
-            String Password = GenereteRandomPassword(_passwordLength);
+         //   String Password = GenereteRandomPassword(_passwordLength);
             WebSecurity.CreateUserAndAccount(username, Password);
             if (!Roles.RoleExists("people"))
             {
                 Roles.CreateRole("people");
             }
             Roles.AddUserToRole(username, "people");
-            EmailSender.SendRegisterMessage(email,Password,username);
+        //    EmailSender.SendRegisterMessage(email,Password,username);
             return username;
         }
 
-        public String RegisretTeacher(string username, string email)
+        public String RegisretTeacher(string username, string email ,String Password )
         {
-            String Password = GenereteRandomPassword(_passwordLength);
+           // String Password = GenereteRandomPassword(_passwordLength);
           //  Membership.CreateUser(username, Password,email);
             WebSecurity.CreateUserAndAccount(username, Password);
             if (!Roles.RoleExists("theacher"))
@@ -53,15 +53,15 @@ namespace BushachFirstSchool.Infrastructure
                 Roles.CreateRole("theacher");
             }
             Roles.AddUserToRole(username, "theacher");           
-            EmailSender.SendRegisterMessage(email, Password, username);
+         //   EmailSender.SendRegisterMessage(email, Password, username);
             return username;
 
         }      
 
         public bool ChangePassword(string oldPassword, string newPassword)
         {
-            var u = Membership.GetUser(HttpContext.Current.User.Identity.Name);
-            return     u.ChangePassword(oldPassword, newPassword);
+           // var u = Membership.GetUser(HttpContext.Current.User.Identity.Name);
+            return    true; //u.ChangePassword(oldPassword, newPassword);
         }
         private String GenereteRandomPassword(Int32 passwordLength)
         {

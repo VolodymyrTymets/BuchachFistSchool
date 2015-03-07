@@ -3,7 +3,6 @@ function CTParser(str) {
      * */
     var _stream = str;
     var _arr = null;
-
 /*methods
 * */
     var parse = function(){
@@ -29,12 +28,9 @@ function CTParser(str) {
                     _arr[i] =   splitSentences(_sentences[i],' це ');
                 }
             }
-
-
         }
         return _arr;
     }
-
     var splitSentences = function (sentence,separator){
         var ptElement = sentence.split(separator);
         if(ptElement[0].length<ptElement[1].length){

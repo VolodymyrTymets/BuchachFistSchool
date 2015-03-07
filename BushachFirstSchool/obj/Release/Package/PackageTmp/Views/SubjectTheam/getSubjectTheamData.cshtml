@@ -33,6 +33,10 @@
                         @Html.ActionLink(" Поняття", "RedirectToConceptPage", new { id = item.TheamId }, new { @class = "mdi-action-speaker-notes btn btn-default" })
                     </td>
                     <td>
+                        @Html.ActionLink(" Тести", "List", "Test", new { theamId = item.TheamId.ToString() }, new { @class = "mdi-action-dns btn btn-default" })
+                    </td>
+                   
+                    <td>
                         @Ajax.ActionLink(" Видалити", "Delete", new
                                 {
                                     Id = item.TheamId.ToString()

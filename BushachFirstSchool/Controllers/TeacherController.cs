@@ -72,7 +72,7 @@ namespace BushachFirstSchool.Controllers
                 }
                 try
                 {
-                    model.Teacher.userName =   _authProvider.RegisretTeacher(model.UserData.UserName, model.UserData.Email);
+                    model.Teacher.userName =   _authProvider.RegisretTeacher(model.UserData.UserName, model.UserData.Email, model.UserData.Password);
                     _repository.SaveTeacher(model.Teacher);
                }
                 catch (Exception e) 
